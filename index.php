@@ -11,12 +11,13 @@ function parseXSD($file){
   $XSDDOC->preserveWhiteSpace = false;
   if($XSDDOC->load($file)){
     $xsdpath = new DOMXPath($XSDDOC);
-    $attributeNodes=$xsdpath->query('//xs:simpleType[@name="attributeType"]')->item(0);
-    foreach($attributeNodes->childNodes as $attr){
+    $attributeNodes=$xsdpath->query('//xs:complexType[@name="DHead"]')->item(0);
+    print_r($attributeNodes);
+    /*foreach($attributeNodes->childNodes as $attr){
       $attributes[$attr->getAttribute('value')]=$attr->getAttribute('name');
-    }
+    }*/
     unset($xsdpath);
   }
-  print_r($attributes);
+  //print_r($attributes);
 }
 ?>
