@@ -12,7 +12,7 @@ function parseXSD($file){
   if($XSDDOC->load($file)){
     $xsdpath = new DOMXPath($XSDDOC);
     $attributeNodes=$xsdpath->query('//xs:complexType[@name="DHead"]')->item(0);
-    print_r($attributeNodes);
+    print_r($attributeNodes->firstChild->childNodes->item(0)->attributes->item(0)->value);
     /*foreach($attributeNodes->childNodes as $attr){
       $attributes[$attr->getAttribute('value')]=$attr->getAttribute('name');
     }*/
