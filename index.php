@@ -31,7 +31,7 @@
       )
     );*/
   $date=Date('dmY');
-  $software='FREE SOFT FOR FREEDOM';
+  $software='FREE SOFTWARE FOR FREEDOM';
 
   $xsdArray=parseXSD($path);
   //print_r($xsdArray);
@@ -61,6 +61,13 @@
     <SOFTWARE>'.$software.'</SOFTWARE>
   </DECLARHEAD>
   <DECLARBODY>';
+    if($doc_stan==1){
+      $xml_src.='<HZ>1</HZ>';
+    }else if($doc_stan==2){
+      $xml_src.='<HZN>1</HZN>';
+    }else{
+      $xml_src.='<HZU>1</HZU>';
+    }
 
 include ('zvit_view.php');
 
