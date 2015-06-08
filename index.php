@@ -1,4 +1,5 @@
 <?
+  //http://stackoverflow.com/questions/2038535/create-new-xml-file-and-write-data-to-it
   $file='F0103304.xsd'; //обраний бланк
   $path='blank/'.$file;
   $tin='3949753412'; //ідентифікаційний номер
@@ -32,6 +33,13 @@
     );*/
   $date=Date('dmY');
   $software='FREE SOFTWARE FOR FREEDOM';
+  $name='ПрАТ "Літак"';
+  $reg='Черкаська';
+  $city='Черкаси';
+  $loc='Черкаська обл. м. Черкаси вул. Леніна 22, кв.57';
+  $zip='18021';
+  $telcode='0472';
+  $tel='764862';
 
   $xsdArray=parseXSD($path);
   //print_r($xsdArray);
@@ -68,6 +76,34 @@
     }else{
       $xml_src.='<HZU>1</HZU>';
     }
+    $xml_src.='<HD xsi:nil="true"></HD>';
+    switch ($period_type) {
+      case 1:
+        $xml_src.='<HMONTH>1</HMONTH>';
+        break;
+      case 2:
+        $xml_src.='<H1KV>1</H1KV>';
+        break;
+      case 3:
+        $xml_src.='<HHY>1</HHY>';
+        break;
+      case 4:
+        $xml_src.='<H3KV>1</H3KV>';
+        break;
+      case 5:
+        $xml_src.='<HY>1</HY>';
+        break;
+    }
+    $xml_src.='<HZY>'.$year.'</HZY>
+    <HNAME>'.$name.'</HNAME>
+    <HTIN>'.$tin.'</HTIN>
+    <HREG>'.$reg.'</HREG>
+    <HCITY>'.$city.'</HCITY>
+    <HLOC>'.$loc.'</HLOC>
+    <HZIP>'.$zip.'</HZIP>
+    <HINTURB>'.$telcode.'</HINTURB>
+    <HTEL>'.$tel.'</HTEL>
+    <HFAX xsi:nil="true"></HFAX>';
 
 include ('zvit_view.php');
 
