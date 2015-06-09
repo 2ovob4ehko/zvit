@@ -41,10 +41,10 @@
   $telcode='0472';
   $tel='764862';
 
-  $xsdArray=parseXSD($path);
+  //$xsdArray=parseXSD($path);
   //print_r($xsdArray);
 
-  $xml_src='<?xml version="1.0" encoding="windows-1251"?>
+  /*$xml_src='<?xml version="1.0" encoding="windows-1251"?>
   <DECLAR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="'.$file.'">
   <DECLARHEAD>
     <TIN>'.$tin.'</TIN>
@@ -103,10 +103,86 @@
     <HZIP>'.$zip.'</HZIP>
     <HINTURB>'.$telcode.'</HINTURB>
     <HTEL>'.$tel.'</HTEL>
-    <HFAX xsi:nil="true"></HFAX>';
+    <HFAX xsi:nil="true"></HFAX>';*/
 
-include ('zvit_view.php');
+//include ('zvit_view.php');
+$xml=new DOMDocument('1.0','windows-1251');
 
+$xml_declar=$xml->createElement('DECLAR');
+$xml->appendChild($xml_declar);
+$xml_declar->setAttributeNS('http://www.w3.org/2000/xmlns/','xmlns:xsi','http://www.w3.org/2001/XMLSchema-instance');
+$xml_declar->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance','noNamespaceSchemaLocation',$file);
+
+$xml_dh=$xml->createElement('DECLARHEAD');
+$xml_declar->appendChild($xml_dh);
+
+$xml_tin=SNode($xml,$xml_dh,'TIN',$tin);
+$xml_cdoc=SNode($xml,$xml_dh,'C_DOC',substr($file,0,3));
+$xml_cdocsub=SNode($xml,$xml_dh,'C_DOC_SUB',substr($file,3,3));
+$xml_cdocver=SNode($xml,$xml_dh,'C_DOC_VER',substr($file,6,2));
+$xml_cdoctype=SNode($xml,$xml_dh,'C_DOC_TYPE',$doc_type);
+$xml_cdoccnt=SNode($xml,$xml_dh,'C_DOC_CNT',$doc_cnt);
+$xml_cdocreg=SNode($xml,$xml_dh,'C_REG',substr($taxCode,0,2));
+$xml_cdocraj=SNode($xml,$xml_dh,'C_RAJ',(int)substr($taxCode,-2));
+$xml_pm=SNode($xml,$xml_dh,'PERIOD_MONTH',$month);
+$xml_pt=SNode($xml,$xml_dh,'PERIOD_TYPE',$period_type);
+$xml_py=SNode($xml,$xml_dh,'PERIOD_YEAR',$year);
+$xml_cstiorig=SNode($xml,$xml_dh,'C_STI_ORIG',$taxCode);
+$xml_cdocstan=SNode($xml,$xml_dh,'C_DOC_STAN',$doc_stan);
+$xml_linkdoc=SNode($xml,$xml_dh,'LINKED_DOCS');
+$xml_dfill=SNode($xml,$xml_dh,'D_FILL',$date);
+$xml_soft=SNode($xml,$xml_dh,'SOFTWARE',$software);
+
+$xml_db=$xml->createElement('DECLARBODY');
+$xml_declar->appendChild($xml_db);
+
+if($doc_stan==1){
+  $xml_hz=SNode($xml,$xml_db,'HZ',1);
+}else if($doc_stan==2){
+  $xml_hz=SNode($xml,$xml_db,'HZN',1);
+}else{
+  $xml_hz=SNode($xml,$xml_db,'HZU',1);
+}
+$xml_hd=SNode($xml,$xml_db,'HD');
+switch ($period_type) {
+  case 1:
+    $xml_per=SNode($xml,$xml_db,'HMONTH',1);
+    break;
+  case 2:
+    $xml_per=SNode($xml,$xml_db,'H1KV',1);
+    break;
+  case 3:
+    $xml_per=SNode($xml,$xml_db,'HHY',1);
+    break;
+  case 4:
+    $xml_per=SNode($xml,$xml_db,'H3KV',1);
+    break;
+  case 5:
+    $xml_per=SNode($xml,$xml_db,'HY',1);
+    break;
+}
+$xml_hzy=SNode($xml,$xml_db,'HZY',$year);
+$xml_hname=SNode($xml,$xml_db,'HNAME',$name);
+$xml_htin=SNode($xml,$xml_db,'HTIN',$tin);
+$xml_hreg=SNode($xml,$xml_db,'HREG',$reg);
+$xml_hcity=SNode($xml,$xml_db,'HCITY',$city);
+$xml_hloc=SNode($xml,$xml_db,'HLOC',$loc);
+$xml_hzip=SNode($xml,$xml_db,'HZIP',$zip);
+$xml_hinturb=SNode($xml,$xml_db,'HINTURB',$telcode);
+$xml_htel=SNode($xml,$xml_db,'HTEL',$tel);
+
+print $xml->saveXML(); //$xml->save('xml/1.xml');
+
+
+
+function SNode($xml,$parent,$name,$val=null){
+  $node=$xml->createElement($name,$val);
+  if (is_null($val)){
+    $node->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance','xsi:nil','true');
+  }
+  $parent->appendChild($node);
+  return $node;
+}
 function parseXSD($file){
   $attributes = array();
   $XSDDOC = new DOMDocument();
