@@ -1,5 +1,13 @@
 <?
-  //http://stackoverflow.com/questions/2038535/create-new-xml-file-and-write-data-to-it
+  include ('con_db.php');
+  include ('users_model.php');
+  include ('author_view.php');
+
+  $users = new Users($con);
+  $login='2ovob4ehko';
+  $pass='m1a2x3';
+  $users->checkPass($login,$pass);
+
   $file='F0103304.xsd'; //обраний бланк
   $path='blank/'.$file;
   $tin='3949753412'; //ідентифікаційний номер
@@ -33,77 +41,41 @@
     );*/
   $date=Date('dmY');
   $software='FREE SOFTWARE FOR FREEDOM';
-  $name='ПрАТ "Літак"';
+  $name='ФОП Непийпиво Іван Петрович';
   $reg='Черкаська';
   $city='Черкаси';
   $loc='Черкаська обл. м. Черкаси вул. Леніна 22, кв.57';
   $zip='18021';
   $telcode='0472';
   $tel='764862';
-
-  //$xsdArray=parseXSD($path);
-  //print_r($xsdArray);
-
-  /*$xml_src='<?xml version="1.0" encoding="windows-1251"?>
-  <DECLAR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="'.$file.'">
-  <DECLARHEAD>
-    <TIN>'.$tin.'</TIN>
-    <C_DOC>'.$xsdArray['C_DOC'].'</C_DOC>
-    <C_DOC_SUB>'.$xsdArray['C_DOC_SUB'].'</C_DOC_SUB>
-    <C_DOC_VER>'.$xsdArray['C_DOC_VER'].'</C_DOC_VER>
-    <C_DOC_TYPE>'.$doc_type.'</C_DOC_TYPE>
-    <C_DOC_CNT>'.$doc_cnt.'</C_DOC_CNT>
-    <C_REG>'.substr($taxCode,0,2).'</C_REG>
-    <C_RAJ>'.(int)substr($taxCode,-2).'</C_RAJ>
-    <PERIOD_MONTH>'.$month.'</PERIOD_MONTH>
-    <PERIOD_TYPE>'.$period_type.'</PERIOD_TYPE>
-    <PERIOD_YEAR>'.$year.'</PERIOD_YEAR>
-    <C_STI_ORIG>'.$taxCode.'</C_STI_ORIG>
-    <C_DOC_STAN>'.$doc_stan.'</C_DOC_STAN>
-    ';
-    if($aplic==0){
-      $xml_src.='<LINKED_DOCS xsi:nil="true"/>
-    ';
-    }else{}
-    $xml_src.='<D_FILL>'.$date.'</D_FILL>
-    <SOFTWARE>'.$software.'</SOFTWARE>
-  </DECLARHEAD>
-  <DECLARBODY>';
-    if($doc_stan==1){
-      $xml_src.='<HZ>1</HZ>';
-    }else if($doc_stan==2){
-      $xml_src.='<HZN>1</HZN>';
-    }else{
-      $xml_src.='<HZU>1</HZU>';
-    }
-    $xml_src.='<HD xsi:nil="true"></HD>';
-    switch ($period_type) {
-      case 1:
-        $xml_src.='<HMONTH>1</HMONTH>';
-        break;
-      case 2:
-        $xml_src.='<H1KV>1</H1KV>';
-        break;
-      case 3:
-        $xml_src.='<HHY>1</HHY>';
-        break;
-      case 4:
-        $xml_src.='<H3KV>1</H3KV>';
-        break;
-      case 5:
-        $xml_src.='<HY>1</HY>';
-        break;
-    }
-    $xml_src.='<HZY>'.$year.'</HZY>
-    <HNAME>'.$name.'</HNAME>
-    <HTIN>'.$tin.'</HTIN>
-    <HREG>'.$reg.'</HREG>
-    <HCITY>'.$city.'</HCITY>
-    <HLOC>'.$loc.'</HLOC>
-    <HZIP>'.$zip.'</HZIP>
-    <HINTURB>'.$telcode.'</HINTURB>
-    <HTEL>'.$tel.'</HTEL>
-    <HFAX xsi:nil="true"></HFAX>';*/
+  $fax='764861';
+  $email='2ovob4ehko@ukr.net';
+  $name_tax='2301 ДПІ У М.ЧЕРКАСАХ ГУ МІНДОХОДІВ У ЧЕРКАСЬКІЙ ОБЛАСТІ';
+  $kved='81.10';
+  $name_kved='Догляд за будинками';
+  $najmyt='12';
+  $r11=null;
+  $r12='1417.00';
+  $r13=null;
+  $r14=null;
+  $r15=null;
+  $r21='1417.00';
+  $r22=null;
+  $r23=null;
+  $r24='56.68';
+  $r25=null;
+  $r26=null;
+  $r27='56.68';
+  $r28=null;
+  $r29='56.68';
+  $r30=null;
+  $r31=null;
+  $r32=null;
+  $r33=null;
+  $r34=null;
+  $r35=null;
+  $bfio='Непийпиво Іван Петрович';
+  $btin='3949753412';
 
 //include ('zvit_view.php');
 $xml=new DOMDocument('1.0','windows-1251');
@@ -170,10 +142,81 @@ $xml_hloc=SNode($xml,$xml_db,'HLOC',$loc);
 $xml_hzip=SNode($xml,$xml_db,'HZIP',$zip);
 $xml_hinturb=SNode($xml,$xml_db,'HINTURB',$telcode);
 $xml_htel=SNode($xml,$xml_db,'HTEL',$tel);
+$xml_hfax=SNode($xml,$xml_db,'HFAX',$fax);
+$xml_hfax=SNode($xml,$xml_db,'HEMAIL',$email);
+$xml_hsti=SNode($xml,$xml_db,'HSTI',$name_tax);
+$xml_kved=SNode($xml,$xml_db,'T1RXXXXG1S',$kved);
+$xml_kved->setAttribute('ROWNUM',1);
+$xml_namekved=SNode($xml,$xml_db,'T1RXXXXG2S',$name_kved);
+$xml_namekved->setAttribute('ROWNUM',1);
+$xml_najmyt=SNode($xml,$xml_db,'HNACTL',$najmyt);
+
+$xml_rd1=SNode($xml,$xml_db,'R0201G2');
+$xml_rd2=SNode($xml,$xml_db,'R0201G3');
+$xml_rd3=SNode($xml,$xml_db,'R0201G4');
+$xml_rd4=SNode($xml,$xml_db,'R0201G5');
+$xml_rd5=SNode($xml,$xml_db,'R0202G2');
+$xml_rd6=SNode($xml,$xml_db,'R0202G3');
+$xml_rd7=SNode($xml,$xml_db,'R0202G4');
+$xml_rd8=SNode($xml,$xml_db,'R0202G5');
+$xml_rd9=SNode($xml,$xml_db,'R0203G2');
+$xml_rd10=SNode($xml,$xml_db,'R0203G3');
+$xml_rd11=SNode($xml,$xml_db,'R0203G4');
+$xml_rd12=SNode($xml,$xml_db,'R0203G5');
+$xml_r1=SNode($xml,$xml_db,'R001G3');
+$xml_r2=SNode($xml,$xml_db,'R002G3');
+$xml_r3=SNode($xml,$xml_db,'R003G3');
+$xml_r4=SNode($xml,$xml_db,'R004G3');
+$xml_r5=SNode($xml,$xml_db,'R005G3');
+$xml_rd13=SNode($xml,$xml_db,'R0301G2');
+$xml_rd14=SNode($xml,$xml_db,'R0301G3');
+$xml_rd15=SNode($xml,$xml_db,'R0301G4');
+$xml_rd16=SNode($xml,$xml_db,'R0301G5');
+$xml_rd17=SNode($xml,$xml_db,'R0302G2');
+$xml_rd18=SNode($xml,$xml_db,'R0302G3');
+$xml_rd19=SNode($xml,$xml_db,'R0302G4');
+$xml_rd20=SNode($xml,$xml_db,'R0302G5');
+$xml_rd21=SNode($xml,$xml_db,'R0303G2');
+$xml_rd22=SNode($xml,$xml_db,'R0303G3');
+$xml_rd23=SNode($xml,$xml_db,'R0303G4');
+$xml_rd24=SNode($xml,$xml_db,'R0303G5');
+$xml_r6=SNode($xml,$xml_db,'R006G3');
+$xml_r7=SNode($xml,$xml_db,'R007G3');
+$xml_r8=SNode($xml,$xml_db,'R008G3');
+$xml_r9=SNode($xml,$xml_db,'R009G3');
+$xml_r10=SNode($xml,$xml_db,'R010G3');
+$xml_r11=SNode($xml,$xml_db,'R011G3',$r11);
+$xml_r12=SNode($xml,$xml_db,'R012G3',$r12);
+$xml_r13=SNode($xml,$xml_db,'R013G3',$r13);
+$xml_r14=SNode($xml,$xml_db,'R014G3',$r14);
+$xml_r15=SNode($xml,$xml_db,'R015G3',$r15);
+$xml_r16=SNode($xml,$xml_db,'R016G3');
+$xml_r17=SNode($xml,$xml_db,'R017G3');
+$xml_r18=SNode($xml,$xml_db,'R018G3');
+$xml_r19=SNode($xml,$xml_db,'R019G3');
+$xml_r20=SNode($xml,$xml_db,'R020G3');
+$xml_r21=SNode($xml,$xml_db,'R021G3',$r21);
+$xml_r22=SNode($xml,$xml_db,'R022G3',$r22);
+$xml_r23=SNode($xml,$xml_db,'R023G3',$r23);
+$xml_r24=SNode($xml,$xml_db,'R024G3',$r24);
+$xml_r25=SNode($xml,$xml_db,'R025G3',$r25);
+$xml_r26=SNode($xml,$xml_db,'R026G3',$r26);
+$xml_r27=SNode($xml,$xml_db,'R027G3',$r27);
+$xml_r28=SNode($xml,$xml_db,'R028G3',$r28);
+$xml_r29=SNode($xml,$xml_db,'R029G3',$r29);
+$xml_r30=SNode($xml,$xml_db,'R030G3',$r30);
+$xml_r31=SNode($xml,$xml_db,'R031G3',$r31);
+$xml_r32=SNode($xml,$xml_db,'R032G3',$r32);
+$xml_r33=SNode($xml,$xml_db,'R033G3',$r33);
+$xml_r34=SNode($xml,$xml_db,'R034G3',$r34);
+$xml_r35=SNode($xml,$xml_db,'R035G3',$r35);
+$xml_hjar=SNode($xml,$xml_db,'HJAR');
+$xml_hfill=SNode($xml,$xml_db,'HFILL',$date);
+$xml_hbos=SNode($xml,$xml_db,'HBOS',$bfio);
+$xml_hkbos=SNode($xml,$xml_db,'HKBOS',$btin);
+
 
 print $xml->saveXML(); //$xml->save('xml/1.xml');
-
-
 
 function SNode($xml,$parent,$name,$val=null){
   $node=$xml->createElement($name,$val);
@@ -196,5 +239,8 @@ function parseXSD($file){
     unset($xsdpath);
   }
     return $attributes;
+}
+function base_url(){
+  	return 'http://'.$_SERVER['HTTP_HOST'].parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 }
 ?>

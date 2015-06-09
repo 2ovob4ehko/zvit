@@ -1,0 +1,179 @@
+body
+	{
+		background:#F2DBAE; /*#ddeeff*/
+		margin:0;
+	}
+.page_title
+	{
+		text-align:center;
+		font-size:35px;
+	}
+.page_mtitle
+	{
+		text-align:center;
+		font-size:20px;
+		color:#000000;
+	}
+.section_title
+	{
+		background:yellow;
+		padding:5px 15px;
+		cursor:pointer;
+		border-radius:20px 20px 0 0;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+	}
+fieldset
+	{
+		height:auto;
+		overflow:hidden;
+		background:#BF532C;
+		margin:auto;
+		width:80%;
+	}
+fieldset table
+	{
+		border:1px solid #995544;
+		border-spacing: 0;
+		width:100%;
+		background:#FFFFFF;
+	}
+fieldset table td
+	{
+		border:1px solid #995544;
+		padding:5px;
+	}
+fieldset img
+	{
+		height:200px;
+	}
+.center
+{
+	text-align:center;
+}
+.button
+	{
+		width:200px;
+		border:1px solid #993300;
+		text-align:center;
+		background:#BF532C;
+		padding:5px 0px;
+		cursor:pointer;
+		margin:10px;
+		border-radius:5px;
+		color:#ffffff;
+		font-weight:bold;
+	}
+.button:hover
+	{
+		background:#dd7744;
+	}
+.top_menu
+	{
+		width:auto;
+		border:1px solid #993300;
+		background:#BF532C;
+		padding:5px 0px;
+		margin:10px 0;
+		display: inline-block;
+		border-radius:5px;
+	}
+.top_menu:hover
+	{
+		background:#dd7744;
+	}
+.top_menu a 
+	{
+		text-decoration:none;
+		margin: 0 10px;
+		color:#ffffff;
+		border-left:2px solid #731F17;
+		border-right:2px solid #731F17;
+		padding: 0 5px;
+	}
+#author_pos
+	{
+		margin:auto;
+		width:100%;
+	}
+#author
+	{
+		margin:50px auto;
+		width:340px;
+		border:1px solid #993300;
+		border-radius:5px;
+		padding:10px;
+		background:#BF532C;
+	}
+#author table
+	{
+		text-align:center;
+		color:#ffffff;
+		margin:auto;
+	}
+#author table a
+	{
+		color:#ffffff;
+	}
+.error
+	{
+		border:2px solid #ff6600;
+		color:#ff6600;
+		text-align:center;
+		padding:5px;
+		font-weight:bold;
+		background:#ffffff;
+	}
+#dialogform
+	{
+		height:auto;
+		overflow:hidden;
+		background:#BF532C;
+		border:1px solid #993300;
+		margin:auto;
+		width:80%;
+		min-width:450px;
+		max-width:620px;
+		padding:10px;
+	}
+#dialogform table
+	{
+		text-align:center;
+		color:#ffffff;
+		margin:auto;
+	}
+#table_list
+	{
+		text-align:center;
+		color:#ffffff;
+		margin:auto;
+		width:80%;
+	}
+#table_list table
+	{
+		border:1px solid #995544;
+		border-spacing: 0;
+		width:100%;
+		background:#FFFFFF;
+	}
+#table_list table td
+	{
+		border:1px solid #995544;
+		padding:5px;
+	}
+#table_list thead
+	{
+		text-align:center;
+		color:#995544;
+	}
+@media print {
+	.top_menu
+		{
+			display:none;
+		}
+}
