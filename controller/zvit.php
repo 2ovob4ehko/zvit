@@ -31,7 +31,7 @@ $aplic=0;
     )
   );*/
 $date=Date('dmY');
-$software='FREE SOFTWARE FOR FREEDOM';
+$software='FREE SOFTWARE FOR FREEDOM '.getVersion();
 $name='ФОП Непийпиво Іван Петрович';
 $reg='Черкаська';
 $city='Черкаси';
