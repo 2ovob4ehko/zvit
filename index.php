@@ -1,7 +1,17 @@
 <?
 include ('con_db.php');
 include ('models/users_model.php');
+include ('models/firms_model.php');
+include ('models/faces_model.php');
+include ('models/taxes_model.php');
+include ('models/pensions_model.php');
+include ('models/kveds_model.php');
 $users = new Users($con);
+$firms = new Firms($con);
+$faces = new Faces($con);
+$taxes = new Taxes($con);
+$pensions = new Pensions($con);
+$kveds = new Kveds($con);
 include ('controller/main.php');
 
 
