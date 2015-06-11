@@ -29,7 +29,7 @@ if(!isset($_COOKIE['login'])){
     }
   }
 }else{
-  include ('controller/zvit.php');
+  include ('views/zvit_view.php');
 }
 
 

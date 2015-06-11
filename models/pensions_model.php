@@ -3,6 +3,7 @@ class Pensions {
 	public $id;
 	public $code;
 	public $name;
+	public $tax;
 	public $db;
 
 	function __construct($db){
@@ -13,6 +14,7 @@ class Pensions {
         id int(3) AUTO_INCREMENT,
 				code varchar(5) NOT NULL,
 				name varchar(80) NOT NULL,
+				tax varchar(4) NOT NULL,
 				PRIMARY KEY (id))");
 		}
 	}
