@@ -1,7 +1,7 @@
 <?
 class Kveds {
 	public $id;
-	public $name;
+	public $code;
 	public $text;
 	public $db;
 
@@ -11,7 +11,7 @@ class Kveds {
 		if(empty($result)){
 			$this->db->query("CREATE TABLE kveds (
         id int(3) AUTO_INCREMENT,
-				name varchar(5) NOT NULL,
+				code varchar(5) NOT NULL,
 				text varchar(130) NOT NULL,
 				PRIMARY KEY (id))");
 		}

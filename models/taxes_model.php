@@ -2,7 +2,10 @@
 class Taxes {
 	public $id;
 	public $code;
+	public $tin;
 	public $name;
+	public $zipcode;
+	public $address;
 	public $db;
 
 	function __construct($db){
@@ -12,7 +15,10 @@ class Taxes {
 			$this->db->query("CREATE TABLE taxes (
         id int(3) AUTO_INCREMENT,
 				code varchar(4) NOT NULL,
+				tin varchar(8) NOT NULL,
 				name varchar(80) NOT NULL,
+				zipcode varchar(5),
+				address varchar(130),
 				PRIMARY KEY (id))");
 		}
 	}
