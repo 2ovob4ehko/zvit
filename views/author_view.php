@@ -2,9 +2,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Авторизація</title>
-		<link rel="stylesheet" href="<? echo base_url()?>css/style.css" type="text/css" media="all" />
-		<script src="<? echo base_url()?>js/jquery.js" type="text/javascript"></script>
-		<script src="<? echo base_url()?>js/angular.min.js" type="text/javascript"></script>
+		<?addScripts()?>
 	</head>
 	<body>
 	<div class="page_title">Авторизація</div>

@@ -15,7 +15,13 @@ $kveds = new Kveds($con);
 include ('controller/main.php');
 
 
-
+function addScripts(){
+  echo '<link rel="stylesheet" href="'.base_url().'css/style.css" type="text/css" media="all" />
+  <script src="'.base_url().'js/jquery.js" type="text/javascript"></script>
+  <script src="'.base_url().'js/angular.min.js" type="text/javascript"></script>
+  <script src="'.base_url().'js/chosen.jquery.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="'.base_url().'css/chosen.css" type="text/css" media="all" />';
+}
 function parseXSD($file){
   $attributes = array();
   $XSDDOC = new DOMDocument();

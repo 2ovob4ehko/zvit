@@ -2,15 +2,25 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><? if(empty($firm)){echo 'Створення підприємства';}else{echo $firm;}?></title>
-		<link rel="stylesheet" href="<? echo base_url()?>css/style.css" type="text/css" media="all" />
-		<script src="<? echo base_url()?>js/jquery.js" type="text/javascript"></script>
-		<script src="<? echo base_url()?>js/angular.min.js" type="text/javascript"></script>
+		<?addScripts()?>
 	</head>
 	<body>
 		<div id="top_menu">
-				<div>Меню</div>
-				<div>Вибір підприємства</div>
-				<div><? echo $_COOKIE['login']?> <div>Вихід</div></div>
+			<div id="menu_button">Меню</div>
+			<div id="select_firm">
+				<select name="firm" data-placeholder="Вибір підприємства" id="select_box">
+		            <option value=""></option>
+		            <option value="1">ФОП Головченко Максим Миколайович - 3871575588</option>
+		            <option value="2">United Kingdom</option>
+		            <option value="3">Afghanistan</option>
+		          </select>
+			</div>
+			<div id="login"><? echo $_COOKIE['login']?>
+				<div id="exit_button">Вихід</div>
+			</div>
 		</div>
+		<script>
+			$("#select_box").chosen();
+		</script>
   </body>
 </html>
