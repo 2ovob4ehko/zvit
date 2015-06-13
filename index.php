@@ -20,7 +20,8 @@ function addScripts(){
   <script src="'.base_url().'js/jquery.js" type="text/javascript"></script>
   <script src="'.base_url().'js/angular.min.js" type="text/javascript"></script>
   <script src="'.base_url().'js/chosen.jquery.min.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="'.base_url().'css/chosen.css" type="text/css" media="all" />';
+  <link rel="stylesheet" href="'.base_url().'css/chosen.css" type="text/css" media="all" />
+  <script src="'.base_url().'js/tabs.js" type="text/javascript"></script>';
 }
 function parseXSD($file){
   $attributes = array();

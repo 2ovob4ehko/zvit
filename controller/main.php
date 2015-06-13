@@ -29,7 +29,14 @@ if(!isset($_COOKIE['login'])){
     }
   }
 }else{
-  include ('views/zvit_view.php');
+  if(isset($_GET['action'])){
+    if($_GET['action']=='delcookie'){
+      setcookie('login',"",time()-3600);
+      header('Location: '.base_url());
+    }
+  }else{
+    include ('controller/workspace.php');
+  }
 }
 
 

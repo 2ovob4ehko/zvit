@@ -6,15 +6,15 @@
 	</head>
 	<body>
 	<div class="page_title">Реєстрація</div>
-		<form method="POST" action="<? echo base_url()?>?action=regist">
+		<form method="POST" autocomplete="off" action="<? echo base_url()?>?action=regist">
 			<div id="author_pos">
 				<div id="author">
 					<table>
 						<tr>
-							<td>Логін</td><td><input id="login" type="text" name="login"></td>
+							<td>Логін</td><td><input id="login" type="text" autocomplete="off" name="login"></td>
 						</tr>
 						<tr>
-							<td>Пароль</td><td><input id="pass" type="password" name="pass"></td>
+							<td>Пароль</td><td><input id="pass" type="password" autocomplete="off" name="pass"></td>
 						</tr>
 						<tr>
 							<td colspan="2"><input id="send" type="submit" value="Відправити"></td>
