@@ -14,8 +14,8 @@
         $(element).attr("data-page", i);
         i++;
       });
-      $(tabs).children("ul").children("li").click(function(){
-        showPage(parseInt($(this).attr("data-page")));
+      $(tabs).children("ul").children("li").children(".tab_title").click(function(){
+        showPage(parseInt($(this).parent().attr("data-page")));
       });
     };
     return this.each(createTabs);

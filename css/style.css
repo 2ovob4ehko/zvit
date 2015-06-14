@@ -17,6 +17,12 @@ body
 		background:#BF532C;
 		color: #fff;
 		min-width:500px;
+		-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 	}
 #menu_button
 	{
@@ -30,6 +36,31 @@ body
 		text-align:center;
 		cursor:pointer;
 		border-radius:5px;
+	}
+#menu_panel
+	{
+		position:absolute;
+		width:200px;
+		top:34px;
+		left:10px;
+		background:#F2DBAE;
+		border:1px solid #BF532C;
+		color:#000000;
+		padding:10px 0px;
+		z-index:1;
+		display:none;
+	}
+#menu_panel div
+	{
+		margin:1px 0px;
+		padding:2px 10px;
+		cursor:pointer;
+	}
+hr{border:1px solid #BF532C;}
+#menu_panel div:hover
+	{
+		background:#BF532C;
+		color:#fff;
 	}
 #select_box
 	{
@@ -102,16 +133,44 @@ body
 		overflow:hidden;
 		min-width:500px;
 	}
+#page
+	{
+		margin:auto;
+		width:90%;
+		height:100%;
+		overflow-y:scroll;
+		background:#fff;
+	}
+#firm_list
+	{
+		width:30%;
+		float:left;
+		background:#fff;
+		padding:10px;
+	}
+#firm_data
+	{
+		width:60%;
+		float:left;
+		background:#fff;
+		padding:10px;
+	}
 /***************Tabs***************/
 .tabs{
     display:inline-block;
 }
 .tabs > div{
-    padding-top:10px;
+    //padding-top:10px;
 }
 .tabs ul{
     margin:0px;
     padding:0px;
+		-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .tabs ul:after{
     content:"";
@@ -121,28 +180,49 @@ body
     background:#BF532C;
 }
 .tabs ul li{
-    margin:0px;
-    padding:0px;
-    cursor:pointer;
-    display:block;
-    float:left;
-    padding:10px 15px;
-    background:#e9eaeb;
-    color:#707070;
-		overflow:hidden;
-		max-width:50px;
-		height:10px;
-		border-right:1px solid #BF532C;
-		border-bottom:1px solid #BF532C;
+	margin:0px;
+	display:block;
+	float:left;
+	padding:0px 5px;
+	background:#e9eaeb;
+	color:#707070;
+	border-right:1px solid #BF532C;
+	border-bottom:1px solid #BF532C;
+}
+.tabs ul li .tab_title{
+	display:block;
+	float:left;
+  cursor:pointer;
+	overflow:hidden;
+	max-width:65px;
+	height:20px;
+	padding:5px 0px;
+	line-height:20px;
+	vertical-align:top;
 }
 .tabs ul li.active, .tabs ul li.active:hover{
     background:#707070;
     color:#e9eaeb;
+}
+.tabs ul li.active .tab_title, .tabs ul li.active .tab_title:hover{
 		overflow:none;
 		max-width:none;
 }
 .tabs ul li:hover{
     background:#d6d6d7;
+}
+.tab_close{
+	background: url('chosen-sprite.png') -40px -8px no-repeat;
+	width:15px;
+	height:15px;
+	border-radius:10px;
+	display:block;
+	float:left;
+	margin-left:5px;
+	cursor:pointer;
+}
+.tab_close:hover{
+	background: #f64 url('chosen-sprite.png') -40px -8px no-repeat;
 }
 /*************endTabs**************/
 @media print {

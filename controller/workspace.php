@@ -4,10 +4,18 @@ if(isset($_GET['tab'])){
     //Назва: Персональні параметри
     //відобразити контент вкладки персональних параметрів
     //З лівої сторони список підприємств з правої сторони анкета з даними. В лівій панелі є кнопка для створення нового підприємства. В правій панелі є кнопка збереження анкети.
+    $json=new stdClass();
+    $json->title="Персональні параметри";
+    $json->data=requireToVar('views/settings_view.php');
+    echo json_encode($json);
   }else if($_GET['tab']=='create'){
     //Назва: Створити
     //відобразити форму створення нового документу
     //По аналогії з ОПЗ, вибирається зі списку головний документ, а додатки відкриваються автоматично згідно відміченим в Довідниках документів. Також обирається рік, період подачі, стан документу (звітний/новий/уточнюючий). При натисненні створити - повинен запуститися JavaScript, який створить вкладки з вибраним звітом та його додатками.
+    $json=new stdClass();
+    $json->title="Створення документу";
+    $json->data=requireToVar('views/settings_view.php');
+    echo json_encode($json);
   }
 }else{
   include ('views/workspace_view.php');
@@ -92,6 +100,11 @@ function SNode($xml,$parent,$name,$val=null){
   }
   $parent->appendChild($node);
   return $node;
+}
+function requireToVar($file){
+    ob_start();
+    require($file);
+    return ob_get_clean();
 }
 
 ?>
