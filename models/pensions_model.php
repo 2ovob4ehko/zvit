@@ -30,5 +30,9 @@ class Pensions {
 			return $this->db->query($sql);
 		}else return false;
 	}
+	function getAll(){
+		$sql = "SELECT * FROM pensions GROUP BY code";
+		return $this->db->query($sql);
+	}
 }
 ?>

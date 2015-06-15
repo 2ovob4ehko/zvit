@@ -11,7 +11,10 @@ if(isset($_GET['tab'])){
   }else if($_GET['tab']=='firmdata'){
     $data=array(
       'firm' => $firms->getById(strip_tags($_GET['id'])),
-      'faceList' => $faces->getAll()
+      'faceList' => $faces->getAll(),
+      'taxList' => $taxes->getAll(),
+      'pensList' => $pensions->getAll(),
+      'kvedList' => $kveds->getAll()
     );
     echo requireToVar('views/firmdata_view.php',$data);
   }else if($_GET['tab']=='create'){

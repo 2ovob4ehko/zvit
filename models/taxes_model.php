@@ -34,5 +34,9 @@ class Taxes {
 			return $this->db->query($sql);
 		}else return false;
 	}
+	function getAll(){
+		$sql = "SELECT * FROM taxes";
+		return $this->db->query($sql);
+	}
 }
 ?>

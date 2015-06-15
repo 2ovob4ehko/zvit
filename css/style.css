@@ -159,14 +159,13 @@ hr{border:1px solid #BF532C;}
 	{
 		border:1px solid #BF532C;
 		padding:5px 10px;
-		height:17px;
 		margin:5px auto;
 		text-align:center;
 		cursor:pointer;
 		border-radius:5px;
 		max-width:200px;
 	}
-.page_button:hover
+.page_button:hover, .firm_item:hover
 	{
 		background:#dd7744;
 		color:#ffffff;
@@ -174,6 +173,11 @@ hr{border:1px solid #BF532C;}
 .small{width:50px;}
 .middle{width:100px;}
 .big{width:300px;}
+.firm_item
+	{
+		padding:5px 10px;
+		cursor:pointer;
+	}
 /***************Tabs***************/
 .tabs{
     display:inline-block;
@@ -198,7 +202,7 @@ hr{border:1px solid #BF532C;}
     height:5px;
     background:#BF532C;
 }
-.tabs ul li{
+.tabs ul .tab_li{
 	margin:0px;
 	display:block;
 	float:left;
@@ -208,7 +212,7 @@ hr{border:1px solid #BF532C;}
 	border-right:1px solid #BF532C;
 	border-bottom:1px solid #BF532C;
 }
-.tabs ul li .tab_title{
+.tabs ul .tab_li .tab_title{
 	display:block;
 	float:left;
   cursor:pointer;
@@ -227,7 +231,7 @@ hr{border:1px solid #BF532C;}
 		overflow:none;
 		max-width:none;
 }
-.tabs ul li:hover{
+.tabs ul .tab_li:hover{
     background:#d6d6d7;
 }
 .tab_close{

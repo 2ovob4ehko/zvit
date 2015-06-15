@@ -28,5 +28,9 @@ class Kveds {
 			return $this->db->query($sql);
 		}else return false;
 	}
+	function getAll(){
+		$sql = "SELECT * FROM kveds";
+		return $this->db->query($sql);
+	}
 }
 ?>

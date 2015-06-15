@@ -1,26 +1,42 @@
+<? $f=$firm->fetch_object(); ?>
 <table>
 	<tr>
 		<td>Тип платника</td>
 		<td>
 			<select name="face">
 				<? while($face=$faceList->fetch_object()){
-						echo '<option value="'.$face->id.'">'.$face->name.'</option>';
+						echo '<option value="'.$face->id.'"';
+						if($f->face==$face->id){echo 'selected';}
+						echo '>'.$face->name.'</option>';
 					}
 				?>
 			</select>
 		</td>
 	</tr>
-	<? $f=$firm->fetch_object(); ?>
 	<tr>
 		<td>Код ДПІ</td>
 		<td>
-			<input name="tax" class="small" value="<? echo $f->tax ?>" type="text">
+			<select name="tax" id="select_tax">
+				<? while($tax=$taxList->fetch_object()){
+						echo '<option value="'.$tax->id.'"';
+						if($f->tax==$tax->id){echo 'selected';}
+						echo '>'.$tax->code.' '.$tax->name.'</option>';
+					}
+				?>
+			</select>
 		</td>
 	</tr>
 	<tr>
 		<td>Код ПФУ</td>
 		<td>
-			<input name="pension" class="small" value="<? echo $f->pension ?>" type="text">
+			<select name="pension" id="select_pens">
+				<? while($pens=$pensList->fetch_object()){
+						echo '<option value="'.$pens->id.'"';
+						if($f->pension==$pens->id){echo 'selected';}
+						echo '>'.$pens->code.' '.$pens->name.'</option>';
+					}
+				?>
+			</select>
 		</td>
 	</tr>
 	<tr>
@@ -44,7 +60,14 @@
 	<tr>
 		<td>Вид діяльності (КВЕД)</td>
 		<td>
-			<input name="kved" class="small" value="<? echo $f->kved ?>" type="text">
+			<select name="kved" id="select_kved">
+				<? while($kved=$kvedList->fetch_object()){
+						echo '<option value="'.$kved->id.'"';
+						if($f->kved==$kved->id){echo 'selected';}
+						echo '>'.$kved->code.' '.$kved->text.'</option>';
+					}
+				?>
+			</select>
 		</td>
 		</tr>
 	<tr>
@@ -115,3 +138,8 @@
 	</tr>
 </table>
 <div class="page_button">Зберегти</div>
+<script>
+	$("#select_tax").chosen();
+	$("#select_pens").chosen();
+	$("#select_kved").chosen();
+</script>

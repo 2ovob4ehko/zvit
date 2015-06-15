@@ -21,7 +21,7 @@ setInterval(function(){
   }
   $("#work_space").css("height",$(window).height()-40);
   $("#page").css("height",$(window).height()-80);
-  $(".tabs ul").css("width",$(window).width());
+  $(".tab_ul").css("width",$(window).width());
 },100);
 function showAjax(tab){
   $.ajax({
@@ -37,7 +37,7 @@ function showAjax(tab){
 function addTab(t){
   var title=$('<div class="tab_title"></div>').html(t);
   var close=$('<div class="tab_close"></div>');
-  var li=$("<li></li>").append(title);
+  var li=$('<li class="tab_li"></li>').append(title);
   li.append(close);
   $(".tabs").children("ul").append(li);
   var text=$('<div></div>');

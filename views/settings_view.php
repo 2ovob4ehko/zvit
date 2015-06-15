@@ -1,8 +1,8 @@
 <div id="page">
 	<div id="firm_list">
-		<div class="page_button">Створити нове</div>
+		<div class="page_button">Створити нове підприємство</div>
 		<? while($firm=$myfirms->fetch_object()){
-				echo '<div onclick="showFirmdata('.$firm->id.')">'.$firm->tin.' - '.$firm->name.'</div>';
+				echo '<div class="firm_item" onclick="showFirmdata('.$firm->id.')">'.$firm->tin.' - '.$firm->name.'</div>';
 			}
 		?>
 	</div>
@@ -10,7 +10,6 @@
 	</div>
 </div>
 <script>
-showFirmdata(<? echo $firm->id; ?>);
 function showFirmdata(id){
 	$.ajax({
 		url: "?tab=firmdata&id="+id,

@@ -27,8 +27,8 @@
 		</div>
 		<div id="work_space">
 			<div class="tabs">
-	    	<ul>
-					<li>
+	    	<ul class="tab_ul">
+					<li class="tab_li">
 						<div class="tab_title">F0103304</div>
 						<div class="tab_close"></div>
 					</li>
