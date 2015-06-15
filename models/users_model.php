@@ -29,7 +29,7 @@ class Users {
 			if($result->num_rows>0){
 				$u=$result->fetch_object();
 				if($u->pass==$pass){
-					return $u->login;
+					return $u->id;
 				}else return false;
 			}else return false;
 		}else return false;

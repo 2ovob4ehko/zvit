@@ -1,13 +1,19 @@
 <?
 if(isset($_GET['tab'])){
   if($_GET['tab']=='settings'){
-    //Назва: Персональні параметри
-    //відобразити контент вкладки персональних параметрів
-    //З лівої сторони список підприємств з правої сторони анкета з даними. В лівій панелі є кнопка для створення нового підприємства. В правій панелі є кнопка збереження анкети.
+    $data=array(
+      'myfirms' => $firms->getByUser($_COOKIE['id'])
+    );
     $json=new stdClass();
     $json->title="Персональні параметри";
-    $json->data=requireToVar('views/settings_view.php');
+    $json->data=requireToVar('views/settings_view.php',$data);
     echo json_encode($json);
+  }else if($_GET['tab']=='firmdata'){
+    $data=array(
+      'firm' => $firms->getById(strip_tags($_GET['id'])),
+      'faceList' => $faces->getAll()
+    );
+    echo requireToVar('views/firmdata_view.php',$data);
   }else if($_GET['tab']=='create'){
     //Назва: Створити
     //відобразити форму створення нового документу
@@ -101,7 +107,8 @@ function SNode($xml,$parent,$name,$val=null){
   $parent->appendChild($node);
   return $node;
 }
-function requireToVar($file){
+function requireToVar($file,$data=array()){
+    extract($data);
     ob_start();
     require($file);
     return ob_get_clean();

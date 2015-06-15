@@ -60,12 +60,20 @@ class Firms {
 	}
 	function getByUser($user){
 		if(!empty($user)) {
-			$sql = "SELECT * FROM firms WHERE user='$user'";
+			$sql = "SELECT * FROM firms WHERE user='$user' ORDER BY tin ASC";
 			return $this->db->query($sql);
 		}else return false;
 	}
-	function create($login,$pass){
-    $sql = "INSERT INTO users (login, pass)VALUES ('$login', '$pass')";
+	function create($user,$face,$tax,$pension,$tin,$name,$state,$city,$address,$kved,$bfio,$btin){
+    $sql = "INSERT INTO firms (user,face,tax,pension,tin,name,state,city,address,kved,bfio,btin)VALUES ('$user','$face','$tax','$pension','$tin','$name','$state','$city','$address','$kved','$bfio','$btin')";
+		if(!$this->db->query($sql)){
+			echo $this->db->error;
+		}else{
+			return true;
+		}
+	}
+	function update($user,$face,$tax,$pension,$tin,$tinpdv,$name,$zipcode,$state,$city,$address,$telcode,$tel,$fax,$email,$kved,$bfio,$btin,$cfio,$ctin){
+    $sql = "INSERT INTO firms (user,face,tax,pension,tin,tinpdv,name,zipcode,state,city,address,telcode,tel,fax,email,kved,bfio,btin,cfio,ctin)VALUES ('$user','$face','$tax','$pension','$tin','$tinpdv','$name','$zipcode','$state','$city','$address','$telcode','$tel','$fax','$email','$kved','$bfio','$btin','$cfio','$ctin')";
 		if(!$this->db->query($sql)){
 			echo $this->db->error;
 		}else{

@@ -20,5 +20,9 @@ class Faces {
 			return $this->db->query($sql);
 		}else return false;
 	}
+	function getAll(){
+		$sql = "SELECT * FROM faces";
+		return $this->db->query($sql);
+	}
 }
 ?>

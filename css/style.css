@@ -87,7 +87,7 @@ hr{border:1px solid #BF532C;}
 		cursor:pointer;
 		border-radius:5px;
 	}
-#exit_button:hover, #menu_button:hover, #plus:hover
+#exit_button:hover, #menu_button:hover
 		{
 			background:#dd7744;
 		}
@@ -137,7 +137,7 @@ hr{border:1px solid #BF532C;}
 	{
 		margin:auto;
 		width:90%;
-		height:100%;
+		height:92%;
 		overflow-y:scroll;
 		background:#fff;
 	}
@@ -155,6 +155,25 @@ hr{border:1px solid #BF532C;}
 		background:#fff;
 		padding:10px;
 	}
+.page_button
+	{
+		border:1px solid #BF532C;
+		padding:5px 10px;
+		height:17px;
+		margin:5px auto;
+		text-align:center;
+		cursor:pointer;
+		border-radius:5px;
+		max-width:200px;
+	}
+.page_button:hover
+	{
+		background:#dd7744;
+		color:#ffffff;
+	}
+.small{width:50px;}
+.middle{width:100px;}
+.big{width:300px;}
 /***************Tabs***************/
 .tabs{
     display:inline-block;

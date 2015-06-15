@@ -14,6 +14,7 @@ if(!isset($_COOKIE['login'])){
       $valid=$users->checkPass(strip_tags($_POST['login']),strip_tags($_POST['pass']));
       if($valid){
         setcookie('login',strip_tags($_POST['login']),time()+3600*8);
+        setcookie('id',$valid,time()+3600*8);
         header('Location: '.base_url());
       }else{
         header('Location: '.base_url().'?view=author&error=Не вірно введений логін чи пароль');
