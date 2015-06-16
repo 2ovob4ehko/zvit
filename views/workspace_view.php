@@ -12,7 +12,7 @@
 				<div onclick="showAjax('create')">Створити...</div>
 				<hr></hr>
 				<div onclick="showAjax('settings')">Персональні параметри</div>
-				<div>Довідник документів</div>
+				<div onclick="showAjax('docdirectory')">Довідник документів</div>
 			</div>
 			<div id="login_panel">
 				<select name="firm" data-placeholder="Вибір підприємства" id="select_box">

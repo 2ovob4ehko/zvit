@@ -17,6 +17,8 @@ if(isset($_GET['tab'])){
       'kvedList' => $kveds->getAll()
     );
     echo requireToVar('views/firmdata_view.php',$data);
+  }else if($_GET['tab']=='newfirm'){
+    $firms->create($_COOKIE['id'],1,741,693,'1111111111','ФОП Петренко Петро Петрович','Черкаська','Черкаси','вул. Гагаріна 1, кв. 7',464,'Петренко Петро Петрович','1111111111');
   }else if($_GET['tab']=='create'){
     //Назва: Створити
     //відобразити форму створення нового документу

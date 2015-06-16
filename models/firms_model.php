@@ -72,8 +72,12 @@ class Firms {
 			return true;
 		}
 	}
-	function update($user,$face,$tax,$pension,$tin,$tinpdv,$name,$zipcode,$state,$city,$address,$telcode,$tel,$fax,$email,$kved,$bfio,$btin,$cfio,$ctin){
-    $sql = "INSERT INTO firms (user,face,tax,pension,tin,tinpdv,name,zipcode,state,city,address,telcode,tel,fax,email,kved,bfio,btin,cfio,ctin)VALUES ('$user','$face','$tax','$pension','$tin','$tinpdv','$name','$zipcode','$state','$city','$address','$telcode','$tel','$fax','$email','$kved','$bfio','$btin','$cfio','$ctin')";
+	function update($data){
+    $sql="UPDATE firms SET ";
+		foreach($data as $key => $value){
+			$sql.=$key."='".$value."', ";
+		}
+		$sql.=" WHERE id=$data->id";
 		if(!$this->db->query($sql)){
 			echo $this->db->error;
 		}else{

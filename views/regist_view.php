@@ -17,7 +17,7 @@
 							<td>Пароль</td><td><input id="pass" type="password" autocomplete="off" name="pass"></td>
 						</tr>
 						<tr>
-							<td colspan="2"><input id="send" type="submit" value="Відправити"></td>
+							<td colspan="2"><input id="send" type="submit" value="Зареєструвати"></td>
 						</tr>
 						<?if(!empty($_GET['error'])){
 						echo '

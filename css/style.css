@@ -195,7 +195,7 @@ hr{border:1px solid #BF532C;}
     -ms-user-select: none;
     user-select: none;
 }
-.tabs ul:after{
+.tabs .tab_ul:after{
     content:"";
     display:block;
     clear:both;

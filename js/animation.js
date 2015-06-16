@@ -1,3 +1,6 @@
+var SETTING_SHOW=0;
+var CREATE_SHOW=0;
+var DOCDIRECTORY_SHOW=0;
 $(document).ready(function(){
   $("#select_box").chosen();
   $("#menu_button").toggle(function(){
@@ -29,18 +32,39 @@ function showAjax(tab){
     cache: false,
     dataType: 'json',
     success: function(json){
-      addTab(json.title).html(json.data);
-      $(".tabs").lightTabs();
+      switch(tab){
+        case 'settings':
+          if(!SETTING_SHOW){
+            addTab(json.title,'settings').html(json.data);
+            SETTING_SHOW=1;
+          }else $("#settings").html(json.data);
+        break;
+        case 'create':
+          if(!CREATE_SHOW){
+            addTab(json.title,'create').html(json.data);
+            CREATE_SHOW=1;
+          }else $("#create").html(json.data);
+        break;
+        case 'docdirectory':
+          if(!DOCDIRECTORY_SHOW){
+            addTab(json.title,'docdirectory').html(json.data);
+            DOCDIRECTORY_SHOW=1;
+          }else $("#docdirectory").html(json.data);
+        break;
+        default:
+        addTab(json.title,'').html(json.data);
+      }
+      $(".tabs").lightTabs($("li.active").attr("data-page"));
     }
   });
 }
-function addTab(t){
+function addTab(t,id){
   var title=$('<div class="tab_title"></div>').html(t);
   var close=$('<div class="tab_close"></div>');
   var li=$('<li class="tab_li"></li>').append(title);
   li.append(close);
   $(".tabs").children("ul").append(li);
-  var text=$('<div></div>');
+  var text=$('<div id="'+id+'"></div>');
   $(".tabs").children("div").append(text);
   return text;
 }

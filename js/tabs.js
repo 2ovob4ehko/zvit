@@ -1,5 +1,6 @@
 (function($){
-  jQuery.fn.lightTabs = function(options){
+  jQuery.fn.lightTabs = function(default_page){
+    default_page = typeof default_page !== 'undefined' ? default_page : 0;
     var createTabs = function(){
       tabs = this;
       i = 0;
@@ -9,7 +10,7 @@
         $(tabs).children("ul").children("li").removeClass("active");
         $(tabs).children("ul").children("li").eq(i).addClass("active");
       }
-      showPage(0);
+      showPage(default_page);
       $(tabs).children("ul").children("li").each(function(index, element){
         $(element).attr("data-page", i);
         i++;
@@ -22,5 +23,5 @@
   };
 })(jQuery);
 $(document).ready(function(){
-    $(".tabs").lightTabs();
+    $(".tabs").lightTabs(1);
 });
