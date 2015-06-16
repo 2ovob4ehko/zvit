@@ -6,6 +6,7 @@
 		<script src="<? echo base_url()?>js/animation.js" type="text/javascript"></script>
 	</head>
 	<body>
+		<div id="message"></div>
 		<div id="top_menu">
 			<div id="menu_button">Меню</div>
 			<div id="menu_panel">

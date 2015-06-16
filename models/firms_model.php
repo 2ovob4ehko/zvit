@@ -18,9 +18,9 @@ class Firms {
 	public $email; //varchar(30)
 	public $kved; //id of kved Пишу один головний, а якщо хочуть ще - нажмуть в звіті "+"
 	public $bfio; //varchar(60) name of boss
-	public $btin; //int(10) tin of boss
+	public $btin; //varchar(10) tin of boss
 	public $cfio; //varchar(60) name of counter
-	public $ctin; //int(10) tin of couter
+	public $ctin; //varchar(10) tin of couter
 	public $db;
 
 	function __construct($db){
@@ -46,9 +46,9 @@ class Firms {
 				email varchar(30),
 				kved int(3) NOT NULL,
 				bfio varchar(60) NOT NULL,
-				btin int(10) NOT NULL,
+				btin varchar(10) NOT NULL,
 				cfio varchar(60),
-				ctin int(10),
+				ctin varchar(10),
 				PRIMARY KEY (id))");
 		}
 	}
@@ -77,7 +77,9 @@ class Firms {
 		foreach($data as $key => $value){
 			$sql.=$key."='".$value."', ";
 		}
-		$sql.=" WHERE id=$data->id";
+		$sql=rtrim($sql, ", ");
+		$sql.=" WHERE id='".$data['id']."'";
+		echo $sql;
 		if(!$this->db->query($sql)){
 			echo $this->db->error;
 		}else{

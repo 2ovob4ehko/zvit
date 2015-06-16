@@ -1,4 +1,5 @@
 <? $f=$firm->fetch_object(); ?>
+<form id="save_form" action="<? echo base_url(); ?>?tab=savefirm" method="POST">
 <table>
 	<tr>
 		<td>Тип платника</td>
@@ -11,6 +12,7 @@
 					}
 				?>
 			</select>
+			<input name="id" value="<? echo $_GET['id']; ?>" type="hidden">
 		</td>
 	</tr>
 	<tr>
@@ -137,9 +139,15 @@
 		</td>
 	</tr>
 </table>
-<div class="page_button">Зберегти</div>
+<div class="page_button" onclick="saveForm()">Зберегти</div>
+</form>
 <script>
 	$("#select_tax").chosen();
 	$("#select_pens").chosen();
 	$("#select_kved").chosen();
+	function saveForm(){
+		$.post('<? echo base_url(); ?>?tab=savefirm', $('#save_form').serialize());
+		alert("Дані підприємства збережено");
+		showAjax('settings');
+	}
 </script>

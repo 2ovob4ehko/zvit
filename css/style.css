@@ -3,6 +3,18 @@ body
 		background:#F2DBAE; /*#ddeeff #BF532C #995544*/
 		margin:0;
 	}
+#message
+	{
+		position:fixed;
+		top:45%;
+		left:45%;
+		padding:20px 10px;
+		background:#F2DBAE;
+		border:1px solid #BF532C;
+		text-align:center;
+		display:none;
+		z-index:2;
+	}
 .page_title
 	{
 		text-align:center;

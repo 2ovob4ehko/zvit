@@ -19,6 +19,30 @@ if(isset($_GET['tab'])){
     echo requireToVar('views/firmdata_view.php',$data);
   }else if($_GET['tab']=='newfirm'){
     $firms->create($_COOKIE['id'],1,741,693,'1111111111','ФОП Петренко Петро Петрович','Черкаська','Черкаси','вул. Гагаріна 1, кв. 7',464,'Петренко Петро Петрович','1111111111');
+  }else if($_GET['tab']=='savefirm'){
+    $data=array(
+      'id' => $_POST['id'],
+    	'face' => $_POST['face'],
+    	'tax' => $_POST['tax'],
+    	'pension' => $_POST['pension'],
+    	'tin' => $_POST['tin'],
+    	'tinpdv' => $_POST['tinpdv'],
+    	'name' => $_POST['name'],
+    	'zipcode' => $_POST['zipcode'],
+    	'state' => $_POST['state'],
+    	'city' => $_POST['city'],
+    	'address' => $_POST['address'],
+    	'telcode' => $_POST['telcode'],
+    	'tel' => $_POST['tel'],
+    	'fax' => $_POST['fax'],
+    	'email' => $_POST['email'],
+    	'kved' => $_POST['kved'],
+    	'bfio' => $_POST['bfio'],
+    	'btin' => $_POST['btin'],
+    	'cfio' => $_POST['cfio'],
+    	'ctin' => $_POST['ctin']
+    );
+    $firms->update($data);
   }else if($_GET['tab']=='create'){
     //Назва: Створити
     //відобразити форму створення нового документу

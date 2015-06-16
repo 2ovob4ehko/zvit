@@ -68,3 +68,9 @@ function addTab(t,id){
   $(".tabs").children("div").append(text);
   return text;
 }
+window.alert=function(msg){
+  $('#message').html(msg).fadeIn();
+  setTimeout(function(){
+    $('#message').fadeOut();
+  },1000);
+}
