@@ -7,15 +7,16 @@ include ('models/taxes_model.php');
 include ('models/pensions_model.php');
 include ('models/kveds_model.php');
 include ('models/blanks_model.php');
+include ('models/firm_blanks_model.php');
 $users = new Users($con);
 $firms = new Firms($con);
 $faces = new Faces($con);
 $taxes = new Taxes($con);
 $blanks = new Blanks($con);
+$fblanks = new FirmBlanks($con);
 $pensions = new Pensions($con);
 $kveds = new Kveds($con);
 include ('controller/main.php');
-
 
 function addScripts(){
   echo '<link rel="stylesheet" href="'.base_url().'css/style.css" type="text/css" media="all" />

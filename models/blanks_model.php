@@ -20,7 +20,7 @@ class Blanks {
 				face int(1) NOT NULL,
 				period int(1),
 				start_date date,
-				end_date date
+				end_date date,
 				PRIMARY KEY (id))");
 		}
 	}

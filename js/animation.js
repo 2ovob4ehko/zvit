@@ -55,6 +55,7 @@ function showAjax(tab){
         default:
         addTab(json.title,'').html(json.data);
       }
+      $("#menu_panel").hide();
       $(".tabs").lightTabs($("li.active").attr("data-page"));
     }
   });

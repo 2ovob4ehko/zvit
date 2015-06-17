@@ -41,6 +41,9 @@
 			</select>
 		</td>
 	</tr>
+</table>
+<br>
+<table>
 	<tr>
 		<td>Код ЄДРПОУ/ДРФО</td>
 		<td>
@@ -71,7 +74,10 @@
 				?>
 			</select>
 		</td>
-		</tr>
+	</tr>
+</table>
+<br>
+<table>
 	<tr>
 		<td>Поштовий індекс</td>
 		<td>
@@ -114,6 +120,9 @@
 			<input name="email" class="big" value="<? echo $f->email ?>" type="text">
 		</td>
 	</tr>
+</table>
+<br>
+<table>
 	<tr>
 		<td>ДРФО Директора</td>
 		<td>
