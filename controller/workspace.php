@@ -47,12 +47,30 @@ if(isset($_GET['tab'])){
     //Назва: Створити
     //відобразити форму створення нового документу
     //По аналогії з ОПЗ, вибирається зі списку головний документ, а додатки відкриваються автоматично згідно відміченим в Довідниках документів. Також обирається рік, період подачі, стан документу (звітний/новий/уточнюючий). При натисненні створити - повинен запуститися JavaScript, який створить вкладки з вибраним звітом та його додатками.
+    $data=array(
+      'myfirms' => $firms->getByUser($_COOKIE['id'])
+    );
     $json=new stdClass();
     $json->title="Створення документу";
-    $json->data=requireToVar('views/settings_view.php');
+    $json->data=requireToVar('views/settings_view.php',$data);
     echo json_encode($json);
+  }else if($_GET['tab']=='docdirectory'){
+    //Назва: Довідник документів
+    //відобразити форму відмічення документів які використовуються
+    //По аналогії з ОПЗ, вибирається зі списку всі звіти та додатки, які будуть використовуватись користувачем.
+    $data=array(
+      'myfirms' => $firms->getByUser($_COOKIE['id'])
+    );
+    $json=new stdClass();
+    $json->title="Довідник документів";
+    $json->data=requireToVar('views/settings_view.php',$data);
+    echo json_encode($json);
+  }else if($_GET['tab']=='changefirm'){
+    setcookie('firm',strip_tags($_POST['firm']),time()+3600*8);
+    header('Location: '.base_url());
   }
 }else{
+  $myfirms=$firms->getByUser($_COOKIE['id']);
   include ('views/workspace_view.php');
 }
 $file='F0103304.xsd'; //обраний бланк

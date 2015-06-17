@@ -25,6 +25,7 @@ setInterval(function(){
   $("#work_space").css("height",$(window).height()-40);
   $("#page").css("height",$(window).height()-80);
   $(".tab_ul").css("width",$(window).width());
+  checkOpenTabs();
 },100);
 function showAjax(tab){
   $.ajax({
@@ -73,4 +74,15 @@ window.alert=function(msg){
   setTimeout(function(){
     $('#message').fadeOut();
   },1000);
+}
+function checkOpenTabs(){
+  if($("#settings").length==0){
+    SETTING_SHOW=0;
+  }
+  if($("#create").length==0){
+    CREATE_SHOW=0;
+  }
+  if($("#docdirectory").length==0){
+    DOCDIRECTORY_SHOW=0;
+  }
 }

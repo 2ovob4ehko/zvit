@@ -18,10 +18,16 @@
       $(tabs).children("ul").children("li").children(".tab_title").click(function(){
         showPage(parseInt($(this).parent().attr("data-page")));
       });
+      $(tabs).children("ul").children("li").children(".tab_close").click(function(){
+        var i=$(this).parent().attr("data-page");
+        $(tabs).children("div").children("div").eq(i).remove();
+        $(this).parent().remove();
+        $(".tabs").lightTabs(0);
+      });
     };
     return this.each(createTabs);
   };
 })(jQuery);
 $(document).ready(function(){
-    $(".tabs").lightTabs(1);
+    $(".tabs").lightTabs(0);
 });
