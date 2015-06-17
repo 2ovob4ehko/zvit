@@ -7,6 +7,8 @@ class Blanks {
 	public $period; //? місяць, квартал, рік
 	public $start_date; //? дата початку дії бланку
 	public $end_date; //? дата завершення дії бланку
+	public $parent; //Якщо додаток - ід головного, якщо головний - 0
+	public $category; //прямий вид спрямування збору
 	public $db;
 
 	function __construct($db){
@@ -21,6 +23,8 @@ class Blanks {
 				period int(1),
 				start_date date,
 				end_date date,
+				parent int(3) NOT NULL,
+				category int(2) NOT NULL,
 				PRIMARY KEY (id))");
 		}
 	}

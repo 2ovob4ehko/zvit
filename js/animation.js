@@ -1,6 +1,5 @@
 var SETTING_SHOW=0;
 var CREATE_SHOW=0;
-var DOCDIRECTORY_SHOW=0;
 $(document).ready(function(){
   $("#select_box").chosen();
   $("#menu_button").toggle(function(){
@@ -46,12 +45,6 @@ function showAjax(tab){
             CREATE_SHOW=1;
           }else $("#create").html(json.data);
         break;
-        case 'docdirectory':
-          if(!DOCDIRECTORY_SHOW){
-            addTab(json.title,'docdirectory').html(json.data);
-            DOCDIRECTORY_SHOW=1;
-          }else $("#docdirectory").html(json.data);
-        break;
         default:
         addTab(json.title,'').html(json.data);
       }
@@ -82,8 +75,5 @@ function checkOpenTabs(){
   }
   if($("#create").length==0){
     CREATE_SHOW=0;
-  }
-  if($("#docdirectory").length==0){
-    DOCDIRECTORY_SHOW=0;
   }
 }

@@ -13,7 +13,6 @@
 				<div onclick="showAjax('create')">Створити...</div>
 				<hr></hr>
 				<div onclick="showAjax('settings')">Персональні параметри</div>
-				<div onclick="showAjax('docdirectory')">Довідник документів</div>
 			</div>
 			<form action="<? echo base_url(); ?>?tab=changefirm" method="POST" id="firm_form">
 			<div id="login_panel">
