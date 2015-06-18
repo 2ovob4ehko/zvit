@@ -48,11 +48,11 @@ if(isset($_GET['tab'])){
     //відобразити форму створення нового документу
     //По аналогії з Sonata. З лівої сторони список категорій сортування (установи, спрямування збору). При натисненні робиться сортування бланків за категоріями і відображається в Правій частині. В правій частині вибирається період та тип документу. Нижче в списку "Крапок і галочок" відмічається тільки один головний документ, після чого відображається список його додатків і можна вибрати їх. При натисненні створити - повинен запуститися JavaScript, який створить вкладки з вибраним звітом та його додатками. https://msdn.microsoft.com/ru-ru/library/windows/apps/jj849979.aspx
     $data=array(
-      'myfirms' => $firms->getByUser($_COOKIE['id'])
+      'categs' => $categories->getAll()
     );
     $json=new stdClass();
     $json->title="Створення документу";
-    $json->data=requireToVar('views/settings_view.php',$data);
+    $json->data=requireToVar('views/create_view.php',$data);
     echo json_encode($json);
   }else if($_GET['tab']=='changefirm'){
     setcookie('firm',strip_tags($_POST['firm']),time()+3600*8);
