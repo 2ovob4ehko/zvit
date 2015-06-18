@@ -23,7 +23,7 @@ class Categories {
 		}else return false;
 	}
 	function getByParent($parent){
-		if(!empty($id)) {
+		if(!is_null($parent)) {
 			$sql = "SELECT * FROM categories WHERE parent='$parent'";
 			return $this->db->query($sql);
 		}else return false;
@@ -31,6 +31,22 @@ class Categories {
 	function getAll(){
 		$sql = "SELECT * FROM categories";
 		return $this->db->query($sql);
+	}
+	function tree($parent){
+		$sql = "SELECT * FROM categories WHERE parent='$parent'";
+		$result=$this->db->query($sql);
+		$child=array();
+		if($result!=false){
+			while($c=$result->fetch_object()){
+				array_push($child,array(
+					'title'=>$c->name,
+					'id'=>$c->id,
+					'child'=>$this->tree($c->id)
+					)
+				);
+			}
+			return $child;
+		}else return false;
 	}
 }
 ?>

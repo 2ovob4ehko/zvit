@@ -1,9 +1,16 @@
 <div id="page">
 	<div id="categ_list">
-		<? while($c=$categs->fetch_object()){
-				echo '<div class="categ_item" onclick="showZvitlist('.$c->id.')">'.$c->name.'</div>';
+		<ul>
+		<?
+			foreach($categs as $item){
+				echo '<li class="categ_item_main" onclick="showZvitlist('.$item['id'].')">'.$item['title'].'</li><ul>';
+				foreach($item['child'] as $child){
+					echo '<li class="categ_item_sub" onclick="showZvitlist('.$child['id'].')">'.$child['title'].'</li>';
+				}
+				echo '</ul>';
 			}
 		?>
+	</ul>
 	</div>
 	<div id="zvit_list">
 		Тут потрібно відображати список звітів за вибраною категорією. По замовчуванню показувати всі звіти.

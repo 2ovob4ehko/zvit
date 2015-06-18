@@ -190,6 +190,31 @@ hr{border:1px solid #BF532C;}
 		padding:5px 10px;
 		cursor:pointer;
 	}
+#categ_list
+	{
+		width:30%;
+		float:left;
+		background:#fff;
+		padding:10px;
+	}
+#zvit_list
+	{
+		width:60%;
+		float:left;
+		background:#fff;
+		padding:10px;
+	}
+.categ_item_main
+	{
+		display:block;
+	}
+.categ_item_sub
+	{
+		display:block;
+		margin-left:-35px;
+		padding-left:10px;
+		border-left:1px dotted #BF532C;
+	}
 /***************Tabs***************/
 .tabs{
     display:inline-block;
@@ -197,7 +222,7 @@ hr{border:1px solid #BF532C;}
 .tabs > div{
     //padding-top:10px;
 }
-.tabs ul{
+.tabs .tab_ul{
     margin:0px;
     padding:0px;
 		-webkit-touch-callout: none;
@@ -214,7 +239,7 @@ hr{border:1px solid #BF532C;}
     height:5px;
     background:#BF532C;
 }
-.tabs ul .tab_li{
+.tabs .tab_ul .tab_li{
 	margin:0px;
 	display:block;
 	float:left;
@@ -224,7 +249,7 @@ hr{border:1px solid #BF532C;}
 	border-right:1px solid #BF532C;
 	border-bottom:1px solid #BF532C;
 }
-.tabs ul .tab_li .tab_title{
+.tabs .tab_ul .tab_li .tab_title{
 	display:block;
 	float:left;
   cursor:pointer;
@@ -235,15 +260,15 @@ hr{border:1px solid #BF532C;}
 	line-height:20px;
 	vertical-align:top;
 }
-.tabs ul li.active, .tabs ul li.active:hover{
+.tabs .tab_ul li.active, .tabs .tab_ul li.active:hover{
     background:#707070;
     color:#e9eaeb;
 }
-.tabs ul li.active .tab_title, .tabs ul li.active .tab_title:hover{
+.tabs .tab_ul li.active .tab_title, .tabs .tab_ul li.active .tab_title:hover{
 		overflow:none;
 		max-width:none;
 }
-.tabs ul .tab_li:hover{
+.tabs .tab_ul .tab_li:hover{
     background:#d6d6d7;
 }
 .tab_close{
