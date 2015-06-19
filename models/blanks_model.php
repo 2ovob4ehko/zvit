@@ -38,5 +38,24 @@ class Blanks {
 		$sql = "SELECT * FROM blanks";
 		return $this->db->query($sql);
 	}
+	function tree($parent,$category){
+		$sql = "SELECT * FROM blanks WHERE parent='$parent'";
+		if($category!=0){$sql.=" AND category='$category'";}
+		$result=$this->db->query($sql);
+		$child=array();
+		if($result!=false){
+			while($b=$result->fetch_object()){
+				array_push($child,array(
+					'face'=>$b->face,
+					'title'=>$b->name,
+					'code'=>$b->code,
+					'id'=>$b->id,
+					'child'=>$this->tree($b->id,$category)
+					)
+				);
+			}
+			return $child;
+		}else return false;
+	}
 }
 ?>

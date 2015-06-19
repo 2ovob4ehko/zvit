@@ -197,7 +197,7 @@ hr{border:1px solid #BF532C;}
 		background:#fff;
 		padding:10px;
 	}
-#zvit_list
+#create_data
 	{
 		width:60%;
 		float:left;
@@ -214,6 +214,7 @@ hr{border:1px solid #BF532C;}
 		margin-left:-35px;
 		padding-left:10px;
 		border-left:1px dotted #BF532C;
+		cursor:pointer;
 	}
 /***************Tabs***************/
 .tabs{

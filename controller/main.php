@@ -33,6 +33,8 @@ if(!isset($_COOKIE['login'])){
   if(isset($_GET['action'])){
     if($_GET['action']=='delcookie'){
       setcookie('login',"",time()-3600);
+      setcookie('id',"",time()-3600);
+      setcookie('firm',"",time()-3600);
       header('Location: '.base_url());
     }
   }else{
