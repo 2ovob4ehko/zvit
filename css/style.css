@@ -216,6 +216,15 @@ hr{border:1px solid #BF532C;}
 		border-left:1px dotted #BF532C;
 		cursor:pointer;
 	}
+fieldset
+	{
+		border:none;
+	}
+.sub_blank
+	{
+		display:none;
+		margin-left:20px;
+	}
 /***************Tabs***************/
 .tabs{
     display:inline-block;

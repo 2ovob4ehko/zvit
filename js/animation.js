@@ -1,17 +1,23 @@
 var SETTING_SHOW=0;
 var CREATE_SHOW=0;
+var MENU_SHOW=0;
 $(document).ready(function(){
   $("#select_box").chosen();
-  $("#menu_button").toggle(function(){
-    $("#menu_panel").show();
-  },function(){
-    $("#menu_panel").hide();
+  $("#menu_button").click(function(){
+    if(MENU_SHOW){
+      $("#menu_panel").hide();
+      MENU_SHOW=0;
+    }else{
+      $("#menu_panel").show();
+      MENU_SHOW=1;
+    }
   });
 });
 $(document).mouseup(function(e){
   if(!$("#menu_panel").is(e.target)
   && $("#menu_panel").has(e.target).length===0){
     $("#menu_panel").hide();
+    MENU_SHOW=0;
   }
 });
 
@@ -49,6 +55,7 @@ function showAjax(tab){
         addTab(json.title,'').html(json.data);
       }
       $("#menu_panel").hide();
+      MENU_SHOW=0;
       $(".tabs").lightTabs($("li.active").attr("data-page"));
     }
   });
