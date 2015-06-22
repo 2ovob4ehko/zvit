@@ -47,17 +47,21 @@ if(isset($_GET['tab'])){
     //Назва: Створити
     //відобразити форму створення нового документу
     //По аналогії з Sonata. З лівої сторони список категорій сортування (установи, спрямування збору). При натисненні робиться сортування бланків за категоріями і відображається в Правій частині. В правій частині вибирається період та тип документу. Нижче в списку "Крапок і галочок" відмічається тільки один головний документ, після чого відображається список його додатків і можна вибрати їх. При натисненні створити - повинен запуститися JavaScript, який створить вкладки з вибраним звітом та його додатками.
+    $firm=$firms->getById($_COOKIE['firm']);
+    $f=$firm->fetch_object();
     $data=array(
       'categs' => $categories->tree(0),
-      'blank' => $blanks->tree(0,0) //Дописати 3-й параметр firm face
+      'blank' => $blanks->tree(0,0,$f->id)
     );
     $json=new stdClass();
     $json->title="Створення документу";
     $json->data=requireToVar('views/create_view.php',$data);
     echo json_encode($json);
   }else if($_GET['tab']=='zvitlist'){
+    $firm=$firms->getById($_COOKIE['firm']);
+    $f=$firm->fetch_object();
     $data=array(
-      'blank' => $blanks->tree(0,strip_tags($_GET['id'])) //Дописати 3-й параметр firm face
+      'blank' => $blanks->tree(0,strip_tags($_GET['id']),$f->id)
     );
     echo requireToVar('views/zvitlist_view.php',$data);
   }else if($_GET['tab']=='changefirm'){
@@ -65,6 +69,10 @@ if(isset($_GET['tab'])){
     header('Location: '.base_url());
   }
 }else{
+  if(!empty($_COOKIE['firm'])){
+    $myfirm=$firms->getById($_COOKIE['firm']);
+    $f=$myfirm->fetch_object();
+  }
   $myfirms=$firms->getByUser($_COOKIE['id']);
   include ('views/workspace_view.php');
 }

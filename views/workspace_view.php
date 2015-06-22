@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title><? if(empty($firm)){echo 'Створення підприємства';}else{echo $firm;}?></title>
+		<title><? if(empty($_COOKIE['firm'])){echo 'Підприємство не вибрано';}else{echo $f->name.' - '.$f->tin;}?></title>
 		<?addScripts()?>
 		<script src="<? echo base_url()?>js/animation.js" type="text/javascript"></script>
 	</head>
@@ -10,8 +10,11 @@
 		<div id="top_menu">
 			<div id="menu_button">Меню</div>
 			<div id="menu_panel">
-				<div onclick="showAjax('create')">Створити...</div>
-				<hr></hr>
+				<?
+				if(!empty($_COOKIE['firm'])){
+					echo '<div onclick="showAjax(\'create\')">Створити...</div><hr></hr>';
+				}
+				?>
 				<div onclick="showAjax('settings')">Персональні параметри</div>
 			</div>
 			<form action="<? echo base_url(); ?>?tab=changefirm" method="POST" id="firm_form">
