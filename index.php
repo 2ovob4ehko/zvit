@@ -16,8 +16,11 @@ $blanks = new Blanks($con);
 $categories = new Categories($con);
 $pensions = new Pensions($con);
 $kveds = new Kveds($con);
-include ('controller/main.php');
-
+if(empty($_GET['zvit'])){
+  include ('controller/main.php');
+}else{
+  include ('controller/zvit.php');
+}
 function addScripts(){
   echo '<link rel="stylesheet" href="'.base_url().'css/style.css" type="text/css" media="all" />
   <script src="'.base_url().'js/jquery.js" type="text/javascript"></script>

@@ -49,6 +49,7 @@
 		<div id="zvit_list">
 			<?include ('views/zvitlist_view.php');?>
 		</div>
+		<div class="page_button" onclick="createDocuments()">Створити</div>
 	</div>
 </div>
 <script>

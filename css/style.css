@@ -156,16 +156,20 @@ hr{border:1px solid #BF532C;}
 #firm_list
 	{
 		width:30%;
+		height:95%;
 		float:left;
 		background:#fff;
 		padding:10px;
+		border-right:1px solid #BF532C;
 	}
 #firm_data
 	{
 		width:60%;
+		height:95%;
 		float:left;
 		background:#fff;
 		padding:10px;
+		border-left:1px solid #BF532C;
 	}
 .page_button
 	{
@@ -193,16 +197,20 @@ hr{border:1px solid #BF532C;}
 #categ_list
 	{
 		width:30%;
+		height:95%;
 		float:left;
 		background:#fff;
 		padding:10px;
+		border-right:1px solid #BF532C;
 	}
 #create_data
 	{
 		width:60%;
+		height:95%;
 		float:left;
 		background:#fff;
 		padding:10px;
+		border-left:1px solid #BF532C;
 	}
 .categ_item_main
 	{
@@ -295,9 +303,3 @@ fieldset
 	background: #f64 url('chosen-sprite.png') -40px -8px no-repeat;
 }
 /*************endTabs**************/
-@media print {
-	.top_menu
-		{
-			display:none;
-		}
-}
