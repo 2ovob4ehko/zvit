@@ -233,6 +233,27 @@ fieldset
 		display:none;
 		margin-left:20px;
 	}
+.blank
+	{
+		padding:10px;
+	}
+.blank table
+	{
+		width:100%;
+	}
+.blank #period
+	{
+		margin:0 auto;
+		width:500px;
+		text-align:center;
+	}
+.blank .bordered, .blank .bordered td
+	{
+		border:2px solid #000000;
+		border-spacing:0;
+    border-collapse:collapse;
+		padding:0 5px;
+	}
 /***************Tabs***************/
 .tabs{
     display:inline-block;

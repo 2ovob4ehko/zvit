@@ -19,7 +19,7 @@ $kveds = new Kveds($con);
 if(empty($_GET['zvit'])){
   include ('controller/main.php');
 }else{
-  include ('controller/zvit.php');
+  include ('blank_view/F0103304.php');
 }
 function addScripts(){
   echo '<link rel="stylesheet" href="'.base_url().'css/style.css" type="text/css" media="all" />
