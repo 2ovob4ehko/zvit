@@ -254,6 +254,14 @@ fieldset
     border-collapse:collapse;
 		padding:0 5px;
 	}
+.filling
+	{
+		background:#cde1ff;
+	}
+.calculation
+	{
+		background:#e4cdff;
+	}
 /***************Tabs***************/
 .tabs{
     display:inline-block;

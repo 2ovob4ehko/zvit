@@ -36,7 +36,7 @@ $xml_hz=SNode($xml,$xml_db,'HZN',1);
 }else{
 $xml_hz=SNode($xml,$xml_db,'HZU',1);
 }
-$xml_hd=SNode($xml,$xml_db,'HD');
+$xml_hd=SNode($xml,$xml_db,'HD',$dovid);
 switch ($period_type) {
 case 1:
   $xml_per=SNode($xml,$xml_db,'HMONTH',1);
