@@ -148,6 +148,7 @@
 		</td>
 	</tr>
 </table>
+<div class="page_button" onclick="delFirm()">Видалити</div>
 <div class="page_button" onclick="saveForm()">Зберегти</div>
 </form>
 <script>

@@ -180,6 +180,7 @@ hr{border:1px solid #BF532C;}
 		cursor:pointer;
 		border-radius:5px;
 		max-width:200px;
+		display:inline-block;
 	}
 .page_button:hover, .firm_item:hover
 	{
