@@ -148,7 +148,7 @@
 		</td>
 	</tr>
 </table>
-<div class="page_button" onclick="delFirm()">Видалити</div>
+<div class="page_button" onclick="delFirm(<? echo $f->id ?>)">Видалити</div>
 <div class="page_button" onclick="saveForm()">Зберегти</div>
 </form>
 <script>
@@ -156,8 +156,25 @@
 	$("#select_pens").chosen();
 	$("#select_kved").chosen();
 	function saveForm(){
-		$.post('<? echo base_url(); ?>?tab=savefirm', $('#save_form').serialize());
-		alert("Дані підприємства збережено");
-		showAjax('settings');
+		$.post('<? echo base_url(); ?>?tab=savefirm', $('#save_form').serialize(),function(){
+			alert("Дані підприємства збережено");
+			showAjax('settings');
+			selectFirm(function(){
+		    $("#select_box").trigger("chosen:updated");
+		  });
+		});
+	}
+	function delFirm(id){
+		$.ajax({
+			url: "?tab=delfirm&id="+id,
+			cache: false,
+			success: function(){
+				alert("Підприємство видалено");
+				showAjax('settings');
+				selectFirm(function(){
+			    $("#select_box").trigger("chosen:updated");
+			  });
+			}
+		});
 	}
 </script>

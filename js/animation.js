@@ -2,7 +2,9 @@ var SETTING_SHOW=0;
 var CREATE_SHOW=0;
 var MENU_SHOW=0;
 $(document).ready(function(){
-  $("#select_box").chosen();
+  selectFirm(function(){
+    $("#select_box").chosen();
+  });
   $("#menu_button").click(function(){
     if(MENU_SHOW){
       $("#menu_panel").hide();
@@ -83,4 +85,15 @@ function checkOpenTabs(){
   if($("#create").length==0){
     CREATE_SHOW=0;
   }
+}
+function selectFirm(callback){
+	$.ajax({
+		url: "?tab=selectfirm",
+		cache: false,
+		dataType: 'html',
+		success: function(html){
+			$('#select_box').html(html);
+      callback();
+		}
+	});
 }

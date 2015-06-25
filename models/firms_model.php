@@ -86,5 +86,11 @@ class Firms {
 			return true;
 		}
 	}
+	function deleteById($id){
+		if(!empty($id)) {
+			$sql = "DELETE FROM firms WHERE id='$id'";
+			return $this->db->query($sql);
+		}else return false;
+	}
 }
 ?>

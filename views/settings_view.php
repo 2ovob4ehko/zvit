@@ -24,8 +24,10 @@ function showFirmdata(id){
 function newFirm(){
 	$.ajax({
 		url: "?tab=newfirm",
-		cache: false
+		cache: false,
+		success: function(){
+			showAjax('settings');
+		}
 	});
-	showAjax('settings');
 }
 </script>

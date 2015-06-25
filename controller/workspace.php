@@ -43,6 +43,21 @@ if(isset($_GET['tab'])){
     	'ctin' => $_POST['ctin']
     );
     $firms->update($data);
+  }else if($_GET['tab']=='delfirm'){
+    $firms->deleteById(strip_tags($_GET['id']));
+  }else if($_GET['tab']=='selectfirm'){
+    $myfirms=$firms->getByUser($_COOKIE['id']);
+    echo '<option value=""></option>';
+    if(!empty($_COOKIE['firm'])){
+      $selectedFirm=$_COOKIE['firm'];
+    }else{
+      $selectedFirm='';
+    }
+    while($firm=$myfirms->fetch_object()){
+      echo '<option value="'.$firm->id.'"';
+      if($firm->id==$selectedFirm){echo 'selected';}
+      echo '>'.$firm->name.' - '.$firm->tin.'</option>';
+    }
   }else if($_GET['tab']=='create'){
     //Назва: Створити
     //відобразити форму створення нового документу
@@ -71,7 +86,9 @@ if(isset($_GET['tab'])){
 }else{
   if(!empty($_COOKIE['firm'])){
     $myfirm=$firms->getById($_COOKIE['firm']);
-    $f=$myfirm->fetch_object();
+    if($myfirm->num_rows>0){
+      $f=$myfirm->fetch_object();
+    }
   }
   $myfirms=$firms->getByUser($_COOKIE['id']);
   include ('views/workspace_view.php');
