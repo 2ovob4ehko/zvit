@@ -66,8 +66,8 @@ function showZvitlist(id){
 	});
 }
 function createDocuments(){
-	$.post('<? echo base_url(); ?>?tab=createdoc', $('#create_form').serialize(),function(){
-		//showAjax('settings'); показати вкладки зі звітами отриманими від Ajax запиту
-	});
+	$.post('<? echo base_url(); ?>?tab=createdoc', $('#create_form').serialize(),function(json){
+		showAjax('blank&title='+json.title[0]+'&year='+json.year+'&period='+json.period+'&stan='+json.stan);
+	},"json");
 }
 </script>

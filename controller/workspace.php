@@ -81,16 +81,26 @@ if(isset($_GET['tab'])){
     echo requireToVar('views/zvitlist_view.php',$data);
   }else if($_GET['tab']=='createdoc'){
     //Отримати дані від форми створення документу (період, стан, головний документ, додатки)
-    //Знайти назви бланків за їх ІД, та отримати файли відображень за їх назвами
-    //в кожне відображення запихнути дані які воно потребує
-    //повернути(return) масив відображень
+    $main_blank=$_POST['main_blank'];
+    $sub_blank=$_POST['sub_blank'];
+    $json=new stdClass();
+    $json->title=array();
+    $json->year=$_POST['year'];
+    $json->period=$_POST['period'];
+    $json->stan=$_POST['stan'];
+    array_push($json->title,$blanks->getById($main_blank)->fetch_object()->code);
+
+    echo json_encode($json);
   }else if($_GET['tab']=='blank'){
     $data=array(
-      'myfirms' => $firms->getByUser($_COOKIE['id'])
+      'myfirm' => $firms->getById($_COOKIE['firm']),
+      'year'   => $_GET['year'],
+      'period' => $_GET['period'],
+      'stan'   => $_GET['stan']
     );
     $json=new stdClass();
     $json->title=$_GET['title'];
-    $json->data=requireToVar('blank_view/'.$_GET['name'].'.php',$data);
+    $json->data=requireToVar('blank_view/'.$_GET['title'].'.php',$data);
     echo json_encode($json);
   }else if($_GET['tab']=='changefirm'){
     setcookie('firm',strip_tags($_POST['firm']),time()+3600*8);

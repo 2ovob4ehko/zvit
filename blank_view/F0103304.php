@@ -1,5 +1,4 @@
-<?addScripts();
-$doc_stan=1;?>
+<? $doc_stan=1;?>
 <div class="blank">
 <table>
   <tr>
