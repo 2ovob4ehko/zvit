@@ -9,6 +9,9 @@
 		<div id="message"></div>
 		<div id="top_menu">
 			<div id="menu_button">Меню</div>
+			<!--<div id="icon_menu">
+				<div class="icon_button"><img src="css/button_save.png"><div>Зберегти</div></div>
+			</div>-->
 			<div id="menu_panel">
 				<?
 				if(!empty($f)){

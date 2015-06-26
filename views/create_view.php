@@ -13,6 +13,7 @@
 	</ul>
 	</div>
 	<div id="create_data">
+		<form id="create_form">
 		<div id="zvit_data">
 			<table>
 				<tr><td>Рік</td><td>Період</td><td>Стан звіту</td></tr>
@@ -49,6 +50,7 @@
 		<div id="zvit_list">
 			<?include ('views/zvitlist_view.php');?>
 		</div>
+	</form>
 		<div class="page_button" onclick="createDocuments()">Створити</div>
 	</div>
 </div>
@@ -61,6 +63,11 @@ function showZvitlist(id){
 		success: function(html){
 			$('#zvit_list').html(html);
 		}
+	});
+}
+function createDocuments(){
+	$.post('<? echo base_url(); ?>?tab=createdoc', $('#create_form').serialize(),function(){
+		//showAjax('settings'); показати вкладки зі звітами отриманими від Ajax запиту
 	});
 }
 </script>

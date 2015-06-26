@@ -49,6 +49,26 @@ body
 		cursor:pointer;
 		border-radius:5px;
 	}
+#icon_menu
+	{
+		position:absolute;
+		top:0px;
+		left:70px;
+		height:40px;
+		margin:0px 10px;
+	}
+.icon_button
+	{
+		display:inline-block;
+		width:70px;
+		text-align:center;
+		font-size:12px;
+		cursor:pointer;
+	}
+.icon_button img
+	{
+		height:25px;
+	}
 #menu_panel
 	{
 		position:absolute;
