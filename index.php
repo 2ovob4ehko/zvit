@@ -29,7 +29,7 @@ function addScripts(){
   <link rel="stylesheet" href="'.base_url().'css/chosen.css" type="text/css" media="all" />
   <script src="'.base_url().'js/tabs.js" type="text/javascript"></script>';
 }
-function parseXSD($file){
+/*function parseXSD($file){
   $attributes = array();
   $XSDDOC = new DOMDocument();
   $XSDDOC->preserveWhiteSpace = false;
@@ -42,7 +42,7 @@ function parseXSD($file){
     unset($xsdpath);
   }
     return $attributes;
-}
+}*/
 function base_url(){
   	return 'http://'.$_SERVER['HTTP_HOST'].parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 }
