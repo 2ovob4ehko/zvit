@@ -82,7 +82,7 @@ if(isset($_GET['tab'])){
   }else if($_GET['tab']=='createdoc'){
     //Отримати дані від форми створення документу (період, стан, головний документ, додатки)
     $main_blank=$_POST['main_blank'];
-    $sub_blank=$_POST['sub_blank'];
+    //$sub_blank=$_POST['sub_blank'];
     $json=new stdClass();
     $json->title=array();
     $json->year=$_POST['year'];
@@ -93,7 +93,7 @@ if(isset($_GET['tab'])){
     echo json_encode($json);
   }else if($_GET['tab']=='blank'){
     $data=array(
-      'myfirm' => $firms->getById($_COOKIE['firm']),
+      'myfirm' => $firms->getByIdF($_COOKIE['firm']),
       'year'   => $_GET['year'],
       'period' => $_GET['period'],
       'stan'   => $_GET['stan']
