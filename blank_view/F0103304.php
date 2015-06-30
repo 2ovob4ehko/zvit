@@ -1,6 +1,12 @@
 <div id="page">
   <div class="blank">
-  <input type="checkbox" checked name="autocount">Авторозрахунок
+    <table>
+      <tr>
+        <td><input type="checkbox" checked name="autocount">Авторозрахунок</td>
+        <td><button onclick="saveDocuments()">Зберегти</button></td>
+      </tr>
+    </table>
+  <form method="POST" id="blank_form">
   <table>
     <tr>
       <td  align="center" >
@@ -9,6 +15,11 @@
     </tr>
   </table>
   <table  id="period" class="bordered">
+    <input type="hidden" name="doc_type" value="0">
+    <input type="hidden" name="doc_cnt" value="1">
+    <input type="hidden" name="period" value="<? echo $period; ?>">
+    <input type="hidden" name="year" value="<? echo $year; ?>">
+    <input type="hidden" name="stan" value="<? echo $stan; ?>">
     <tr>
       <td><?
       switch ($stan) {
@@ -25,7 +36,7 @@
       echo $tstan;
       ?></td>
       <td><?
-      $tperiod=array('Січень','Лютий','Березень','І Квартал','Квітень','Травень','Червень','ІІ Квартал','Липень','Серпень','Вересень','ІІІ Квартал','Жовтень','Листопад','Грудень','IV Квартал','Рік');
+      $tperiod=array('Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень','І Квартал','ІІ Квартал','ІІІ Квартал','IV Квартал','Рік');
       echo $tperiod[$period-1];
       $f=$myfirm->fetch_object();
       ?></td>
@@ -85,6 +96,7 @@
   	</tr>
     <tr>
   		<td><input class="filling" type="text" style="width:100%;" name="HSTI" value="<? echo $f->tax_code.' '.$f->tax_name; ?>"></td>
+      <input type="hidden" name="tax_code" value="<? echo $f->tax_code; ?>">
   	</tr>
   </table>
   <table>
@@ -98,8 +110,8 @@
   		<td>назва згідно з КВЕД</td>
    </tr>
    <tr>
-     <td><? echo $f->kved_code; ?></td>
-     <td><? echo $f->kved_text; ?></td>
+     <td><input class="filling" type="text" style="width:100%;" disabled name="HKVED1" value="<? echo $f->kved_code; ?>"></td>
+     <td><input class="filling" type="text" style="width:100%;" disabled name="HKVED2" value="<? echo $f->kved_text; ?>"></td>
    </tr>
   </table>
   <table class="bordered">
@@ -280,6 +292,7 @@
       <td colspan="2"><font size="-1">(реєстраційний номер облікової картки платника податків)</font></td>
     </tr>
   </table>
+</form>
   </div>
 </div>
 <script>
@@ -386,5 +399,10 @@ function numbered(el,min,max){
   }else{
     el.parent().children(".callout").remove();
   }
+}
+function saveDocuments(){
+	$.post('<? echo base_url(); ?>?render=F0103304', $('#blank_form').serialize(),function(){
+		alert('Звіт збережено');
+	});
 }
 </script>

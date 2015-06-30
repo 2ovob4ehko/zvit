@@ -37,6 +37,8 @@ if(!isset($_COOKIE['login'])){
       setcookie('firm',"",time()-3600);
       header('Location: '.base_url());
     }
+  }else if(isset($_GET['render'])){
+    include ('controller/zvit.php');
   }else{
     include ('controller/workspace.php');
   }

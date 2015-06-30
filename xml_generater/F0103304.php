@@ -129,6 +129,7 @@ $xml_r30=SNode($xml,$xml_db,'R030G3',$r30);
 $xml_r31=SNode($xml,$xml_db,'R031G3',$r31);
 $xml_r32=SNode($xml,$xml_db,'R032G3',$r32);
 $xml_r33=SNode($xml,$xml_db,'R033G3',$r33);
+$xml_r34=SNode($xml,$xml_db,'R034G1',$r341);
 $xml_r34=SNode($xml,$xml_db,'R034G3',$r34);
 $xml_r35=SNode($xml,$xml_db,'R035G3',$r35);
 $xml_hjar=SNode($xml,$xml_db,'HJAR');

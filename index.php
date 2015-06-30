@@ -16,11 +16,9 @@ $blanks = new Blanks($con);
 $categories = new Categories($con);
 $pensions = new Pensions($con);
 $kveds = new Kveds($con);
-if(empty($_GET['zvit'])){
-  include ('controller/main.php');
-}else{
-  include ('blank_view/F0103304.php');
-}
+
+include ('controller/main.php');
+
 function addScripts(){
   echo '<link rel="stylesheet" href="'.base_url().'css/style.css" type="text/css" media="all" />
   <script src="'.base_url().'js/jquery.js" type="text/javascript"></script>
@@ -46,5 +44,5 @@ function addScripts(){
 function base_url(){
   	return 'http://'.$_SERVER['HTTP_HOST'].parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 }
-function getVersion(){return '15.06.10';}
+function getVersion(){return '15.06.30';}
 ?>
