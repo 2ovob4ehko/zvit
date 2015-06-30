@@ -110,8 +110,8 @@
   		<td>назва згідно з КВЕД</td>
    </tr>
    <tr>
-     <td><input class="filling" type="text" style="width:100%;" disabled name="HKVED1" value="<? echo $f->kved_code; ?>"></td>
-     <td><input class="filling" type="text" style="width:100%;" disabled name="HKVED2" value="<? echo $f->kved_text; ?>"></td>
+     <td><input class="filling" type="text" style="width:100%;" readonly="readonly" name="HKVED1" value="<? echo $f->kved_code; ?>"></td>
+     <td><input class="filling" type="text" style="width:100%;" readonly="readonly" name="HKVED2" value="<? echo $f->kved_text; ?>"></td>
    </tr>
   </table>
   <table class="bordered">

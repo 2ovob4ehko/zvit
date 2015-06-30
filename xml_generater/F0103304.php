@@ -12,7 +12,7 @@ $xml_declar->appendChild($xml_dh);
 $xml_tin=SNode($xml,$xml_dh,'TIN',$tin);
 $xml_cdoc=SNode($xml,$xml_dh,'C_DOC',substr($file,0,3));
 $xml_cdocsub=SNode($xml,$xml_dh,'C_DOC_SUB',substr($file,3,3));
-$xml_cdocver=SNode($xml,$xml_dh,'C_DOC_VER',substr($file,6,2));
+$xml_cdocver=SNode($xml,$xml_dh,'C_DOC_VER',(int)substr($file,6,2));
 $xml_cdoctype=SNode($xml,$xml_dh,'C_DOC_TYPE',$doc_type);
 $xml_cdoccnt=SNode($xml,$xml_dh,'C_DOC_CNT',$doc_cnt);
 $xml_cdocreg=SNode($xml,$xml_dh,'C_REG',substr($taxCode,0,2));

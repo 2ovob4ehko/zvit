@@ -95,7 +95,7 @@
 
 function SNode($xml,$parent,$name,$val=null){
   $node=$xml->createElement($name,$val);
-  if (is_null($val)){
+  if ((is_null($val)||($val==''))){
     $node->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance','xsi:nil','true');
   }
   $parent->appendChild($node);
