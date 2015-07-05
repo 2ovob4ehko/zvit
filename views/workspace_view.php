@@ -15,7 +15,8 @@
 			<div id="menu_panel">
 				<?
 				if(!empty($f)){
-					echo '<div onclick="showAjax(\'create\')">Створити...</div><hr></hr>';
+					echo '<div onclick="showAjax(\'create\')">Створити...</div>
+					<div onclick="showAjax(\'filelist\')">Список файлів</div><hr></hr>';
 				}
 				?>
 				<div onclick="showAjax('settings')">Персональні параметри</div>

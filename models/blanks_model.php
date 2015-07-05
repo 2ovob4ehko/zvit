@@ -34,6 +34,12 @@ class Blanks {
 			return $this->db->query($sql);
 		}else return false;
 	}
+	function getByCode($code){
+		if(!empty($code)) {
+			$sql = "SELECT * FROM blanks WHERE code='$code'";
+			return $this->db->query($sql);
+		}else return false;
+	}
 	function getAll(){
 		$sql = "SELECT * FROM blanks";
 		return $this->db->query($sql);

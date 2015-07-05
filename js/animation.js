@@ -1,5 +1,6 @@
 var SETTING_SHOW=0;
 var CREATE_SHOW=0;
+var FILELIST_SHOW=0;
 var MENU_SHOW=0;
 $(document).ready(function(){
   selectFirm(function(){
@@ -53,6 +54,12 @@ function showAjax(tab){
             CREATE_SHOW=1;
           }else $("#create").html(json.data);
         break;
+        case 'filelist':
+          if(!FILELIST_SHOW){
+            addTab(json.title,'filelist').html(json.data);
+            FILELIST_SHOW=1;
+          }else $("#filelist").html(json.data);
+        break;
         default:
         addTab(json.title,'').html(json.data);
       }
@@ -84,6 +91,9 @@ function checkOpenTabs(){
   }
   if($("#create").length==0){
     CREATE_SHOW=0;
+  }
+  if($("#filelist").length==0){
+    FILELIST_SHOW=0;
   }
 }
 function selectFirm(callback){
