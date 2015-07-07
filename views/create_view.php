@@ -16,7 +16,7 @@
 		<form id="create_form">
 		<div id="zvit_data">
 			<table>
-				<tr><td>Рік</td><td>Період</td><td>Стан звіту</td></tr>
+				<tr><td>Рік</td><td>Період</td><td>Стан звіту</td><td>Порядковий номер</td></tr>
 				<tr>
 					<td>
 						<select name="year">
@@ -44,6 +44,9 @@
 							<option value="3">Уточнюючий</option>
 						</select>
 					</td>
+					<td style="text-align:right;">
+						<input style="width:30px;" name="number" type="text" value="1">
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -55,6 +58,9 @@
 	</div>
 </div>
 <script>
+setInterval(function(){
+	numbered($("input[name='number']"),1,2);
+},500);
 function showZvitlist(id){
 	$.ajax({
 		url: "?tab=zvitlist&id="+id,
@@ -67,7 +73,29 @@ function showZvitlist(id){
 }
 function createDocuments(){
 	$.post('<? echo base_url(); ?>?tab=createdoc', $('#create_form').serialize(),function(json){
-		showAjax('blank&title='+json.title[0]+'&year='+json.year+'&period='+json.period+'&stan='+json.stan);
+		showAjax('blank&title='+json.title[0]+'&year='+json.year+'&period='+json.period+'&stan='+json.stan+'&number='+json.number);
 	},"json");
+}
+function numbered(el,min,max){
+  if(!el.val().match(/^\d+$/)){
+		fixedToDecimal(el);
+    if(!el.parent().has(".callout").length){
+      el.parent().append('<div class="callout bottom">Поле тільки для цифр</div>');
+    }
+  }else if((el.val().length<min)||(el.val().length>max)){
+    if(!el.parent().has(".callout").length){
+      el.parent().append('<div class="callout bottom">Невірна кількість цифр</div>');
+    }
+  }else{
+    el.parent().children(".callout").remove();
+  }
+}
+function fixedToDecimal(el){
+  var n=Math.abs(parseFloat(el.val())).toFixed(0);
+  if(n=='NaN'){
+    el.val('');
+  }else{
+    el.val(n);
+  }
 }
 </script>

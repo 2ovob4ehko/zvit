@@ -15,8 +15,15 @@
     </tr>
   </table>
   <table  id="period" class="bordered">
-    <input type="hidden" name="doc_type" value="0">
-    <input type="hidden" name="doc_cnt" value="1">
+    <?
+      if($stan==1){
+        echo '<input type="hidden" name="doc_type" value="0">
+        <input type="hidden" name="doc_cnt" value="'.$number.'">';
+      }else{
+        echo '<input type="hidden" name="doc_type" value="'.$number.'">
+        <input type="hidden" name="doc_cnt" value="1">';
+      }
+    ?>
     <input type="hidden" name="period" value="<? echo $period; ?>">
     <input type="hidden" name="year" value="<? echo $year; ?>">
     <input type="hidden" name="stan" value="<? echo $stan; ?>">

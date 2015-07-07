@@ -85,6 +85,7 @@ if(isset($_GET['tab'])){
     $json->year=$_POST['year'];
     $json->period=$_POST['period'];
     $json->stan=$_POST['stan'];
+    $json->number=$_POST['number'];
     array_push($json->title,$blanks->getById($main_blank)->fetch_object()->code);
 
     echo json_encode($json);
@@ -93,7 +94,8 @@ if(isset($_GET['tab'])){
       'myfirm' => $firms->getByIdF($_COOKIE['firm']),
       'year'   => $_GET['year'],
       'period' => $_GET['period'],
-      'stan'   => $_GET['stan']
+      'stan'   => $_GET['stan'],
+      'number' => $_GET['number']
     );
     $json=new stdClass();
     $json->title=$_GET['title'];
