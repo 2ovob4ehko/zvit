@@ -8,13 +8,13 @@
     if(($_POST['period']>=1)&&($_POST['period']<=12)){
       $month=$_POST['period']; //кількість місяців, якщо рік=12, 1кв=3; півр=6; 3кв=9
       $period_type=1; //код періоду звітності міс=1, кв=2, півр=3, 9мес=4, рік=5
-    }elseif ($_POST['period']==13) {
-      $month=3;
+    }elseif (($_POST['period']>=13)&&($_POST['period']<=16)) {
+      $month=($_POST['period']-12)*3;
       $period_type=2;
-    }elseif ($_POST['period']==14) {
+    }elseif ($_POST['period']==17) {
       $month=6;
       $period_type=3;
-    }elseif ($_POST['period']==15) {
+    }elseif ($_POST['period']==18) {
       $month=9;
       $period_type=4;
     }else{

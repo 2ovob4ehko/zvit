@@ -14,11 +14,19 @@
 			$tp=array('Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень');
 			echo $tp[((int)substr($item,37,2))-1];
 		}elseif(substr($item,36,1)==2){
-			echo 'I Квартал';
+			if((int)substr($item,37,2)==3){
+				echo 'I Квартал';
+			}elseif((int)substr($item,37,2)==6){
+				echo 'II Квартал';
+			}elseif((int)substr($item,37,2)==9){
+				echo 'III Квартал';
+			}elseif((int)substr($item,37,2)==12){
+				echo 'IV Квартал';
+			}
 		}elseif(substr($item,36,1)==3){
-			echo 'II Квартал';
+			echo 'Півріччя';
 		}elseif(substr($item,36,1)==4){
-			echo 'III Квартал';
+			echo '9 місяців';
 		}elseif(substr($item,36,1)==5){
 			echo 'Рік';
 		}
