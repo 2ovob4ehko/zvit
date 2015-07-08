@@ -91,6 +91,23 @@
     $newFileName=$taxCode.sprintf("%'.010s",$tin).substr($file,0,8).$doc_stan.sprintf("%'.02s",$doc_type).sprintf("%'.07s",$doc_cnt).$period_type.sprintf("%'.02s",$month).$year.$taxCode.'.xml';
     //print $xml->saveXML(); //$xml->save('xml/1.xml');
     $xml->save('xml/'.$newFileName);
+    if($period_type==1){
+			$period=$month;
+		}elseif($period_type==2){
+			$period=$month/3+12;
+		}elseif($period_type==3){
+			$period=17;
+		}elseif($period_type==4){
+			$period=18;
+		}elseif($period_type==5){
+			$period=19;
+		}
+    if($doc_stan==1){
+      $number=$doc_cnt;
+    }else{
+      $number=$doc_type;
+    }
+    $files->create($_COOKIE['firm'],substr($file,0,8),$period,$year,$doc_stan,$number,date("Y-m-d H:i:s",filectime('xml/'.$newFileName)),'xml/'.$newFileName);
   }
 
 function SNode($xml,$parent,$name,$val=null){
