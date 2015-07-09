@@ -1,7 +1,15 @@
 <div id="page">
 	<table id="files">
 		<thead>
-			<tr><td style="width:65px;">Код</td><td>Назва</td><td style="width:80px;">Період</td><td style="width:35px;">Рік</td><td style="width:100px;">Стан звіту</td><td style="width:15px;">№</td><td style="width:135px;">Створений</td></tr>
+			<tr>
+				<td style="width:65px;cursor:pointer;" onclick="showAjax('filelist&field=code&order=asc')">Код</td>
+				<td>Назва</td>
+				<td style="width:80px;cursor:pointer;" onclick="showAjax('filelist&field=period&order=asc')">Період</td>
+				<td style="width:35px;cursor:pointer;" onclick="showAjax('filelist&field=year&order=asc')">Рік</td>
+				<td style="width:100px;cursor:pointer;" onclick="showAjax('filelist&field=stan&order=asc')">Стан звіту</td>
+				<td style="width:15px;cursor:pointer;" onclick="showAjax('filelist&field=number&order=asc')">№</td>
+				<td style="width:135px;cursor:pointer;" onclick="showAjax('filelist&field=time&order=asc')">Створений</td>
+			</tr>
 		</thead>
 <?
 	while($f=$list->fetch_object()){

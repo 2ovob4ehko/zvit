@@ -77,18 +77,20 @@ function createDocuments(){
 	},"json");
 }
 function numbered(el,min,max){
-  if(!el.val().match(/^\d+$/)){
-		fixedToDecimal(el);
-    if(!el.parent().has(".callout").length){
-      el.parent().append('<div class="callout bottom">Поле тільки для цифр</div>');
-    }
-  }else if((el.val().length<min)||(el.val().length>max)){
-    if(!el.parent().has(".callout").length){
-      el.parent().append('<div class="callout bottom">Невірна кількість цифр</div>');
-    }
-  }else{
-    el.parent().children(".callout").remove();
-  }
+	if(typeof el.val() != "undefined"){
+	  if(!el.val().match(/^\d+$/)){
+			fixedToDecimal(el);
+	    if(!el.parent().has(".callout").length){
+	      el.parent().append('<div class="callout bottom">Поле тільки для цифр</div>');
+	    }
+	  }else if((el.val().length<min)||(el.val().length>max)){
+	    if(!el.parent().has(".callout").length){
+	      el.parent().append('<div class="callout bottom">Невірна кількість цифр</div>');
+	    }
+	  }else{
+	    el.parent().children(".callout").remove();
+	  }
+	}
 }
 function fixedToDecimal(el){
   var n=Math.abs(parseFloat(el.val())).toFixed(0);
