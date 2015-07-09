@@ -13,7 +13,7 @@
 		</thead>
 <?
 	while($f=$list->fetch_object()){
-		echo '<tr><td>'.$f->code.'</td><td style="overflow:hidden;white-space:nowrap;">';
+		echo '<tr class="rows" id="row'.$f->id.'"><td>'.$f->code.'</td><td style="overflow:hidden;white-space:nowrap;">';
 		$blank=$blanks->getByCode($f->code);
 		$b=$blank->fetch_object();
 		echo $b->name;
@@ -35,3 +35,21 @@
 ?>
 	</table>
 </div>
+<script>
+	setInterval(function(){
+		if($('#filelist').is(':visible')) {
+			$('#edit_button').css('display','inline-block');
+			$('#delete_button').css('display','inline-block');
+			$('#delete_button').click(function(){
+				alert(selected);
+			});
+		}else{
+			$('.icon_button').css('display','none');
+		}
+	},100);
+	$('.rows').click(function(){
+		$('.rows').css('background','#fff').css('color','#000');
+		$(this).css('background','#37d').css('color','#fff');
+		selected=$(this).attr("id");
+	});
+</script>

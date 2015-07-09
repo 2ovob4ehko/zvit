@@ -4,14 +4,20 @@
 		<title><? if(empty($f)){echo 'Підприємство не вибрано';}else{echo $f->name.' - '.$f->tin;}?></title>
 		<?addScripts()?>
 		<script src="<? echo base_url()?>js/animation.js" type="text/javascript"></script>
+		<script>var selected='';</script>
 	</head>
 	<body>
 		<div id="message"></div>
 		<div id="top_menu">
 			<div id="menu_button">Меню</div>
-			<!--<div id="icon_menu">
-				<div class="icon_button"><img src="css/button_save.png"><div>Зберегти</div></div>
-			</div>-->
+			<div id="icon_menu">
+				<div class="icon_button" id="edit_button">
+					<img src="css/button_edit.png"><div>Редагувати</div>
+				</div>
+				<div class="icon_button" id="delete_button">
+					<img src="css/button_delete.png"><div>Видалити</div>
+				</div>
+			</div>
 			<div id="menu_panel">
 				<?
 				if(!empty($f)){

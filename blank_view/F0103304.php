@@ -395,16 +395,18 @@ function required(el){
   }
 }
 function numbered(el,min,max){
-  if(!el.val().match(/^\d+$/)){
-    if(!el.parent().has(".callout").length){
-      el.parent().append('<div class="callout bottom">Поле тільки для цифр</div>');
+  if(typeof el.val() != "undefined"){
+    if(!el.val().match(/^\d+$/)){
+      if(!el.parent().has(".callout").length){
+        el.parent().append('<div class="callout bottom">Поле тільки для цифр</div>');
+      }
+    }else if((el.val().length<min)||(el.val().length>max)){
+      if(!el.parent().has(".callout").length){
+        el.parent().append('<div class="callout bottom">Невірна кількість цифр</div>');
+      }
+    }else{
+      el.parent().children(".callout").remove();
     }
-  }else if((el.val().length<min)||(el.val().length>max)){
-    if(!el.parent().has(".callout").length){
-      el.parent().append('<div class="callout bottom">Невірна кількість цифр</div>');
-    }
-  }else{
-    el.parent().children(".callout").remove();
   }
 }
 function saveDocuments(){
