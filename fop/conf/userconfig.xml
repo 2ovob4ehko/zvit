@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<configuration>
+	<fonts>
+		<font metrics-file="conf\fonts\times.xml" kerning="yes" embed-file="conf\fonts\times.ttf">
+			<font-triplet name="TimesNewRoman" style="normal" weight="normal"/>
+			<font-triplet name="TimesNewRomanMT" style="normal" weight="normal"/>
+		</font>
+		<font metrics-file="conf\fonts\timesbd.xml" kerning="yes" embed-file="conf\fonts\timesbd.ttf">
+			<font-triplet name="TimesNewRoman" style="normal" weight="bold"/>
+			<font-triplet name="TimesNewRomanMT" style="normal" weight="bold"/>
+		</font>
+		<font metrics-file="conf\fonts\timesi.xml" kerning="yes" embed-file="conf\fonts\timesi.ttf">
+			<font-triplet name="TimesNewRoman" style="italic" weight="normal"/>
+			<font-triplet name="TimesNewRomanMT" style="italic" weight="normal"/>
+		</font>
+		<font metrics-file="conf\fonts\timesbi.xml" kerning="yes" embed-file="conf\fonts\timesbi.ttf">
+			<font-triplet name="TimesNewRoman" style="italic" weight="bold"/>
+			<font-triplet name="TimesNewRomanMT" style="italic" weight="bold"/>
+		</font>
+	</fonts>
+</configuration>
