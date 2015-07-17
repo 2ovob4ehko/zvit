@@ -118,19 +118,18 @@ if(isset($_GET['tab'])){
     $json->data=requireToVar('views/filelist_view.php',$data);
     echo json_encode($json);
   }else if($_GET['tab']=='createpdf'){
-    //При виборі файлу в списку файлів та натисненні кнопки "PDF":
-    //1) береться $_GET['id'] запису файлу та шукається за ним в таблиці файлів його code та name
-    //2) визначається яка операційна система сервера і в залежності яка операційна система запускається відповідний скрипт генерації PDF документа
+    $file=$files->getById(strip_tags($_GET['id']));
+    $f=$file->fetch_object();
     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'){
       chdir('fop/');
-      $output=shell_exec('java -cp "fop.jar;xml-apis.jar;xercesImpl-2.2.1.jar;xalan-2.4.1.jar;batik.jar;avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c  "conf\userconfig.xml" -xml "..\xml\23010039497534J0103505100000000110720152301.xml" -xsl "..\blank\J0103505.fo" -pdf "..\pdf\1.pdf"');
-      echo '<pre>'.$output.'</pre>';
+      $output=shell_exec('java -cp "fop.jar;xml-apis.jar;xercesImpl-2.2.1.jar;xalan-2.4.1.jar;batik.jar;avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c  "conf\userconfig.xml" -xml "..\\xml\\'.substr($f->name, 4, 47).'" -xsl "..\\blank\\'.$f->code.'.fo" -pdf "..\\pdf\\'.substr($f->name, 4, 43).'.pdf"');
     }elseif (strtoupper(substr(PHP_OS, 0, 3)) === 'LIN') {
       chdir('fop/');
-      $output=shell_exec('java -cp "fop.jar:xml-apis.jar:xercesImpl-2.2.1.jar:xalan-2.4.1.jar:batik.jar:avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c "conf\userconfig.xml" -xml "..\xml\23010039497534J0103505100000000110720152301.xml" -xsl "..\blank\J0103505.fo" -pdf "..\pdf\1.pdf"');
-      echo '<pre>'.getcwd().$output.'</pre>';
+      $output=shell_exec('java -cp "fop.jar:xml-apis.jar:xercesImpl-2.2.1.jar:xalan-2.4.1.jar:batik.jar:avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c "conf/luserconfig.xml" -xml "../xml/'.substr($f->name, 4, 47).'" -xsl "../blank/'.$f->code.'.fo" -pdf "../pdf/'.substr($f->name, 4, 43).'.pdf"');
     }
-    //4) Після генераці відкрити згенерований файл
+    $json=new stdClass();
+    $json->title='pdf/'.substr($f->name, 4, 43).'.pdf';
+    echo json_encode($json);
   }
 }else{
   if(!empty($_COOKIE['firm'])){

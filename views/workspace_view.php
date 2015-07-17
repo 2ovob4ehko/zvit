@@ -17,6 +17,12 @@
 				<div class="icon_button" id="delete_button">
 					<img src="css/button_delete.png"><div>Видалити</div>
 				</div>
+				<div class="icon_button" id="pdf_button">
+					<img src="css/button_pdf.png"><div>Створити PDF</div>
+				</div>
+				<div class="icon_button" id="pdfo_button">
+					<img src="css/button_pdf.png"><div>Відкрити PDF</div>
+				</div>
 			</div>
 			<div id="menu_panel">
 				<?

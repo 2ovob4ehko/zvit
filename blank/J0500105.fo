@@ -1,0 +1,1607 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" exclude-result-prefixes="fo">
+	<xsl:output method="xml" version="1.0" omit-xml-declaration="no" indent="yes"/>
+	<xsl:template match="DECLARBODY">
+		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+			<fo:layout-master-set>
+				<fo:simple-page-master margin-right="1cm" margin-left="1.5cm" margin-bottom="0.5cm" margin-top="0.5cm" page-width="29.7cm" page-height="21cm" master-name="first">
+					<fo:region-body margin-top="0cm" margin-bottom="0cm"/>
+					<fo:region-before extent="0cm"/>
+					<fo:region-after extent="0cm"/>
+				</fo:simple-page-master>
+			</fo:layout-master-set>
+			<fo:page-sequence font-family="TimesNewRoman" font-size="10pt" master-reference="first">
+				<fo:flow flow-name="xsl-region-body">
+					<fo:table space-before="7pt" text-align="center">
+						<fo:table-column column-number="1" column-width="4cm"/>
+						<fo:table-column column-number="2" column-width="16.4cm"/>
+						<fo:table-column column-number="3" column-width="6.7cm"/>
+						<fo:table-body>
+							<fo:table-row text-align="center" font-size="8pt" display-align="center">
+								<fo:table-cell padding-left="5.4pt">
+									<fo:block font-size="7pt">
+									J0500105
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell text-align="right" font-size="7pt">
+									<fo:block>
+										<xsl:value-of select="//DECLARHEAD/TIN"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.1cm" text-indent="14pt" text-align="center" table-layout="fixed">
+						<fo:table-column column-number="1" column-width="5cm"/>
+						<fo:table-column column-number="2" column-width="15.7cm"/>
+						<fo:table-column column-number="3" column-width="6.4cm"/>
+						<fo:table-body>
+							<fo:table-row font-size="8pt">
+								<fo:table-cell display-align="center" font-size="6pt" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+							Відмітка про одержання 	</fo:block>
+									<fo:block text-align="center"> (штамп контролюючого  органу)
+							</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center">
+									<fo:block/>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" font-size="8pt">
+									<fo:block>ЗАТВЕРДЖЕНО</fo:block>
+									<fo:block>Наказ  Міністерства фінансів  України</fo:block>
+									<fo:block>13.01.2015 року № 4</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.2cm" table-layout="fixed">
+						<fo:table-column column-number="1" column-width="6cm"/>
+						<fo:table-column column-number="2" column-width="18.3cm"/>
+						<fo:table-column column-number="3" column-width="0.8cm"/>
+						<fo:table-column column-number="4" column-width="2cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:value-of select="HTIN"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" padding-right="0.1cm" display-align="center">
+									<fo:block text-align="right" font-size="7pt">Стор.</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+										<xsl:value-of select="HPAGES"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" font-size="6pt">
+									<fo:block>податковий номер юридичної особи (податковий номер  або 
+									серія та номер  паспорта*  самозайнятої фізичної особи) 
+</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-columns-spanned="3">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.5cm" table-layout="fixed" font-size="7pt">
+						<fo:table-column column-number="1" column-width="1cm"/>
+						<fo:table-column column-number="2" column-width="3cm"/>
+						<fo:table-column column-number="3" column-width="17.8cm"/>
+						<fo:table-column column-number="4" column-width="2.5cm"/>
+						<fo:table-column column-number="5" column-width="0.8cm"/>
+						<fo:table-column column-number="6" column-width="2cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell number-columns-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" number-rows-spanned="3">
+									<fo:block text-align="center" font-size="10pt" font-weight="bold">
+									Податковий розрахунок 
+									</fo:block>
+									<fo:block text-align="center" font-size="10pt" font-weight="bold">
+								сум доходу, нарахованого (сплаченого) на користь фізичних осіб, і сум утриманого з них податку
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block text-align="center" font-weight="bold" font-size="8pt">
+									Форма № 1 ДФ
+</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+										<xsl:if test="HZ=1">X</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-style="solid" border-width="0.25pt">
+									<fo:block>
+									Звітний
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+										X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-style="solid" border-width="0.25pt">
+									<fo:block>
+									юридична особа
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" number-rows-spanned="2">
+									<fo:block/>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+										<xsl:if test="HZN=1">X</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-style="solid" border-width="0.25pt">
+									<fo:block>
+									Звітний новий 
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-style="solid" border-width="0.25pt">
+									<fo:block>
+									самозайнята фізична особа
+									 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+										<xsl:if test="HZU=1">X</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-style="solid" border-width="0.25pt">
+									<fo:block>
+									Уточнюючий
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.2cm" table-layout="fixed">
+						<fo:table-column column-number="1" column-width="6.65cm"/>
+						<fo:table-column column-number="2" column-width="13.8cm"/>
+						<fo:table-column column-number="3" column-width="6.65cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell number-rows-spanned="6">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-bottom="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block text-align="center" font-weight="bold" font-size="10pt">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:value-of select="HNAME"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="6">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" font-size="6pt">
+									<fo:block text-align="center">
+									(найменування юридичної особи чи прізище, ім’я та по батькові самозайнятої фізичної особи)
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-bottom="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block text-align="center" font-weight="bold" font-size="10pt">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:value-of select="HLOC"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" font-size="6pt">
+									<fo:block text-align="center">(податкова адреса юридичної особи чи самозайнятої  фізичної особи)</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-bottom="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block text-align="center" font-weight="bold" font-size="10pt">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:value-of select="HSTI"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" font-size="6pt">
+									<fo:block text-align="center">(найменування контролюючого органу)</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.2cm">
+						<fo:table-column column-number="1" column-width="12cm"/>
+						<fo:table-column column-number="2" column-width="1cm"/>
+						<fo:table-column column-number="3" column-width="1cm"/>
+						<fo:table-column column-number="4" column-width="1.1cm"/>
+						<fo:table-column column-number="5" column-width="12cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding-right="0.1cm">
+									<fo:block text-align="right">
+									Звітний період
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center" font-weight="bold">
+										<xsl:value-of select="HZKV"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center" font-weight="bold">
+										<xsl:value-of select="HZY"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell>
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="6pt">
+									<fo:block text-align="center">
+									квартал
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell font-size="6pt">
+									<fo:block text-align="center">
+									рік
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0cm">
+						<fo:table-column column-number="1" column-width="7.6cm"/>
+						<fo:table-column column-number="2" column-width="2cm"/>
+						<fo:table-column column-number="3" column-width="5cm"/>
+						<fo:table-column column-number="4" column-width="2cm"/>
+						<fo:table-column column-number="5" column-width="10.5cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm">
+									<fo:block>
+							Працювало за трудовими договорами (контрактами)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R00G01I) = 0">
+			-
+		
+		</xsl:if>
+										<xsl:if test="string-length(R00G01I) &gt; 0">
+											<xsl:value-of select="R00G01I"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-columns-spanned="3">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm">
+									<fo:block>
+									Працювало за цивільно-правовими договорами
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="right" font-weight="bold">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:if test="string-length(R00G02I) = 0">
+			-
+		
+		</xsl:if>
+										<xsl:if test="string-length(R00G02I) &gt; 0">
+											<xsl:value-of select="R00G02I"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm">
+									<fo:block text-align="right"> 
+									ПОРЦІЯ №	
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="right" font-weight="bold">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:if test="string-length(R00G03I) = 0">
+			-
+		
+		</xsl:if>
+										<xsl:if test="string-length(R00G03I) &gt; 0">
+											<xsl:value-of select="R00G03I"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.2cm" font-size="8pt" table-layout="fixed">
+						<fo:table-column column-number="1" column-width="1.9cm"/>
+						<fo:table-column column-number="2" column-width="4.4cm"/>
+						<fo:table-column column-number="3" column-width="3.5cm"/>
+						<fo:table-column column-number="4" column-width="3.5cm"/>
+						<fo:table-column column-number="5" column-width="3cm"/>
+						<fo:table-column column-number="6" column-width="3cm"/>
+						<fo:table-column column-number="7" column-width="1cm"/>
+						<fo:table-column column-number="8" column-width="1.8cm"/>
+						<fo:table-column column-number="9" column-width="1.8cm"/>
+						<fo:table-column column-number="10" column-width="1.5cm"/>
+						<fo:table-column column-number="11" column-width="1.5cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-columns-spanned="11">
+									<fo:block font-weight="bold">
+									Розділ І.  Суми доходу, нарахованого (сплаченого) на користь фізичних осіб, і сум утриманого з них податку
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									№ з/п 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Податковий  номер або серія та номер паспорта*
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Сума нарахованого доходу  
+									</fo:block>
+									<fo:block text-align="center">
+									 (грн.,коп.) 
+									  </fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Сума виплаченого доходу 
+									</fo:block>
+									<fo:block text-align="center">
+									(грн.,коп.) 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-columns-spanned="2">
+									<fo:block text-align="center">
+									Сума утриманого податку
+									</fo:block>
+									<fo:block text-align="center">
+							 (грн.,коп.) 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Ознака доходу 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-columns-spanned="2">
+									<fo:block text-align="center">
+									 Дата
+									 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Ознака подат. соц. пільги 
+									 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Ознака (0,1)
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									нарахованого
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									перерахованого
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									прийняття на роботу (дд/мм/рррр)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									звільнення з роботи (дд/мм/рррр) 
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center" font-weight="bold">
+									1
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center" font-weight="bold">
+									2
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center" font-weight="bold">
+									3а
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center" font-weight="bold">
+									3
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+									4а
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+									4
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+									5
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center" font-weight="bold">
+									6
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center" font-weight="bold">
+									7
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+									8
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+									9
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<xsl:if test="count(//DECLARBODY/*[substring(name(),1,7)='T1RXXXX'])=0">
+								<xsl:call-template name="t1_row">
+									<xsl:with-param name="rownum" select="1"/>
+								</xsl:call-template>
+							</xsl:if>
+							<xsl:for-each select="//DECLARBODY/*[substring(name(), 1,4)='T1RX']">
+								<xsl:sort select="./@ROWNUM" data-type="number"/>
+								<xsl:variable name="n" select="./@ROWNUM"/>
+								<xsl:if test="count(following-sibling::*[substring(name(), 1,4)='T1RX' and @ROWNUM=$n])=0">
+									<xsl:call-template name="t1_row">
+										<xsl:with-param name="rownum" select="$n"/>
+									</xsl:call-template>
+								</xsl:if>
+							</xsl:for-each>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									Всього
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+				X
+				</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R01G03A) = 0">
+			-
+		
+		</xsl:if>
+										<xsl:if test="string-length(R01G03A) &gt; 0">
+											<xsl:value-of select="R01G03A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R01G03) = 0">
+			-
+		
+		</xsl:if>
+										<xsl:if test="string-length(R01G03) &gt; 0">
+											<xsl:value-of select="R01G03"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R01G04A) = 0">
+			-
+		
+		</xsl:if>
+										<xsl:if test="string-length(R01G04A) &gt; 0">
+											<xsl:value-of select="R01G04A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R01G04) = 0">
+			-
+		
+		</xsl:if>
+										<xsl:if test="string-length(R01G04) &gt; 0">
+											<xsl:value-of select="R01G04"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+						X
+							</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block>
+								X
+							</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block>
+			X
+							</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block>
+							X
+							</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block>
+								X
+							</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<!-- Розділ 2 -->
+							<fo:table-row>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-columns-spanned="11">
+									<fo:block font-weight="bold">
+							Розділ ІІ. Оподаткування процентів, виграшів (призів) у лотерею та військовий збір
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Загальна сума нарахованого доходу
+									</fo:block>
+									<fo:block text-align="center"> 
+									(грн.,коп.) 
+									 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Загальна сума виплаченого доходу
+									</fo:block>
+									<fo:block text-align="center">
+									 (грн.,коп.) 
+									 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-columns-spanned="2">
+									<fo:block text-align="center">
+									Загальна сума утриманого податку,
+									</fo:block>
+									<fo:block text-align="center">
+									збору  (грн., коп.)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" number-rows-spanned="2" number-columns-spanned="5">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									нарахованого
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									перерахованого
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block>
+									Оподаткування процентів 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0201G03A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0201G03A) &gt; 0">
+											<xsl:value-of select="R0201G03A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0201G04A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0201G04A) &gt; 0">
+											<xsl:value-of select="R0201G04A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0201G04) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0201G04) &gt; 0">
+											<xsl:value-of select="R0201G04"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block>
+									Оподаткування процентів - виключення**
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0202G03A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0202G03A) &gt; 0">
+											<xsl:value-of select="R0202G03A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0202G04A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0202G04A) &gt; 0">
+											<xsl:value-of select="R0202G04A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0202G04) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0202G04) &gt; 0">
+											<xsl:value-of select="R0202G04"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block>
+								Оподаткування виграшів (призів) у лотерею
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0203G03A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0203G03A) &gt; 0">
+											<xsl:value-of select="R0203G03A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0203G03) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0203G03) &gt; 0">
+											<xsl:value-of select="R0203G03"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0203G04A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0203G04A) &gt; 0">
+											<xsl:value-of select="R0203G04A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0203G04) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0203G04) &gt; 0">
+											<xsl:value-of select="R0203G04"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block>
+							Оподаткування виграшів (призів) у лотерею - виключення***
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0204G03A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0204G03A) &gt; 0">
+											<xsl:value-of select="R0204G03A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0204G03) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0204G03) &gt; 0">
+											<xsl:value-of select="R0204G03"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0204G04A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0204G04A) &gt; 0">
+											<xsl:value-of select="R0204G04A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0204G04) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0204G04) &gt; 0">
+											<xsl:value-of select="R0204G04"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block>
+									Військовий збір
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0205G03A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0205G03A) &gt; 0">
+											<xsl:value-of select="R0205G03A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0205G03) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0205G03) &gt; 0">
+											<xsl:value-of select="R0205G03"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0205G04A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0205G04A) &gt; 0">
+											<xsl:value-of select="R0205G04A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0205G04) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0205G04) &gt; 0">
+											<xsl:value-of select="R0205G04"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">
+									X
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">X</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center" padding-left="0.1cm">
+									<fo:block>Військовий збір-виключення***</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0206G03A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0206G03A) &gt; 0">
+											<xsl:value-of select="R0206G03A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0206G03) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0206G03) &gt; 0">
+											<xsl:value-of select="R0206G03"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0206G04A) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0206G04A) &gt; 0">
+											<xsl:value-of select="R0206G04A"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" font-size="10pt">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R0206G04) = 0">-</xsl:if>
+										<xsl:if test="string-length(R0206G04) &gt; 0">
+											<xsl:value-of select="R0206G04"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="center">X</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">X</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">X</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">X</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-style="solid" border-width="0.25pt" text-align="center" display-align="center">
+									<fo:block text-align="center">X</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.5cm" table-layout="fixed">
+						<fo:table-column column-number="1" column-width="5.5cm"/>
+						<fo:table-column column-number="2" column-width="3.5cm"/>
+						<fo:table-column column-number="3" column-width="6cm"/>
+						<fo:table-column column-number="4" column-width="3.5cm"/>
+						<fo:table-column column-number="5" column-width="4cm"/>
+						<fo:table-column column-number="6" column-width="3.5cm"/>
+						<fo:table-column column-number="7" column-width="1.1cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" text-align="right">
+									<fo:block>
+									Кількість рядків	(розділ І)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R02G01I) = 0">-</xsl:if>
+										<xsl:if test="string-length(R02G01I) &gt; 0">
+											<xsl:value-of select="R02G01I"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" text-align="right">
+									<fo:block>
+									Кількість фізичних осіб (розділ І)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R02G02I) = 0">-</xsl:if>
+										<xsl:if test="string-length(R02G02I) &gt; 0">
+											<xsl:value-of select="R02G02I"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" text-align="right">
+									<fo:block>
+									Кількість сторінок
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+									<fo:block text-align="right" font-weight="bold">
+										<xsl:if test="string-length(R02G03I) = 0">-</xsl:if>
+										<xsl:if test="string-length(R02G03I) &gt; 0">
+											<xsl:value-of select="R02G03I"/>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.5cm">
+						<fo:table-column column-number="1" column-width="5cm"/>
+						<fo:table-column column-number="2" column-width="2cm"/>
+						<fo:table-column column-number="3" column-width="0.5cm"/>
+						<fo:table-column column-number="4" column-width="3cm"/>
+						<fo:table-column column-number="5" column-width="0.5cm"/>
+						<fo:table-column column-number="6" column-width="7.6cm"/>
+						<fo:table-column column-number="7" column-width="0.5cm"/>
+						<fo:table-column column-number="8" column-width="2cm"/>
+						<fo:table-column column-number="9" column-width="1cm"/>
+						<fo:table-column column-number="10" column-width="3cm"/>
+						<fo:table-column column-number="11" column-width="2cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm">
+									<fo:block font-weight="bold">
+									Керівник юридичної особи
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block font-weight="bold" font-size="10pt">
+										<xsl:value-of select="HKBOS"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-bottom="solid" border-width="0.25pt">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-bottom="solid" border-width="0.25pt">
+									<fo:block font-weight="bold" font-size="10pt">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:value-of select="HBOS"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-bottom="solid" border-width="0.25pt" display-align="center">
+									<fo:block font-weight="bold">
+										<xsl:value-of select="HTELBOS"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+									Дата подання 
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell display-align="center" border-style="solid" border-width="0.25pt" padding="0pt">
+									<fo:block text-align="center" start-indent="4.8pt">
+										<xsl:value-of select="concat(substring(HFILL,1,2),'.',substring(HFILL,3,2),'.',substring(HFILL,5,4))"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" display-align="center" font-size="5.5pt" number-columns-spanned="2">
+									<fo:block text-align="right">
+									(податковий  номер або серія  та номер паспорта* керівника юридичної особи)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-top-style="solid" border-width="0.25pt" font-size="6pt">
+									<fo:block text-align="center">
+										(підпис)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-top-style="solid" border-width="0.25pt" font-size="6pt">
+									<fo:block text-align="center">
+									(ініціали, прізвище)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" font-size="6pt">
+									<fo:block text-align="center">
+									(тел.)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-columns-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.5cm">
+						<fo:table-column column-number="1" column-width="5cm"/>
+						<fo:table-column column-number="2" column-width="2cm"/>
+						<fo:table-column column-number="3" column-width="0.5cm"/>
+						<fo:table-column column-number="4" column-width="3cm"/>
+						<fo:table-column column-number="5" column-width="0.5cm"/>
+						<fo:table-column column-number="6" column-width="6.6cm"/>
+						<fo:table-column column-number="7" column-width="0.5cm"/>
+						<fo:table-column column-number="8" column-width="2cm"/>
+						<fo:table-column column-number="9" column-width="1cm"/>
+						<fo:table-column column-number="10" column-width="4cm"/>
+						<fo:table-column column-number="11" column-width="2cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm">
+									<fo:block font-weight="bold">
+									Головний бухгалтер
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block font-weight="bold" font-size="10pt">
+										<xsl:value-of select="HKBUH"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-bottom="solid" border-width="0.25pt">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-bottom="solid" border-width="0.25pt">
+									<fo:block font-weight="bold" font-size="10pt">
+										<xsl:value-of select="HBUH"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-bottom="solid" border-width="0.25pt" display-align="center">
+									<fo:block font-weight="bold">
+										<xsl:value-of select="HTELBUH"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" number-columns-spanned="2" number-rows-spanned="2">
+									<fo:block text-align="center">
+									Наведена інформація є правильною
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" display-align="center" font-size="5.5pt" number-columns-spanned="2">
+									<fo:block text-align="right">
+									(податковий номер або серія та номер паспорта* головного бухгалтера)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-top-style="solid" border-width="0.25pt" font-size="6pt">
+									<fo:block text-align="center">
+										(підпис)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-top-style="solid" border-width="0.25pt" font-size="6pt">
+									<fo:block text-align="center">
+									(ініціали, прізвище)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" font-size="6pt">
+									<fo:block text-align="center">
+									(тел.)
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.5cm">
+						<fo:table-column column-number="1" column-width="5cm"/>
+						<fo:table-column column-number="2" column-width="2cm"/>
+						<fo:table-column column-number="3" column-width="0.5cm"/>
+						<fo:table-column column-number="4" column-width="3cm"/>
+						<fo:table-column column-number="5" column-width="0.5cm"/>
+						<fo:table-column column-number="6" column-width="7.6cm"/>
+						<fo:table-column column-number="7" column-width="0.5cm"/>
+						<fo:table-column column-number="8" column-width="2cm"/>
+						<fo:table-column column-number="9" column-width="1cm"/>
+						<fo:table-column column-number="10" column-width="3cm"/>
+						<fo:table-column column-number="11" column-width="2cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm">
+									<fo:block font-weight="bold">
+Самозайнята фізична особа 
+</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-style="solid" border-width="0.25pt">
+									<fo:block font-weight="bold" font-size="10pt">
+			</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border-bottom="solid" border-width="0.25pt">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-bottom="solid" border-width="0.25pt">
+									<fo:block font-weight="bold" font-size="10pt">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-bottom="solid" border-width="0.25pt" display-align="center">
+									<fo:block font-weight="bold">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="2">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" number-columns-spanned="2" number-rows-spanned="2">
+									<fo:block text-align="center" font-weight="bold"/>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" display-align="center" font-size="5.5pt" number-columns-spanned="2">
+									<fo:block text-align="right">
+									(податковий номер або серія та номер паспорта* самозайнятої фізичної особи)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" border-top-style="solid" border-width="0.25pt" font-size="6pt">
+									<fo:block text-align="center">
+									(підпис)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-top-style="solid" border-width="0.25pt" font-size="6pt">
+									<fo:block text-align="center">
+									(ініціали, прізвище)
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" font-size="6pt">
+									<fo:block text-align="center">
+									(тел.)
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0.5cm" table-layout="fixed">
+						<fo:table-column column-number="1" column-width="3.5cm"/>
+						<fo:table-column column-number="2" column-width="20.1cm"/>
+						<fo:table-column column-number="3" column-width="3.5cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding-left="0.1cm" display-align="center">
+									<fo:block text-align="center" font-weight="bold">
+								М.П.(за наявності)
+							</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" font-size="7pt" border-top="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+								Заповнюється службовими особами  контролюючого органу 
+							</fo:block>
+								</fo:table-cell>
+								<fo:table-cell>
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table space-before="0cm" font-size="6.5pt">
+						<fo:table-column column-number="1" column-width="3.5cm"/>
+						<fo:table-column column-number="2" column-width="20.1cm"/>
+						<fo:table-column column-number="3" column-width="3.5cm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell number-rows-spanned="3">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding-left="0.1cm" display-align="center" border-left="solid" border-right="solid" border-top="solid" border-width="0.25pt">
+									<fo:block>
+										<fo:inline>	Відмітка про внесення даних до електронної бази звітності </fo:inline>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<fo:inline>_______________ 20____ р.
+										</fo:inline>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell number-rows-spanned="3">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border-left="solid" border-right="solid" border-width="0.25pt">
+									<fo:block>
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell display-align="center" border-top="solid " border-left="solid" border-right="solid" border-bottom="solid" border-width="0.25pt">
+									<fo:block text-align="center">
+					Службова особа  контролюючого органу  (підпис, ініціали, прізвище)
+							</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:block font-size="6pt" space-before="0.1cm">
+			* Для фізичної особи, яка має відмітку в паспорті про право здійснювати будь-які платежі за серією та номером паспорта.
+			</fo:block>
+					<fo:block font-size="6pt" space-before="0.1cm">
+			** Виключення інформації щодо оподаткування процентів при проведенні коригувань.
+			</fo:block>
+					<fo:block font-size="6pt" space-before="0.1cm">
+			*** Виключення інформації щодо оподаткування виграшів (призів) у лотерею при проведенні коригувань.
+			</fo:block>
+					<fo:block font-size="6pt" space-before="0.1cm">
+			**** Виключення інформації щодо військового збору при проведенні коригувань.
+			</fo:block>
+				</fo:flow>
+			</fo:page-sequence>
+		</fo:root>
+	</xsl:template>
+	<xsl:template name="t1_row">
+		<xsl:param name="rownum"/>
+		<xsl:variable name="iden" select="'T1RXXXX'"/>
+		<fo:table-row>
+			<fo:table-cell padding-left="0.1cm" border-style="solid" border-width="0.25pt" display-align="center" padding-top="0.1cm">
+				<fo:block text-align="center">
+					<xsl:value-of select="$rownum"/>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="right">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G02')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G02')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:value-of select="//DECLARBODY/*[name()=concat($iden, 'G02')][@ROWNUM=$rownum]"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="right">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G03A')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G03A')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:value-of select="//DECLARBODY/*[name()=concat($iden, 'G03A')][@ROWNUM=$rownum]"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="right">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G03')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G03')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:value-of select="//DECLARBODY/*[name()=concat($iden, 'G03')][@ROWNUM=$rownum]"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="right">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G04A')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G04A')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:value-of select="//DECLARBODY/*[name()=concat($iden, 'G04A')][@ROWNUM=$rownum]"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="right">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G04')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G04')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:value-of select="//DECLARBODY/*[name()=concat($iden, 'G04')][@ROWNUM=$rownum]"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="right">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G05')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G05')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:value-of select="//DECLARBODY/*[name()=concat($iden, 'G05')][@ROWNUM=$rownum]"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-left="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="center">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G06D')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G06D')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:variable name="dat2" select="//DECLARBODY/*[name()=concat($iden, 'G06D')][@ROWNUM=$rownum]"/>
+						<xsl:value-of select="concat(substring($dat2, 1,2),'.',substring($dat2, 3,2),'.',substring($dat2,5,4))"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-left="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="center">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G07D')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G07D')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:variable name="dat2" select="//DECLARBODY/*[name()=concat($iden, 'G07D')][@ROWNUM=$rownum]"/>
+						<xsl:value-of select="concat(substring($dat2, 1,2),'.',substring($dat2, 3,2),'.',substring($dat2,5,4))"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="right">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G08')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G08')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:value-of select="//DECLARBODY/*[name()=concat($iden, 'G08')][@ROWNUM=$rownum]"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+			<fo:table-cell padding-right="0.1cm" border-style="solid" border-width="0.25pt" display-align="center">
+				<fo:block text-align="right">
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G09')][@ROWNUM=$rownum]) = 0">
+			-
+			</xsl:if>
+					<xsl:if test="string-length(//DECLARBODY/*[name()=concat($iden, 'G09')][@ROWNUM=$rownum]) &gt; 0">
+						<xsl:value-of select="//DECLARBODY/*[name()=concat($iden, 'G09')][@ROWNUM=$rownum]"/>
+					</xsl:if>
+				</fo:block>
+			</fo:table-cell>
+		</fo:table-row>
+	</xsl:template>
+</xsl:stylesheet>

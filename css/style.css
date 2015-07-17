@@ -60,9 +60,9 @@ body
 .icon_button
 	{
 		display:none;
-		width:70px;
+		width:65px;
 		text-align:center;
-		font-size:12px;
+		font-size:10px;
 		cursor:pointer;
 	}
 .icon_button img

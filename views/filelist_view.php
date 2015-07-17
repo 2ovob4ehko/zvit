@@ -40,13 +40,26 @@
 		if($('#filelist').is(':visible')) {
 			$('#edit_button').css('display','inline-block');
 			$('#delete_button').css('display','inline-block');
-			$('#delete_button').click(function(){
-				alert(selected);
-			});
+			$('#pdf_button').css('display','inline-block');
 		}else{
 			$('.icon_button').css('display','none');
 		}
 	},100);
+	$('#delete_button').click(function(){
+		alert(selected);
+	});
+	$('#pdf_button').click(function(){
+		$('#pdfo_button').css('display','none');
+		$.ajax({
+			url: "?tab=createpdf&id="+selected.split('row')[1],
+			cache: false,
+			dataType: 'json',
+			success: function(json){
+				$('#pdfo_button').css('display','inline-block');
+				$('#pdfo_button').attr('onclick','window.open(\''+json.title+'\')');
+			}
+		});
+	});
 	$('.rows').click(function(){
 		$('.rows').css('background','#fff').css('color','#000');
 		$(this).css('background','#37d').css('color','#fff');
