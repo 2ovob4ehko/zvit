@@ -23,15 +23,22 @@ Zvit
 
 	open \usr\local\apache\conf\httpd.conf
 	
-знайти: AddDefaultCharset windows-1251 і закоментувати
+знайти:
+
+	AddDefaultCharset windows-1251 
+
+і закоментувати
 
 4) Змінити налаштування phpmyadmin для запиту паролю
 
 	open \home\localhost\www\tools\phpmyadmin\config.inc.php
 	
-Змінити значення параметру: 
+Змінити значення параметру:
+
 	$cfg['Servers'][$i]['auth_type'] = 'config'; 
+	
 на 
+
 	$cfg['Servers'][$i]['auth_type'] = 'cookie';
 
 Кінець костилів для Denwer
