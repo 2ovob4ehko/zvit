@@ -46,7 +46,13 @@
 		}
 	},100);
 	$('#delete_button').click(function(){
-		alert(selected);
+		$.ajax({
+			url: "?tab=delfile&id="+selected.split('row')[1],
+			cache: false,
+			success: function(){
+				showAjax('filelist&field=id&order=asc');
+			}
+		});
 	});
 	$('#pdf_button').click(function(){
 		$('#pdfo_button').css('display','none');

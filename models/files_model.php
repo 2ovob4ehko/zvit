@@ -57,5 +57,11 @@ class Files {
 			}
 		}
 	}
+	function deleteById($id){
+		if(!empty($id)) {
+			$sql = "DELETE FROM files WHERE id='$id'";
+			return $this->db->query($sql);
+		}else return false;
+	}
 }
 ?>

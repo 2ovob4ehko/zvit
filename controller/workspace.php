@@ -130,6 +130,11 @@ if(isset($_GET['tab'])){
     $json=new stdClass();
     $json->title='pdf/'.substr($f->name, 4, 43).'.pdf';
     echo json_encode($json);
+  }else if($_GET['tab']=='delfile'){
+    $file=$files->getById(strip_tags($_GET['id']));
+    $f=$file->fetch_object();
+    unlink($f->name);
+    $files->deleteById(strip_tags($_GET['id']));
   }
 }else{
   if(!empty($_COOKIE['firm'])){
