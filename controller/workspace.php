@@ -125,7 +125,7 @@ if(isset($_GET['tab'])){
       $output=shell_exec('java -cp "fop.jar;xml-apis.jar;xercesImpl-2.2.1.jar;xalan-2.4.1.jar;batik.jar;avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c  "conf\userconfig.xml" -xml "..\\xml\\'.substr($f->name, 4, 47).'" -xsl "..\\blank\\'.$f->code.'.fo" -pdf "..\\pdf\\'.substr($f->name, 4, 43).'.pdf"');
     }elseif (strtoupper(substr(PHP_OS, 0, 3)) === 'LIN') {
       chdir('fop/');
-      $output=shell_exec('java -cp "fop.jar:xml-apis.jar:xercesImpl-2.2.1.jar:xalan-2.4.1.jar:batik.jar:avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c "conf/luserconfig.xml" -xml "../xml/'.substr($f->name, 4, 47).'" -xsl "../blank/'.$f->code.'.fo" -pdf "../pdf/'.substr($f->name, 4, 43).'.pdf"');
+      $output=shell_exec('java -cp "fop.jar:xml-apis.jar:xercesImpl-2.2.1.jar:xalan-2.4.1.jar:batik.jar:avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c "conf/userconfig.xml" -xml "../xml/'.substr($f->name, 4, 47).'" -xsl "../blank/'.$f->code.'.fo" -pdf "../pdf/'.substr($f->name, 4, 43).'.pdf"');
     }
     $json=new stdClass();
     $json->title='pdf/'.substr($f->name, 4, 43).'.pdf';
