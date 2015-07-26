@@ -7,6 +7,7 @@
       </tr>
     </table>
   <form method="POST" id="blank_form">
+    <!--Верх для всіх однаковий-->
   <table>
     <tr>
       <td  align="center" >
@@ -299,6 +300,7 @@
       <td colspan="2"><font size="-1">(реєстраційний номер облікової картки платника податків)</font></td>
     </tr>
   </table>
+  <!--Низ міняєтся від ситуації-->
 </form>
   </div>
 </div>
