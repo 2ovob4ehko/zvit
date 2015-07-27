@@ -25,7 +25,7 @@ $(document).mouseup(function(e){
 });
 
 setInterval(function(){
-  if ($(window).width() < 800) {
+  if($(window).width() < 800) {
     $(".chosen-container").css("width",70);
   }else {
     $(".chosen-container").css("width",340);
@@ -34,6 +34,10 @@ setInterval(function(){
   $("#page").css("height",$(window).height()-80);
   $(".tab_ul").css("width",$(window).width());
   checkOpenTabs();
+  if($("#message").height()>250){
+    $("#message").css("height",250);
+    $("#message").css("overflow-y","scroll");
+  }
 },100);
 function showAjax(tab){
   $.ajax({
@@ -80,11 +84,15 @@ function addTab(t,id){
   $(".tabs").children("div").append(text);
   return text;
 }
-window.alert=function(msg){
+window.alert=function(msg,type){
   $('#message').html(msg).fadeIn();
-  setTimeout(function(){
-    $('#message').fadeOut();
-  },1000);
+  if (type === undefined) {
+    setTimeout(function(){
+      $('#message').fadeOut();
+    },1000);
+  }else{
+    $('#message').append('<br><br><button onclick="$(\'#message\').fadeOut();">OK</button>');
+  }
 }
 function checkOpenTabs(){
   if($("#settings").length==0){
