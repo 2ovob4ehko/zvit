@@ -377,10 +377,18 @@ function checkBlank(){
   required($("input[name='HLOC']"));
   required($("input[name='HSTI']"));
   numbered($("input[name='R00G03I']"),1,2,1);
-  numbered($("input[name='T1RXXXXG02[]']"),10,10,1);
-  numbered($("select[name='T1RXXXXG05[]']"),3,3,1);
-  numbered($("input[name='T1RXXXXG06D[]']"),8,8,0);
-  numbered($("input[name='T1RXXXXG07D[]']"),8,8,0);
+  $("div[data-page][style='display: block;']").find("input[name='T1RXXXXG02[]']").each(function(){
+    numbered($(this),10,10,1);
+  });
+  $("div[data-page][style='display: block;']").find("select[name='T1RXXXXG05[]']").each(function(){
+    numbered($(this),3,3,1);
+  });
+  $("div[data-page][style='display: block;']").find("input[name='T1RXXXXG06D[]']").each(function(){
+    numbered($(this),8,8,0);
+  });
+  $("div[data-page][style='display: block;']").find("input[name='T1RXXXXG07D[]']").each(function(){
+    numbered($(this),8,8,0);
+  });
   required($("input[name='R01G03A']"));
   required($("input[name='R01G03']"));
   required($("input[name='R01G04A']"));
@@ -392,13 +400,15 @@ function checkBlank(){
   numbered($("input[name='HKBOS']"),10,10,1);
 }
 function setTableNumero(){
-  $(".rownum").each(function(i) {
+  $("div[data-page][style='display: block;']").find(".rownum").each(function(i) {
     var number=i+1;
     $(this).find('td:first').text(number);
   });
 }
 function addNewRow(){
-  $("#rownum").append('<tr style="text-align:center;" class="rownum"><td></td><td><input style="width:100%;" type="text" name="T1RXXXXG02[]" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG03A[]" onchange="fixedToDecimal(this)" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG03[]" onchange="fixedToDecimal(this)" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG04A[]" onchange="fixedToDecimal(this)" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG04[]" onchange="fixedToDecimal(this)" class="filling" value=""></td><td><select style="width:100%;" name="T1RXXXXG05[]" class="filling"><option value=""></option></select></td><td><input style="width:100%;" type="text" name="T1RXXXXG06D[]" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG07D[]" class="filling" value=""></td><td><select style="width:100%;" name="T1RXXXXG08[]" class="filling"><option value=""></option></select></td><td><input style="width:100%;" type="checkbox" name="T1RXXXXG09[]" class="filling"></td><td><div class="del" onclick="$(this).parent().parent().remove()">&ndash;</div></td></tr>');
+  var v=$("div[data-page][style='display: block;']").find("#rownum").children("tr:last").html();
+  $("div[data-page][style='display: block;']").find("#rownum").append('<tr style="text-align:center;" class="rownum"></tr>');
+  $("div[data-page][style='display: block;']").find("#rownum").children("tr:last").html(v);
 }
 function required(el){
   if(el.val()==''){
