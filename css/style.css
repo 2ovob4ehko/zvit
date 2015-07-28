@@ -6,14 +6,54 @@ body
 #message
 	{
 		position:fixed;
-		top:45%;
-		left:45%;
+		top:42%;
+		left:42%;
 		padding:20px 10px;
 		background:#F2DBAE;
 		border:1px solid #BF532C;
 		text-align:center;
 		display:none;
 		z-index:2;
+	}
+.question
+	{
+		background:#ffce21;
+		color:#0050ba;
+		width: 20px;
+    height: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    vertical-align: middle;
+    border-radius: 10px;
+    margin: auto;
+    cursor: pointer;
+	}
+.del
+	{
+		background:#ff3521;
+		color:#ffffff;
+		width: 20px;
+	  height: 20px;
+	  font-weight: bold;
+	  line-height: 20px;
+	  vertical-align: middle;
+	  border-radius: 10px;
+	  margin: auto;
+	  cursor: pointer;
+	}
+.add
+	{
+		background:#10821b;
+		color:#ffffff;
+		width: 20px;
+	  height: 20px;
+	  font-weight: bold;
+	  line-height: 20px;
+	  vertical-align: middle;
+	  border-radius: 10px;
+	  margin: auto;
+	  cursor: pointer;
+		text-align:center;
 	}
 .page_title
 	{

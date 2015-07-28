@@ -95,7 +95,8 @@ if(isset($_GET['tab'])){
       'year'   => $_GET['year'],
       'period' => $_GET['period'],
       'stan'   => $_GET['stan'],
-      'number' => $_GET['number']
+      'number' => $_GET['number'],
+      'base_url' => base_url()
     );
     $json=new stdClass();
     $json->title=$_GET['title'];

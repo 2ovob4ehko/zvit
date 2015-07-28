@@ -35,7 +35,7 @@ setInterval(function(){
   $(".tab_ul").css("width",$(window).width());
   checkOpenTabs();
   if($("#message").height()>250){
-    $("#message").css("height",250);
+    $("#message").css("height",251);
     $("#message").css("overflow-y","scroll");
   }
 },100);
@@ -85,14 +85,17 @@ function addTab(t,id){
   return text;
 }
 window.alert=function(msg,type){
-  $('#message').html(msg).fadeIn();
+  $('#message').html('');
+  $("#message").css("height","auto");
+  $("#message").css("overflow","visible");
   if (type === undefined) {
     setTimeout(function(){
       $('#message').fadeOut();
     },1000);
   }else{
-    $('#message').append('<br><br><button onclick="$(\'#message\').fadeOut();">OK</button>');
+    $('#message').append('<button onclick="$(\'#message\').fadeOut();">Закрити</button><br><br>');
   }
+  $('#message').append(msg).fadeIn();
 }
 function checkOpenTabs(){
   if($("#settings").length==0){

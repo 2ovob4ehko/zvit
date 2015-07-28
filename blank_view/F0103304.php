@@ -399,10 +399,12 @@ function required(el){
 function numbered(el,min,max){
   if(typeof el.val() != "undefined"){
     if(!el.val().match(/^\d+$/)){
+      el.parent().children(".callout").remove();
       if(!el.parent().has(".callout").length){
-        el.parent().append('<div class="callout bottom">Поле тільки для цифр</div>');
+        el.parent().append('<div class="callout bottom">Поле повинно бути заповнене цифрами</div>');
       }
     }else if((el.val().length<min)||(el.val().length>max)){
+      el.parent().children(".callout").remove();
       if(!el.parent().has(".callout").length){
         el.parent().append('<div class="callout bottom">Невірна кількість цифр</div>');
       }

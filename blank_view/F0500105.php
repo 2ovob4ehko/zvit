@@ -123,9 +123,10 @@
     <td rowspan="2">Сума виплаченого доходу<br/>(грн., коп.)</td>
     <td colspan="2">Сума утриманого податку<br/>(грн., коп.)</td>
     <td rowspan="2">Ознака<br/>доходу<div class="question" onclick="alert(textOznDoh,1);">?</div></td>
-    <td colspan="2">Дата</td>
-    <td rowspan="2">Ознака подат.<br/>соц. пільги</td>
-    <td rowspan="2">Ознака<br/>(0,1)</td>
+    <td colspan="2">Дата<div class="question" onclick="alert('Формат дати: ддммгггг',1);">?</div></td>
+    <td rowspan="2">Ознака подат.<br/>соц. пільги<div class="question" onclick="alert(textLgot,1);">?</div></td>
+    <td rowspan="2">Ознака<br/>(мінусування)</td>
+    <td rowspan="2" style="width:20px">X</td>
   </tr>
   <tr style="text-align:center;">
     <td>нарахованого</td>
@@ -134,7 +135,7 @@
     <td>звільнення з роботи</td>
   </tr>
 </thead>
- <tBody>
+ <tbody id="rownum">
   <tr style="text-align:center;">
     <td><font size="-1">1</font></td>
     <td><font size="-1">2</font></td>
@@ -147,35 +148,44 @@
     <td><font size="-1">7</font></td>
     <td><font size="-1">8</font></td>
     <td><font size="-1">9</font></td>
+    <td><font size="-1"></font></td>
   </tr>
-  <tr style="text-align:center;" rownum="1">
-    <td>1</td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG02" class="filling" value=""></td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG03A" onchange="fixedToDecimal(this)" class="filling" value=""></td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG03" onchange="fixedToDecimal(this)" class="filling" value=""></td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG04A" onchange="fixedToDecimal(this)" class="filling" value=""></td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG04" onchange="fixedToDecimal(this)" class="filling" value=""></td>
+  <tr style="text-align:center;" class="rownum">
+    <td></td>
+    <td><input style="width:100%;" type="text" name="T1RXXXXG02[]" class="filling" value=""></td>
+    <td><input style="width:100%;" type="text" name="T1RXXXXG03A[]" onchange="fixedToDecimal(this)" class="filling" value=""></td>
+    <td><input style="width:100%;" type="text" name="T1RXXXXG03[]" onchange="fixedToDecimal(this)" class="filling" value=""></td>
+    <td><input style="width:100%;" type="text" name="T1RXXXXG04A[]" onchange="fixedToDecimal(this)" class="filling" value=""></td>
+    <td><input style="width:100%;" type="text" name="T1RXXXXG04[]" onchange="fixedToDecimal(this)" class="filling" value=""></td>
     <td>
-      <select style="width:100%;" name="T1RXXXXG05" class="filling">
+      <select style="width:100%;" name="T1RXXXXG05[]" class="filling">
         <option value=""></option>
       </select>
     </td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG06D" class="filling" value="0"></td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG07D" class="filling" value="0"></td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG08" class="filling" value="0"></td>
-    <td><input style="width:100%;" type="text" name="T1RXXXXG09" class="filling" value="0"></td>
+    <td><input style="width:100%;" type="text" name="T1RXXXXG06D[]" class="filling" value=""></td>
+    <td><input style="width:100%;" type="text" name="T1RXXXXG07D[]" class="filling" value=""></td>
+    <td>
+      <select style="width:100%;" name="T1RXXXXG08[]" class="filling">
+        <option value=""></option>
+      </select>
+    </td>
+    <td><input style="width:100%;" type="checkbox" name="T1RXXXXG09[]" class="filling"></td>
+    <td><div class="del" onclick="$(this).parent().parent().remove()">&ndash;</div></td>
   </tr>
-</tBody>
- <tr style="text-align:center;">
+</tbody>
+  <tr><td colspan="12"><div class="add" onclick="addNewRow();">+</div></td></tr>
+  <tr style="text-align:center;">
     <td style="text-align:center;">Всього</td>
     <td style="text-align:center;">X</td>
-    <td style="text-align:right;"><input type="text" name="R01G03A" onchange="fixedToDecimal(this)" style="width:100%" class="calculation" value="0"></td>
+    <td style="text-align:right;">
+    <input type="text" name="R01G03A" onchange="fixedToDecimal(this)" style="width:100%" class="calculation" value="0"></td>
     <td style="text-align:right;">
     <input type="text" name="R01G03" class="calculation" onchange="fixedToDecimal(this)" style="width:100%" value="0"></td>
     <td style="text-align:right;">
     <input type="text" name="R01G04A" class="calculation" onchange="fixedToDecimal(this)" style="width:100%" value="0"></td>
     <td style="text-align:right;">
     <input type="text" name="R01G04" class="calculation" onchange="fixedToDecimal(this)" style="width:100%" value="0"></td>
+    <td style="text-align:center;">X</td>
     <td style="text-align:center;">X</td>
     <td style="text-align:center;">X</td>
     <td style="text-align:center;">X</td>
@@ -202,45 +212,45 @@
    </tr>
    <tr>
     <td style="text-align:center;">Оподаткування процентів</td>
-    <td style="text-align:right;"><input type="text" name="R0201G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
+    <td style="text-align:right;"><input type="text" name="R0201G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
     <td style="text-align:center;">X</td>
-    <td style="text-align:right;"><input type="text" name="R0201G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0201G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
+    <td style="text-align:right;"><input type="text" name="R0201G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0201G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
   </tr>
   <tr>
     <td style="text-align:center;">Оподаткування процентів - виключення**</td>
-    <td style="text-align:right;"><input type="text" name="R0202G03A" class="filling" style="width:100%" onchange="fixedToDecimal(this)" value="0"></td>
+    <td style="text-align:right;"><input type="text" name="R0202G03A" class="filling" style="width:100%" onchange="fixedToDecimal(this)" value=""></td>
     <td style="text-align:center;">X</td>
-    <td style="text-align:right;"><input type="text" name="R0202G04A" class="filling" style="width:100%" onchange="fixedToDecimal(this)" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0202G04" class="filling" onchange="fixedToDecimal(this)" style="width:100%" value="0"></td>
+    <td style="text-align:right;"><input type="text" name="R0202G04A" class="filling" style="width:100%" onchange="fixedToDecimal(this)" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0202G04" class="filling" onchange="fixedToDecimal(this)" style="width:100%" value=""></td>
   </tr>
   <tr>
     <td style="text-align:center;">Оподаткування виграшів (призів) у лотерею</td>
-    <td style="text-align:right;"><input type="text" name="R0203G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0203G03" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0203G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0203G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
+    <td style="text-align:right;"><input type="text" name="R0203G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0203G03" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0203G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0203G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
   </tr>
   <tr>
     <td style="text-align:center;">Оподаткування виграшів (призів) у лотерею - виключення***</td>
-    <td style="text-align:right;"><input type="text" name="R0204G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0204G03" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0204G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0204G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
+    <td style="text-align:right;"><input type="text" name="R0204G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0204G03" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0204G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0204G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
   </tr>
   <tr>
     <td style="text-align:center;">Військовий збір</td>
-    <td style="text-align:right;"><input type="text" name="R0205G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0205G03" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0205G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0205G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
+    <td style="text-align:right;"><input type="text" name="R0205G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0205G03" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0205G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0205G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
   </tr>
   <tr>
     <td style="text-align:center;">Військовий збір - виключення****</td>
-    <td style="text-align:right;"><input type="text" name="R0206G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0206G03" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0206G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
-    <td style="text-align:right;"><input type="text" name="R0206G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value="0"></td>
+    <td style="text-align:right;"><input type="text" name="R0206G03A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0206G03" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0206G04A" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
+    <td style="text-align:right;"><input type="text" name="R0206G04" onchange="fixedToDecimal(this)" class="filling" style="width:100%" value=""></td>
   </tr>
 </table>
 <br/>
@@ -248,13 +258,13 @@
   <tr>
     <td style="width:20%;">Кількість рядків<br/>(Розділ І)</td>
     <td style="width:15%;">
-      <input name="R02G01I" class="calculation" type="text" style="width:100%;" value="0"></td>
+      <input name="R02G01I" class="calculation" type="text" style="width:100%;" value=""></td>
     <td style="width:25%;">Кількість фізичних осіб<br/>(Розділ І)</td>
     <td style="width:15%;">
-      <input name="R02G02I" class="filling" type="text" style="width:100%;" value="0"></td>
+      <input name="R02G02I" class="filling" type="text" style="width:100%;" value=""></td>
     <td style="width:20%;">Кількість сторінок</td>
     <td style="width:15%;">
-      <input name="R02G03I" type="text" style="width:100%;" class="filling" value="0"></td>
+      <input name="R02G03I" type="text" style="width:100%;" class="filling" value=""></td>
   </tr>
 </table>
 <br/>
@@ -307,100 +317,25 @@
   </div>
 </div>
 <script>
-var oznDoh=[
-	[{"ozn":101},{"name":"Заробітна плата, нарахована (виплачена)"}],
-	[{"ozn":102},{"name":"Виплати відповідно до умов цивільно-правового договору"}],
-	[{"ozn":103},{"name":"Роялті, у тому числі одержувані спадкоємцями"}],
-	[{"ozn":104},{"name":"Продаж (обмін) нерухомого майна згідно зі статтею 172 розділу IV Кодексу"}],
-	[{"ozn":105},{"name":"Продаж (обмін) рухомого майна згідно зі статтею 173 розділу IV Кодексу"}],
-	[{"ozn":106},{"name":"Надання майна в лізинг, оренду або суборенду згідно з пунктом 170.1 статті 170 розділу IV Кодексу"}],
-	[{"ozn":107},{"name":"Заборгованість, за якою минув строк позовної давності"}],
-	[{"ozn":108},{"name":"Дохід від фінансової установи після реалізації заставленого майна"}],
-	[{"ozn":109},{"name":"Дивіденди, крім тих, що не змінюють пропорцій (часток) участі"}],
-	[{"ozn":110},{"name":"Проценти"}],
-	[{"ozn":111},{"name":"Виграші та призи, крім виграшів та призів у лотерею"}],
-	[{"ozn":112},{"name":"Інвестиційний прибуток (дохід) від операцій з інвестиційними активами"}],
-	[{"ozn":113},{"name":"Дохід, отриманий у спадщину (подарований) від члена сім'ї першого ступеня споріднення"}],
-	[{"ozn":114},{"name":"Дохід, отриманий у спадщину (подарований) від фізичної особи, що не є членом сім'ї першого ступеня споріднення"}],
-	[{"ozn":115},{"name":"Дохід, отриманий у спадщину (подарований) від нерезидента або отриманий нерезидентом"}],
-	[{"ozn":116},{"name":"Дохід, отриманий у спадщину (подарований) платником, який є інвалідом I групи або має статус дитини-сироти або дитини, позбавленої батьківського піклування"}],
-	[{"ozn":117},{"name":"Заощадження, поміщені до 02 січня 1992 року в установи Ощадного банку СРСР та державного страхування СРСР, погашення яких не відбулося"}],
-	[{"ozn":118},{"name":"Надміру витрачені кошти на відрядження або під звіт"}],
-	[{"ozn":119},{"name":"Виплати з фонду фінансування будівництва"}],
-	[{"ozn":120},{"name":"Неустойки, штрафи або пеня"}],
-	[{"ozn":121},{"name":"Страхові виплати (ДСЖ)"}],
-	[{"ozn":122},{"name":"Пенсійні виплати (НПЗ)"}],
-	[{"ozn":123},{"name":"Виплати з пенсійних вкладів (ПВ)"}],
-	[{"ozn":124},{"name":"Пенсійні внески, страхові внески (премії) за платника податку"}],
-	[{"ozn":125},{"name":"Пенсійні внески, страхові внески (премії) за платника податку, сплачені роботодавцем-резидентом"}],
-	[{"ozn":126},{"name":"Додаткове благо"}],
-	[{"ozn":127},{"name":"Інші доходи"}],
-	[{"ozn":128},{"name":"Соціальні виплати з відповідних бюджетів"}],
-	[{"ozn":129},{"name":"Доходи від цінних паперів, емітованих центральним органом виконавчої влади, що реалізує державну фінансову політику"}],
-	[{"ozn":130},{"name":"Сума шкоди, завданої внаслідок Чорнобильської катастрофи"}],
-	[{"ozn":131},{"name":"Виплати творчими спілками та іншими неприбутковими організаціями та благодійними фондами"}],
-	[{"ozn":132},{"name":"Внески на обов'язкове страхування, інші, ніж єдиний внесок на загальнообов'язкове державне соціальне страхування"}],
-	[{"ozn":133},{"name":"Сума єдиного внеску на загальнообов'язкове державне соціальне страхування"}],
-	[{"ozn":134},{"name":"Страхові внески до Накопичувального фонду, обов'язкові внески до недержавного пенсійного фонду та фонду банківського управління"}],
-	[{"ozn":135},{"name":"Кошти, які відповідно до закону перераховуються з Накопичувального фонду до недержавного пенсійного фонду, фонду банківського управління чи страхової організації"}],
-	[{"ozn":136},{"name":"Майно, надане роботодавцем безоплатно або у тимчасове користування в межах закону"}],
-	[{"ozn":137},{"name":"Грошове або майнове забезпечення військовослужбовців строкової служби"}],
-	[{"ozn":138},{"name":"Вартість товарів, які надходять платнику податку як гарантійна заміна"}],
-	[{"ozn":139},{"name":"Кошти або вартість майна, які надходять внаслідок поділу власності подружжя"}],
-	[{"ozn":140},{"name":"Аліменти"}],
-	[{"ozn":141},{"name":"Компенсація вартості майна, примусово відчуженого державою"}],
-	[{"ozn":142},{"name":"Дивіденди у вигляді акцій, які не змінюють участі"}],
-	[{"ozn":143},{"name":"Допомога на лікування та медичне обслуговування"}],
-	[{"ozn":144},{"name":"Вартість безоплатно наданого вугілля, вугільних та торф'яних брикетів"}],
-	[{"ozn":145},{"name":"Вартість підготовки чи перепідготовки платника податку"}],
-	[{"ozn":146},{"name":"Допомога на поховання"}],
-	[{"ozn":147},{"name":"Майно, що надається дітям-сиротам чи дітям, позбавленим батьківського піклування"}],
-	[{"ozn":148},{"name":"Доходи від продажу сільськогосподарської продукції, крім продукції тваринництва"}],
-	[{"ozn":149},{"name":"Доходи від вторинної сировини, побутових відходів, брухту кольорових металів, брухту дорогоцінних металів, проданого НБУ"}],
-	[{"ozn":150},{"name":"Сума стипендії"}],
-	[{"ozn":151},{"name":"Страхові виплати за договором, іншим, ніж ДСЖ або НПС"}],
-	[{"ozn":152},{"name":"Сума виплат заощаджень, поміщених до 02 січня 1992 року в установи Ощадного банку СРСР та державного страхування СРСР, погашення яких не відбулося"}],
-	[{"ozn":153},{"name":"Сума поворотної фінансової допомоги"}],
-	[{"ozn":154},{"name":"Сума доходу від донорства"}],
-	[{"ozn":155},{"name":"Вартість житла, яке передається з державної або комунальної власності"}],
-	[{"ozn":156},{"name":"Вартість путівок на відпочинок, оздоровлення та лікування на території України"}],
-	[{"ozn":157},{"name":"Дохід, виплачений самозайнятій особі"}],
-	[{"ozn":158},{"name":"Витрати роботодавця у зв'язку з підвищенням кваліфікації (перепідготовкою)"}],
-	[{"ozn":159},{"name":"Вартість орденів, медалей, знаків, кубків, дипломів, грамот та квітів"}],
-	[{"ozn":160},{"name":"Вартість призів переможцям та призерам спортивних змагань"}],
-	[{"ozn":161},{"name":"Дохід, отриманий внаслідок відчуження земельних ділянок, отриманих у власність у процесі приватизації"}],
-	[{"ozn":162},{"name":"Проценти на поточні банківські рахунки, за якими здійснюються виключно виплати заробітної плати, стипендій, пенсій, соціальної допомоги"}],
-	[{"ozn":163},{"name":"Суми коштів, надані всеукраїнськими громадськими організаціями інвалідів"}],
-	[{"ozn":164},{"name":"Сума страхової виплати за договорами страхування життя у разі смерті застрахованої особи"}],
-	[{"ozn":165},{"name":"Вартість побічних лісових користувань для власного споживання"}],
-	[{"ozn":167},{"name":"Виплати чи відшкодування, які здійснюються професійними спілками своїм членам"}],
-	[{"ozn":168},{"name":"Доходи від кооперативних виплат та/або від одержання паю"}],
-	[{"ozn":169},{"name":"Благодійна, у тому числі гуманітарна, допомога"}],
-	[{"ozn":170},{"name":"Доходи в Україні, отримані нерезидентом від нерезидента"}],
-	[{"ozn":171},{"name":"Плата (відсотки), що розподіляється (ються) на пайові членські внески членів кредитної спілки"}],
-	[{"ozn":172},{"name":"Доходи, перераховані на пенсійний вклад або на рахунок учасника фонду банківського управління"}],
-	[{"ozn":173},{"name":"Кошти, які вносяться третьою особою на пенсійний вклад платника"}],
-	[{"ozn":174},{"name":"Кошти, які вносяться особою на пенсійний вклад платника чи на рахунок у фонді банківського управління"}],
-	[{"ozn":175},{"name":"Доходи за договором пенсійного вкладу або за договором довірчого управління"}],
-	[{"ozn":176},{"name":"Кошти, виплачені відповідно до закону, що регулює питання створення та функціонування фондів банківського управління"}],
-	[{"ozn":177},{"name":"Доходи в Україні нерезидентів від участі у гастрольних заходах"}],
-	[{"ozn":178},{"name":"Сума майнового та немайнового внеску платника податку до статутного фонду"}],
-	[{"ozn":179},{"name":"Доходи від продажу продукції тваринництва"}],
-	[{"ozn":180},{"name":"Доходи від брухту дорогоцінних металів"}],
-	[{"ozn":181},{"name":"Доходи від операцій з конвертації цінних паперів"}],
-	[{"ozn":182},{"name":"Доходи від операцій з валютними цінностями (крім цінних паперів)"}],
-	[{"ozn":183},{"name":"Інвестиційний прибуток від операцій з борговими зобов'язаннями НБУ та казначейськими зобов'язаннями України, емітованими центральним органом виконавчої влади, що реалізує державну фінансову політику"}],
-	[{"ozn":184},{"name":"Суми пенсій або щомісячного довічного грошового утримання, отримуваних платником податку з Пенсійного фонду України чи бюджету згідно із законом, якщо їх розмір перевищує три розміри мінімальної заробітної плати, у частині такого перевищення"}],
-	[{"ozn":185},{"name":"Сума грошового забезпечення, грошових винагород та інших виплат, одержаних військовослужбовцями"}]
-];
 var textOznDoh='<table style="width:200px; border:1px solid black;border-spacing:0;border-collapse:collapse;">';
+var textLgot='<table style="width:200px; border:1px solid black;border-spacing:0;border-collapse:collapse;">';
 $(document).ready(function(){
-  oznDoh.forEach(function(item){
-    $("select[name='T1RXXXXG05']").append('<option value="'+item[0].ozn+'">'+item[0].ozn+'</option>');
-    textOznDoh+='<tr><td style="border:1px solid black;">'+item[0].ozn+'</td><td  style="border:1px solid black;">'+item[1].name+'</td></tr>';
+  $.getScript("<? echo $base_url; ?>js/1df_ozndoh.js",function(){
+    oznDoh.forEach(function(item){
+      $("select[name='T1RXXXXG05[]']").append('<option value="'+item.ozn+'">'+item.ozn+'</option>');
+      textOznDoh+='<tr><td style="border:1px solid black;">'+item.ozn+'</td><td  style="border:1px solid black;">'+item.name+'</td></tr>';
+    });
+    textOznDoh+='</table>';
   });
-  textOznDoh+='</table>'
+  $.getScript("<? echo $base_url; ?>js/1df_lgot.js",function(){
+    lgot.forEach(function(item){
+      $("select[name='T1RXXXXG08[]']").append('<option value="'+item.kod+'">'+item.kod+'</option>');
+      textLgot+='<tr><td style="border:1px solid black;">'+item.kod+'</td><td  style="border:1px solid black;">'+item.name+'</td></tr>';
+    });
+    textLgot+='</table>';
+  });
 });
+
 function fixedToDecimal(el){
   var n=Math.abs(parseFloat(el.value)).toFixed(2);
   if(n=='NaN'){
@@ -411,77 +346,59 @@ function fixedToDecimal(el){
 }
 setInterval(function(){
   if($("input[name='autocount']").prop("checked")){
-    var i11=Number($("input[name='R011G3']").val());
-    var i12=Number($("input[name='R012G3']").val());
-    var i13=Number($("input[name='R013G3']").val());
-    var i14=Number($("input[name='R014G3']").val());
-    var i15=Number($("input[name='R015G3']").val());
-    var i28=Number($("input[name='R028G3']").val());
-    var i30=Number($("input[name='R030G3']").val());
-    var i31=Number($("input[name='R031G3']").val());
-
-    var i21=(i11+i12+i13+i14+i15).toFixed(2);
-    i21=i21==0 ? '' : i21;
-    $("input[name='R021G3']").val(i21);
-    var i22=((i13+i14+i15)*0.15).toFixed(2);
-    i22=i22==0 ? '' : i22;
-    $("input[name='R022G3']").val(i22);
-    var i23=(i11*0.02).toFixed(2);
-    i23=i23==0 ? '' : i23;
-    $("input[name='R023G3']").val(i23);
-    var i24=(i12*0.04).toFixed(2);
-    i24=i24==0 ? '' : i24;
-    $("input[name='R024G3']").val(i24);
-    var i27=(Number(i22)+Number(i23)+Number(i24)).toFixed(2);
-    i27=i27==0 ? '' : i27;
-    $("input[name='R027G3']").val(i27);
-    var i29=(Number(i27)-Number(i28)).toFixed(2);
-    i29=i29==0 ? '' : i29;
-    $("input[name='R029G3']").val(i29);
-    if(i30!=0){
-      if(<?echo $stan;?><3){
-        var i341=3;
-      }else{
-        var i341=5;
-      }
-      $("input[name='R034G1']").val(i341);
-    }else{
-      $("input[name='R034G1']").val('');
-      $("input[name='R034G3']").val('');
-    }
-    if(i31>i30){
-      var i32=(Number(i31)-Number(i30)).toFixed(2);
-      i32=i32==0 ? '' : i32;
-      $("input[name='R032G3']").val(i32);
-      $("input[name='R033G3']").val('');
-      var i34=(Number(i32)*i341/100).toFixed(2);
-      i34=i34==0 ? '' : i34;
-      $("input[name='R034G3']").val(i34);
-    }else if(i31<i30){
-      var i33=(Number(i30)-Number(i31)).toFixed(2);
-      i33=i33==0 ? '' : i33;
-      $("input[name='R033G3']").val(i33);
-      $("input[name='R032G3']").val('');
-      var i34=(Number(i33)*i341/100).toFixed(2);
-      i34=i34==0 ? '' : i34;
-      $("input[name='R034G3']").val(i34);
-    }else{
-      $("input[name='R032G3']").val('');
-      $("input[name='R033G3']").val('');
-    }
+    var sum=0;
+    $("div[data-page][style='display: block;']").find("input[name='T1RXXXXG03A[]']").each(function() {
+        sum += Number($(this).val());
+    });
+    $("input[name='R01G03A']").val(sum.toFixed(2));
+    var sum=0;
+    $("div[data-page][style='display: block;']").find("input[name='T1RXXXXG03[]']").each(function() {
+        sum += Number($(this).val());
+    });
+    $("input[name='R01G03']").val(sum.toFixed(2));
+    var sum=0;
+    $("div[data-page][style='display: block;']").find("input[name='T1RXXXXG04A[]']").each(function() {
+        sum += Number($(this).val());
+    });
+    $("input[name='R01G04A']").val(sum.toFixed(2));
+    var sum=0;
+    $("div[data-page][style='display: block;']").find("input[name='T1RXXXXG04[]']").each(function() {
+        sum += Number($(this).val());
+    });
+    $("input[name='R01G04']").val(sum.toFixed(2));
+    $("input[name='R02G01I']").val($("div[data-page][style='display: block;']").find("input[name='T1RXXXXG02[]']").length);
   }
   checkBlank();
+  setTableNumero();
 },500);
 function checkBlank(){
   required($("input[name='HNAME']"));
-  numbered($("input[name='HTIN']"),10,10);
-  required($("input[name='HREG']"));
-  required($("input[name='HCITY']"));
+  numbered($("input[name='HTIN']"),10,10,1);
   required($("input[name='HLOC']"));
   required($("input[name='HSTI']"));
-  numbered($("input[name='HNACTL']"),1,4);
+  numbered($("input[name='R00G03I']"),1,2,1);
+  numbered($("input[name='T1RXXXXG02[]']"),10,10,1);
+  numbered($("select[name='T1RXXXXG05[]']"),3,3,1);
+  numbered($("input[name='T1RXXXXG06D[]']"),8,8,0);
+  numbered($("input[name='T1RXXXXG07D[]']"),8,8,0);
+  required($("input[name='R01G03A']"));
+  required($("input[name='R01G03']"));
+  required($("input[name='R01G04A']"));
+  required($("input[name='R01G04']"));
+  required($("input[name='R02G01I']"));
+  required($("input[name='R02G02I']"));
+  required($("input[name='R02G03I']"));
   required($("input[name='HBOS']"));
-  numbered($("input[name='HKBOS']"),10,10);
+  numbered($("input[name='HKBOS']"),10,10,1);
+}
+function setTableNumero(){
+  $(".rownum").each(function(i) {
+    var number=i+1;
+    $(this).find('td:first').text(number);
+  });
+}
+function addNewRow(){
+  $("#rownum").append('<tr style="text-align:center;" class="rownum"><td></td><td><input style="width:100%;" type="text" name="T1RXXXXG02[]" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG03A[]" onchange="fixedToDecimal(this)" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG03[]" onchange="fixedToDecimal(this)" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG04A[]" onchange="fixedToDecimal(this)" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG04[]" onchange="fixedToDecimal(this)" class="filling" value=""></td><td><select style="width:100%;" name="T1RXXXXG05[]" class="filling"><option value=""></option></select></td><td><input style="width:100%;" type="text" name="T1RXXXXG06D[]" class="filling" value=""></td><td><input style="width:100%;" type="text" name="T1RXXXXG07D[]" class="filling" value=""></td><td><select style="width:100%;" name="T1RXXXXG08[]" class="filling"><option value=""></option></select></td><td><input style="width:100%;" type="checkbox" name="T1RXXXXG09[]" class="filling"></td><td><div class="del" onclick="$(this).parent().parent().remove()">&ndash;</div></td></tr>');
 }
 function required(el){
   if(el.val()==''){
@@ -492,13 +409,20 @@ function required(el){
     el.parent().children(".callout").remove();
   }
 }
-function numbered(el,min,max){
+function numbered(el,min,max,required){
   if(typeof el.val() != "undefined"){
-    if(!el.val().match(/^\d+$/)){
+    if((required)&&(el.val()=='')){
+      el.parent().children(".callout").remove();
       if(!el.parent().has(".callout").length){
-        el.parent().append('<div class="callout bottom">Поле тільки для цифр</div>');
+        el.parent().append('<div class="callout bottom">Поле повинно бути заповнене</div>');
       }
-    }else if((el.val().length<min)||(el.val().length>max)){
+    }else if(!el.val().match(/^\d+$/)&&(el.val()!='')){
+      el.parent().children(".callout").remove();
+      if(!el.parent().has(".callout").length){
+        el.parent().append('<div class="callout bottom">Поле повинно бути заповнене цифрами</div>');
+      }
+    }else if(((el.val().length<min)||(el.val().length>max))&&(el.val()!='')){
+      el.parent().children(".callout").remove();
       if(!el.parent().has(".callout").length){
         el.parent().append('<div class="callout bottom">Невірна кількість цифр</div>');
       }
@@ -508,7 +432,7 @@ function numbered(el,min,max){
   }
 }
 function saveDocuments(){
-	$.post('<? echo base_url(); ?>?render=F0103304', $('#blank_form').serialize(),function(){
+	$.post('<? echo base_url(); ?>?render=F0500105', $('#blank_form').serialize(),function(){
 		alert('Звіт збережено');
 	});
 }
