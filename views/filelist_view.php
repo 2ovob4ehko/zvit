@@ -37,7 +37,7 @@
 </div>
 <script>
 	setInterval(function(){
-		if($('#filelist').is(':visible')) {
+		if($("div[id='Список файлів']").is(':visible')) {
 			$('#edit_button').css('display','inline-block');
 			$('#delete_button').css('display','inline-block');
 			$('#pdf_button').css('display','inline-block');
@@ -62,6 +62,7 @@
 			dataType: 'json',
 			success: function(json){
 				$('#pdfo_button').css('display','inline-block');
+				console.log("logPDF: "+json.log);
 				$('#pdfo_button').attr('onclick','window.open(\''+json.title+'\')');
 			}
 		});

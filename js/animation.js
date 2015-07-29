@@ -1,6 +1,3 @@
-var SETTING_SHOW=0;
-var CREATE_SHOW=0;
-var FILELIST_SHOW=0;
 var MENU_SHOW=0;
 $(document).ready(function(){
   selectFirm(function(){
@@ -33,7 +30,6 @@ setInterval(function(){
   $("#work_space").css("height",$(window).height()-40);
   $("#page").css("height",$(window).height()-80);
   $(".tab_ul").css("width",$(window).width());
-  checkOpenTabs();
   if($("#message").height()>250){
     $("#message").css("height",251);
     $("#message").css("overflow-y","scroll");
@@ -45,29 +41,9 @@ function showAjax(tab){
     cache: false,
     dataType: 'json',
     success: function(json){
-      t=explode('&',tab);
-      switch(t[0]){
-        case 'settings':
-          if(!SETTING_SHOW){
-            addTab(json.title,'settings').html(json.data);
-            SETTING_SHOW=1;
-          }else $("#settings").html(json.data);
-        break;
-        case 'create':
-          if(!CREATE_SHOW){
-            addTab(json.title,'create').html(json.data);
-            CREATE_SHOW=1;
-          }else $("#create").html(json.data);
-        break;
-        case 'filelist':
-          if(!FILELIST_SHOW){
-            addTab(json.title,'filelist').html(json.data);
-            FILELIST_SHOW=1;
-          }else $("#filelist").html(json.data);
-        break;
-        default:
-        addTab(json.title,'').html(json.data);
-      }
+      if(!$("div[id='"+json.title+"']").length){
+        addTab(json.title,json.title).html(json.data);
+      }else $("div[id='"+json.title+"']").html(json.data);
       $("#menu_panel").hide();
       MENU_SHOW=0;
       $(".tabs").lightTabs($("li.active").attr("data-page"));
@@ -96,17 +72,6 @@ window.alert=function(msg,type){
     $('#message').append('<button onclick="$(\'#message\').fadeOut();">Закрити</button><br><br>');
   }
   $('#message').append(msg).fadeIn();
-}
-function checkOpenTabs(){
-  if($("#settings").length==0){
-    SETTING_SHOW=0;
-  }
-  if($("#create").length==0){
-    CREATE_SHOW=0;
-  }
-  if($("#filelist").length==0){
-    FILELIST_SHOW=0;
-  }
 }
 function selectFirm(callback){
 	$.ajax({
