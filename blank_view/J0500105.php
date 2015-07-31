@@ -276,14 +276,14 @@
 <br/>
 <table style="width:100%;">
   <tr>
-    <td>Самозайнята фізична особа</td>
+    <td>Керівник юридичної особи</td>
     <td style="width:100px;"><input name="HKBOS" style="width:100%" type="text" class="filling" value="<? echo $f->btin; ?>"></td>
     <td style="width:250px;"><input name="HBOS" style="width:100%" type="text" class="filling" value="<? echo $f->bfio; ?>"></td>
     <td style="width:120px;"><input name="HTELBOS" type="text" style="width:100%" class="filling" value=""></td>
   </tr>
    <tr style="text-align:center;">
     <td></td>
-    <td><font size="-1">(податковий  номер або серія  та номер паспорта* cамозайнятої фізичної особи)</font></td>
+    <td><font size="-1">(податковий  номер або серія  та номер паспорта* керівника юридичної особи)</font></td>
     <td><font size="-1">(ініціали, прізвище)</font></td>
     <td><font size="-1">(тел.)</font></td>
   </tr>
@@ -379,7 +379,7 @@ setInterval(function(){
 },500);
 function checkBlank(){
   required($("input[name='HNAME']"));
-  numbered($("input[name='HTIN']"),10,10,1);
+  numbered($("input[name='HTIN']"),8,8,1);
   required($("input[name='HLOC']"));
   required($("input[name='HSTI']"));
   numbered($("input[name='R00G03I']"),1,2,1);
@@ -448,7 +448,7 @@ function numbered(el,min,max,required){
   }
 }
 function saveDocuments(){
-	$.post('<? echo base_url(); ?>?render=F0500105', $('#blank_form').serialize(),function(){
+	$.post('<? echo base_url(); ?>?render=J0500105', $('#blank_form').serialize(),function(){
 		alert('Звіт збережено');
 	});
 }

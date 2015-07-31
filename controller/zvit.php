@@ -23,7 +23,7 @@
   $year=$_POST['year']; //рік звітності
   $doc_stan=$_POST['stan']; //стан документу (звітний=1, новий звітний=2, уточнюючий=3)
   $date=Date('dmY');
-  $software='FREE SOFTWARE FOR FREEDOM '.getVersion();
+  $software=getSoftWareName().' '.getVersion();
   $aplic=0;
   /*array(
       array(
@@ -86,7 +86,8 @@ if($_GET['render']=='F0103304'){
     $r35=$_POST['R035G3'];
     $bfio=$_POST['HBOS'];
     $btin=$_POST['HKBOS'];
-}else if($_GET['render']=='F0500105'){
+}else if(($_GET['render']=='F0500105')||($_GET['render']=='J0500105')){
+  $_GET['render']='F0500105';
   $name=$_POST['HNAME'];
   $loc=$_POST['HLOC'];
   $name_tax=$_POST['HSTI'];
