@@ -50,6 +50,7 @@
     $f=$myfirm->fetch_object();
     ?></td>
     <td><? echo $year; ?></td>
+    <input type="hidden" name="tax_code" value="<? echo $f->tax_code; ?>">
   </tr>
 </table>
 <br/>
@@ -125,7 +126,7 @@
     <td rowspan="2">Ознака<br/>доходу<div class="question" onclick="alert(textOznDoh,1);">?</div></td>
     <td colspan="2">Дата<div class="question" onclick="alert('Формат дати: ддммгггг',1);">?</div></td>
     <td rowspan="2">Ознака подат.<br/>соц. пільги<div class="question" onclick="alert(textLgot,1);">?</div></td>
-    <td rowspan="2">Ознака<br/>(мінусування)</td>
+    <td rowspan="2">Ознака<br/>(0,1)</td>
     <td rowspan="2" style="width:20px">X</td>
   </tr>
   <tr style="text-align:center;">
@@ -169,7 +170,12 @@
         <option value=""></option>
       </select>
     </td>
-    <td><input style="width:100%;" type="checkbox" name="T1RXXXXG09[]" class="filling"></td>
+    <td>
+      <select style="width:100%;" name="T1RXXXXG09[]" class="filling">
+        <option value="0">0</option>
+        <option value="1">1</option>
+      </select>
+    </td>
     <td><div class="del" onclick="$(this).parent().parent().remove()">&ndash;</div></td>
   </tr>
 </tbody>

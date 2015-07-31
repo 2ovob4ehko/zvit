@@ -46,5 +46,5 @@ function addScripts(){
 function base_url(){
   	return 'http://'.$_SERVER['HTTP_HOST'].parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 }
-function getVersion(){return '15.06.30';}
+function getVersion(){return '15.07.31';}
 ?>
