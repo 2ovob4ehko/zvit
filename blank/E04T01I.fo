@@ -1,0 +1,2980 @@
+<xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" exclude-result-prefixes="fo">
+	<xsl:output method="xml" version="1.0" omit-xml-declaration="no" indent="yes"/>
+	<xsl:template match="DECLARHEAD"/>
+	<xsl:template match="DECLARBODY">
+		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+			<fo:layout-master-set>
+				<fo:simple-page-master margin-right="0.5cm" margin-left="2cm" margin-bottom="1cm" margin-top="0.5cm" page-width="21cm" page-height="29.7cm" master-name="first">
+					<fo:region-body margin-top="0.5cm" margin-bottom="0.5cm"/>
+					<fo:region-before extent="0.5cm"/>
+					<fo:region-after extent="0.5cm"/>
+				</fo:simple-page-master>
+			</fo:layout-master-set>
+			<fo:page-sequence font-family="TimesNewRoman" font-size="8pt" master-reference="first">
+				<fo:flow flow-name="xsl-region-body">
+					<fo:table start-indent="0pt" font-size="8pt">
+							<fo:table-column column-number="1"/>
+							<fo:table-column column-number="2"/>
+							<fo:table-column column-number="3"/>
+							<fo:table-column column-number="4"/>
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block/>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block></fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm">
+										<fo:block>№ аркуша звіту </fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" font-weight="bold">
+										<fo:block>
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'PAGE_NUM'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+						<fo:table>
+							<fo:table-column column-number="1" column-width="11cm"/>
+							<fo:table-column column-number="2"/>
+							<fo:table-column column-number="3"/>
+							<fo:table-column column-number="4"/>
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell  padding="1mm">
+										<fo:block>1. Звіт за місяць</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm">
+										<fo:block font-weight="bold" border="1px solid black">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'PERIOD_MONTH'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="right">
+										<fo:block>pік</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm">
+										<fo:block  font-weight="bold" border="1px solid black">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'PERIOD_YEAR'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+						<fo:table>
+							<fo:table-column column-number="1" column-width="11cm"/>
+							<fo:table-column column-number="2"/>
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell  padding="1mm">
+										<fo:block>2. Код за ЄДРПОУ або податковий  номер страхувальника </fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm">
+										<fo:block  font-weight="bold" border="1px solid black">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'FIRM_EDRPOU'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell  padding="1mm">
+										<fo:block>3. Код за ЄДРПОУ або податковий номер ліквідованого страхувальника (заповнюється у разі подачі звіту правонаступником) </fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm">
+										<fo:block  font-weight="bold" border="1px solid black">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'LIKV_EDRPOU'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+						<fo:table>
+							<fo:table-column column-number="1" column-width="5cm"/>
+							<fo:table-column column-number="2"/>
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell  padding="1mm">
+										<fo:block>
+											<fo:block font-weight="bold">Страхувальник </fo:block>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm">
+										<fo:block border="solid" font-weight="bold">
+													<xsl:value-of select="//DECLAR//*[name()='FIRM_NAME']"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row font-size="7pt">
+									<fo:table-cell  padding="1mm">
+										<fo:block>
+											
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block>(найменування страхувальника або прізвище, ім'я, по батькові - для фізичної особи – підприємця, особи, яка провадить незалежну професійну діяльність)</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+					<fo:table>
+						<fo:table-column column-number="1"/>
+						<fo:table-column column-number="2"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">4. Код основного виду економічної діяльності  відповідно до якого встановлено клас професійного ризику </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block border="solid">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'KVED'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table>
+						<fo:table-column column-number="1"/>
+						<fo:table-column column-number="2"/>
+						<fo:table-column column-number="3"/>
+						<fo:table-column column-number="4"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">5. Клас професійного ризику виробництва </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block border="solid">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'PROF_RISK'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">6. Бюджетна установа </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block border="solid">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'BUDGET_UST'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">16. Кількість створених нових робочих місць у звітному періоді</fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1128'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">7. Підприємство, організація всеукраїнської громадської організації інвалідів, зокрема  товариств УТОГ,  УТОС </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block border="solid">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'UTOGS'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">17. Застосування коефіцієнта </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:if test="//DECLARBODY//*[name()='ZAST_KOEF'][.='1']">x  TAК <fo:block>&#0160;</fo:block>
+										</xsl:if>
+										<xsl:if test="//DECLARBODY//*[name()='ZAST_KOEF'][.='0']">x НІ<fo:block>&#0160;</fo:block>
+										</xsl:if>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">8. Підприємство, організація громадської  організації інвалідів       </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block border="solid">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ORG_INV'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">18. Розмір коефіцієнта (від 0,400 до 0,999)</fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ROZM_KOEF'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block font-weight="bold">9. Підприємство суднобудівної промисловості </fo:block>
+									<fo:block font-size="6pt">(клас 30.11 група 30.1 розділ 30, клас 33.15 група 33.1 розділ 33 КВЕД ДК 009:2010)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block border="solid">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ORG_SP'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">19. Середня заробітна плата за 2014 рік </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'SER_ZP'"/>
+										</xsl:call-template> грн.
+						</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm" number-columns-spanned="2">
+									<fo:block> (позначка "х" вноситься у клітинку відповідного варіанта)  </fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">20. Середньомісячна кількість застрахованих осіб за 2014 рік </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'SER_ZO'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					<fo:table>
+						<fo:table-column column-number="1"/>
+						<fo:table-column column-number="2"/>
+						<fo:table-column column-number="3"/>
+						<fo:table-column column-number="4"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">10. Міністерство, інший  центральний орган виконавчої влади </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'FIRM_MIN'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">21. Середньооблікова кількість штатних  працівників за звітний період, осіб </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1012'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">11. Місцезнаходження (місце проживання) </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:value-of select="//FIRM_ADR"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">у тому числі:</fo:block>
+										<fo:block>працівників,  яким відповідно до чинного законодавства встановлено інвалідність, осіб </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<fo:block>&#0160;</fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1121'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">тел. _  </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'FIRM_PHON'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">працівників, що мають додаткові гарантії у сприянні працевлаштуванню </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1129'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">12.Організаційно-правова форма господарювання </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'FIRM_VLAS'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">13. № реєстрації страхувальника</fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'FIRM_PENS'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">Штатна чисельність працівників</fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">Кількість осіб, які виконували роботи (надавали послуги) за договорами цивільно-правового  характеру </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1013'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">14.Найменування банку </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:value-of select="//DECLAR//*[name()='FIRM_NMBANK']"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">Кількість застрахованих осіб у звітному періоді, яким  нараховані виплати </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1014'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">15. МФО  </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'FIRM_CBANK'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+										<fo:block font-weight="bold">у тому числі: </fo:block>
+										<fo:block>&#0160; чоловіків</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+										<fo:block>&#0160;</fo:block>
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1015'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">№ п/рахунку   </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'FIRM_RS'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">жінок </fo:block>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1016'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm" text-align="center" number-columns-spanned="2">
+									<fo:block>
+										<fo:block font-style="italic">(показники кількості працівників зазначаються в цілих одиницях) </fo:block>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+					
+					<fo:table>
+						<fo:table-column column-number="1"/>
+						<fo:table-body>
+							<fo:table-row font-weight="bold" text-align="center">
+								<fo:table-cell padding="1mm">
+									<fo:block>
+										<fo:block font-weight="bold">Таблиця 1. Нарахування єдиного внеску</fo:block>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+				
+					<fo:table>
+						<fo:table-column column-number="1" column-width="15mm"/>
+						<fo:table-column column-number="2"/>
+						<fo:table-column column-number="3" column-width="20mm"/>
+						<fo:table-body>
+							<fo:table-row>
+								<fo:table-cell border="solid" padding="1mm" text-align="center">
+									<fo:block> № з/п</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" padding="1mm" text-align="center">
+									<fo:block> Назва показника</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" padding="1mm" text-align="center">
+									<fo:block> Сума (грн.)</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 1 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3 </fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Загальна сума нарахованої заробітної плати, винагород за виконану роботу (надані послуги) за цивільно-правовими договорами,
+оплати допомоги по тимчасовій непрацездатності та допомоги у зв'язку з вагітністю та пологами, усього (р.1.1 + р. 1.2 + р. 1.3 + р. 1.4 + р. 1.5)                    </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1000'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 1.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> сума нарахованої заробітної плати  </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 1.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> сума винагород за договорами цивільно-правового характеру </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1200'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 1.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> сума оплати перших п'яти днів тимчасової непрацездатності, що здійснюється за рахунок коштів роботодавця </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1300'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 1.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> сума допомоги по тимчасовій непрацездатності, яка виплачується за рахунок коштів фондів соціального страхування, усього,  у тому числі:</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1400'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 1.4.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> сума допомоги по тимчасовій непрацездатності, яка виплачується за рахунок коштів Фонду соціального страхування від нещасних
+випадків на виробництві та професійних захворювань на виробництві</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1410'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 1.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> сума допомоги у зв'язку з вагітністю та пологами</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_1500'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> Сума нарахованої заробітної плати, винагород за виконану роботу (надані послуги) за цивільно-правовими договорами,
+оплати допомоги по тимчасовій непрацездатності та допомоги у зв'язку з вагітністю та пологами, на яку нараховується єдиний внесок,
+ усього (р. 2.1+ р. 2.2 + р. 2.3 + р. 2.4) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2000'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> Сума нарахованої заробітної плати, на яку нараховується єдиний внесок, усього  <fo:block>&#0160;</fo:block>
+     (р. 2.1.1 + р. 2.1.2 + р. 2.1.3 + р. 2.1.4 + р. 2.1.5 + р. 2.1.6+ р. 2.1.7) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.1.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> роботодавцями відповідно до класу професійного ризику виробництва (36,76 - 49,7%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2110'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.1.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> бюджетними установами (36,3%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2120'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.1.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block> роботодавцями найманим працівникам із числа осіб льотних екіпажів повітряних  суден цивільної авіації (пілоти, штурмани,
+ бортінженери, бортмеханіки, бортрадисти, льотчики-наглядачі) і бортоператорам, які  виконують спеціальні роботи в польотах  (45,96 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.1.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>підприємствами, установами і організаціями працюючим інвалідам (8,41 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2140'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.1.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>підприємствами та організаціями всеукраїнських громадських організацій інвалідів, зокрема товариствами УТОГ та УТОС (5,3 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2150'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.1.6</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>підприємствами та організаціями громадських організацій інвалідів (за умов, визначених частиною чотирнадцятою статті 8 Закону) працюючим інвалідам  (5,5 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2160'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.1.7</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>підприємствами суднобудівної промисловості (клас 30.11 група 30.1 розділ 30, клас 33.15 група 33.1 розділ 33 КВЕД ДК 009:2010)  (33,2%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2170'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума винагород за виконані роботи (надані послуги) за цивільно-правовими договорами, усього<fo:block>&#0160;</fo:block> (р. 2.2.1 + р. 2.2.2 + р. 2.2.3)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2200'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.2.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума винагород за виконані роботи (надані послуги) за цивільно-правовими договорами, 34,7%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2210'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.2.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума винагород за виконані роботи (надані послуги) за цивільно-правовими договорами, нарахована підприємствами
+та організаціями всеукраїнських громадських організацій інвалідів, зокрема товариствами УТОГ та УТОС, (5,3%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2220'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.2.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума винагород за виконані роботи (надані послуги) за цивільно-правовими договорами, нарахована підприємствами суднобудівної
+ промисловості (клас 30.11 група 30.1 розділ 30,  клас 33.15 група 33.1 розділ 33 КВЕД ДК 009:2010) (33,2%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2230'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума допомоги по тимчасовій непрацездатності, усього (р. 2.3.1 + р. 2.3.2 + р. 2.3.3 + р. 2.3.4)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2300'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.3.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума допомоги по тимчасовій непрацездатності, на яку нараховується єдиний внесок   у розмірі  33,2 %</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2310'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.3.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума допомоги по тимчасовій непрацездатності, нарахована підприємствами, установами і організаціями працюючим інвалідам, (8,41 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2320'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.3.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума допомоги по тимчасовій непрацездатності, нарахована підприємствами та організаціями всеукраїнських громадських організацій інвалідів,
+зокрема товариствами УТОГ та УТОС, (5,3%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2330'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.3.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума допомоги по тимчасовій непрацездатності, нарахована  підприємствами та організаціями громадських організацій інвалідів
+(за умов, визначених частиною чотирнадцятою статті 8 закону) працюючим інвалідам, (5,5%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2340'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Cума допомоги у зв'язку з вагітністю та пологами  (р. 2.4.1 + р. 2.4.2 + р.  2.4.3 + р. 2.4.4)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2400'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.4.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Cума допомоги у зв'язку з вагітністю та пологами, на яку нараховується єдиний внесок у розмірі  33,2 %</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2410'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.4.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Cума допомоги у зв'язку з вагітністю та пологами, нарахована підприємствами, установами і організаціями працюючим інвалідам (8,41 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2420'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.4.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Cума допомоги у зв'язку з вагітністю та пологами, нарахована підприємствами та організаціями всеукраїнських громадських організацій інвалідів,
+зокрема товариствами УТОГ та УТОС (5,3%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2430'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.4.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Cума допомоги у зв'язку з вагітністю та пологами, нарахована  підприємствами та організаціями громадських організацій інвалідів
+ (за умов, визначених частиною чотирнадцятою статті 8 Закону) працюючим інвалідам (5,5%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2440'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Додаткова база нарахування єдиного внеску, усього (р. 2.5.1 + р. 2.5.2 + р. 2.5.3 + р. 2.5.4 + р.2.5.5)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2500'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.5.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>роботодавцями відповідно до класу професійного ризику виробництва (36,76 – 49,7 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2510'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.5.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>бюджетними установами (36,3 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2520'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.5.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>роботодавцями найманим працівникам із числа осіб льотних екіпажів повітряних суден цивільної
+авіації (пілоти, штурмани, бортінженери, бортмеханіки, бортрадисти, льотчики-наглядачі) і
+бортоператорам, які виконують спеціальні роботи в польотах (45,96 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2530'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.5.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>підприємствами суднобудівної промисловості (клас 30.11 групи 30.1 розділу 30, клас 33.15 групи 33.1
+розділу 33 КВЕД ДК 009:2010) (33,2 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2540'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 2.5.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>сума допомоги по тимчасовій непрацездатності, сума допомоги у зв’язку з вагітністю та пологами, на
+яку нараховується єдиний внесок у розмірі 33,2 %</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_2550'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Нараховано єдиного внеску, усього  (р. 3.1 + р. 3.2 + р. 3.3 + р. 3.4)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3000'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми заробітної плати, усього (р. 3.1.1 + р. 3.1.2 + р. 3.1.3 + р. 3.1.4 + р. 3.1.5 + р. 3.1.6+ р. 3.1.7)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.1.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми заробітної плати, нарахованої роботодавцями, відповідно до класу професійного ризику виробництва (р. 2.1.1 х(36,76%-49,7%))</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3110'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.1.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми заробітної плати, нарахованої бюджетними установами ((р. 2.1.2 х 36,3 %) х коефіцієнт)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3120'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.1.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми заробітної плати, нарахованої роботодавцями найманим працівникам із числа осіб льотних екіпажів повітряних
+ суден цивільної авіації (пілоти, штурмани, бортінженери, бортмеханіки, бортрадисти, льотчики-наглядачі) і бортоператорам, які
+ виконують спеціальні роботи в польотах (р. 2.1.3 х 45,96 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.1.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми заробітної плати, нарахованої підприємствами, установами і організаціями працюючим інвалідам (р. 2.1.4 х 8,41 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3140'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.1.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми заробітної плати, нарахованої підприємствами та організаціями всеукраїнських громадських організацій інвалідів,
+зокрема товариствами УТОГ та УТОС (р. 2.1.5 х 5,3 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3150'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.1.6</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми заробітної плати, нарахованої  підприємствами та організаціями громадських організацій інвалідів (за умов,
+визначених частиною чотирнадцятою статті 8 закону) працюючим інвалідам                  (р. 2.1.6 х 5,5 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3160'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.1.7</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми заробітної плати, нарахованої підприємствами суднобудівної промисловості (клас 30.11 група 30.1 розділ 30,
+клас 33.15 група 33.1 розділ 33 КВЕД ДК 009:2010)  (р. 2.1.7 х 33,2%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3170'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми винагород за виконані роботи (надані послуги) за цивільно-правовими договорами, усього (р. 3.2.1 + р. 3.2.2  + р. 3.2.3)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3200'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.2.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми винагород за виконані роботи (надані послуги) за цивільно-правовими договорами               (р. 2.2.1 х 34,7%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3210'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.2.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми винагород за виконані роботи (надані послуги) за цивільно-правовими договорами, нарахованих підприємствами та
+ організаціями всеукраїнських громадських організацій інвалідів, зокрема товариствами УТОГ та УТОС  (р. 2.2.2 х 5,3%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3220'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.2.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми винагород за виконані роботи (надані послуги) за цивільно-правовими договорами, нараховані  підприємствами
+ суднобудівної промисловості (клас 30.11 група 30.1 розділ 30,           клас 33.15 група 33.1 розділ 33 КВЕД ДК 009:2010)  (р. 2.2.3 х 33,2%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3230'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги по тимчасовій непрацездатності (р. 3.3.1 + р. 3.3.2 + р. 3.3.3 + р. 3.3.4)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3300'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.3.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги по тимчасовій непрацездатності (р. 2.3.1 х  33,2 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3310'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.3.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги по тимчасовій непрацездатності, нарахованої підприємствами, установами і організаціями працюючим інвалідам (р. 2.3.2 х 8,41 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3320'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.3.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги по тимчасовій непрацездатності, нарахованої підприємствами та організаціями всеукраїнських громадських організацій інвалідів,
+ зокрема товариствами УТОГ та УТОС                  (р. 2.3.3 х 5,3 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3330'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.3.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги по тимчасовій непрацездатності, нарахованої  підприємствами та організаціями громадських організацій інвалідів
+(за умов, визначених частиною чотирнадцятою статті 8 закону) працюючим інвалідам (р. 2.3.4 х 5,5 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3340'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги у зв'язку з вагітністю та пологами  (р. 3.4.1 + р. 3.4.2 + р. 3.4.3 + р. 3.4.4)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3400'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.4.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги у зв'язку з вагітністю та пологами (р. 2.4.1 х 33,2 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3410'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.4.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги у зв'язку з вагітністю та пологами, нарахованої підприємствами, установами і організаціями працюючим інвалідам (р. 2.4.2 х 8,41 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3420'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.4.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги у зв'язку з вагітністю та пологами, нарахованої підприємствами та організаціями всеукраїнських громадських організацій інвалідів,
+зокрема товариствами УТОГ та УТОС  (р. 2.4.3 х 5,3 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3430'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.4.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги у зв'язку з вагітністю та пологами, нарахованої  підприємствами та організаціями громадських організацій інвалідів
+ (за умов, визначених частиною чотирнадцятою статті 8 Закону) працюючим інвалідам (р. 2.4.4 х 5,5 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3440'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми додаткової бази нарахування єдиного внеску (р. 3.5.1 + р. 3.5.2 + р. 3.5.3 + р. 3.5.4 + р. 3.5.5)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3500'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.5.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми різниці між розміром мінімальної заробітної плати та фактично нарахованої заробітної плати роботодавцями, відповідно до класу професійного ризику виробництва (р. 2.5.1 х (36,76 %-49,7 %))</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3510'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.5.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми різниці між розміром мінімальної заробітної плати та фактично нарахованої заробітної плати бюджетними установами (р. 2.5.2 х 36,3 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3520'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.5.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми різниці між розміром мінімальної заробітної плати та фактично нарахованої заробітної плати роботодавцями найманим працівникам із числа осіб льотних екіпажів повітряних суден цивільної авіації (пілоти, штурмани, бортінженери, бортмеханіки, бортрадисти, льотчики-наглядачі) і бортоператорам, які виконують спеціальні роботи в польотах (р. 2.5.3 х 45,96 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3530'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.5.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми різниці між розміром мінімальної заробітної плати та фактично нарахованої заробітної плати підприємствами суднобудівної промисловості (клас 30.11 групи 30.1 розділу 30, клас 33.15 групи 33.1 розділу 33 КВЕД ДК 009:2010) (р. 2.5.4 х 33,2 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3540'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 3.5.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>на суми допомоги у зв'язку з вагітністю та пологами, нарахованої  підприємствами та організаціями громадських організацій інвалідів
+ (за умов, визначених частиною чотирнадцятою статті 8 Закону) працюючим інвалідам (р. 2.4.4 х 5,5 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_3550'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума нарахованої заробітної плати, винагород за виконану роботу (надані послуги) за цивільно-правовими договорами,
+оплати допомоги по тимчасовій непрацездатності та допомоги у зв'язку з вагітністю та пологами, з якої утримано єдиний внесок,
+ усього (р. 4.1 + р. 4.2 + р. 4.3 + р. 4.4) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_4000'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 4.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума заробітної плати застрахованих осіб, усього (р. 4.1.1 + р. 4.1.2 + р. 4.1.3)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_4100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 4.1.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>осіб, які працюють на умовах трудового договору (контракту) (3,6 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_4110'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 4.1.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>найманих працівників - інвалідів, які працюють на підприємствах УТОГ, УТОС (2,85 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_4120'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 4.1.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>працівників, які працюють на посадах, робота на яких зараховується до стажу, що дає право на одержання пенсії відповідно до окремих  законів України (6,1 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_4130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 4.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума винагород за виконану роботу (надані послуги) за цивільно-правовими договорами, 2,6%  (відповідає значенню р. 2.2)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_4200'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 4.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума допомоги по тимчасовій непрацездатності, 2 % </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_4300'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 4.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Cума допомоги у зв'язку з вагітністю та пологами (2 %)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_4400'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Утримано єдиного внеску, усього (р. 5.1 +  р. 5.2 +  р. 5.3 + р. 5.4 +  р. 5.5 +  р. 5.6) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_5000'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 5.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 4.1.1х 3,6 %</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_5100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 5.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 4.1.2 х 2,85 %</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_5200'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 5.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 4.1.3 х 6,1%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_5300'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 5.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 4.2 х 2,6 %</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_5400'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 5.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 4.3 х 2%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_5500'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 5.6</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 4.4 х 2%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_5600'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Донараховано та/або доутримано єдиного внеску у зв'язку з виправленням помилки, допущеної в попередніх звітних  періодах ( р. 6.1 + р. 6.2 + р. 6.3)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6000'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Донараховано єдиного внеску (крім сум, зазначених у р. 6.2)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>36,76-49,7%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6110'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>36,3%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6120'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>45,96 %</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>8,41%      </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6140'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>5,3%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6150'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.6</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>5,5%      </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6160'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.7</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>34,7%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6170'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.8</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>33,2%     </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6180'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.9</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>36,76-49,7 % х коефіцієнт</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6190'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.10</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>36,3 % х коефіцієнт</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_61100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.11</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>45,96 % х коефіцієнта</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_61110'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.12</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>34,7 % х коефіцієнт</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_61120'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.1.13</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>33,2 % х коефіцієнт</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_61130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Донараховано єдиного внеску за попередні звітні періоди внаслідок збільшення класу професійного ризику виробництва</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6200'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Додатково утримано єдиний внесок</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6300'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.3.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>3,6 % </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6310'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.3.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>2,85% </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6320'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.3.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>6,1% </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6330'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.3.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>2,6% </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6340'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.3.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>2% </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6350'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума виплат, на яку донараховано єдиний  внесок </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_6400'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 6.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Зміст помилки:&#0160;
+												<xsl:value-of select="//DECLAR//*[name()='ERROR_TXT1']"/>
+											</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Зменшено  суму єдиного внеску у зв'язку з виправленням помилки, допущеної в попередніх  звітних періодах  (р. 7.1 + р. 7.2 + р. 7.3)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7000'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Зменшено нарахування (крім сум, зазначених у р. 7.2)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>36,76-49,7% </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7110'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>36,3%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7120'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>45,96%     </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>8,41 %    </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7140'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>5,3%   </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7150'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.6</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>5,5%   </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7160'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.7</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>34,7 % </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7170'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.8</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>33,2 % </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7180'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.9</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>36,76-49,7 % х коефіцієнт</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7190'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.10</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>36,3 % х коефіцієнт</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_71100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block>7.1.11</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>45,96 % х коефіцієнта</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_71110'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block>7.1.12</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>34,7 % х коефіцієнт</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_71120'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.1.13</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>33,2 % х коефіцієнт</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_71130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Зменшено суму єдиного внеску  за попередні звітні періоди внаслідок зменшення класу професійного ризику виробництва </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7200'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Зменшено утримань</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7300'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.3.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>3,6 %</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7310'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.3.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>2,85%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7320'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.3.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>6,1%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7330'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.3.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>2,6%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7340'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.3.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>2%</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7350'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 7.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Сума виплат, на яку зайво нараховано єдиний внесок</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_7400'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Зміст помилки:&#0160;
+										<xsl:value-of select="//DECLAR//*[name()='ERROR_TXT2']"/>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>Загальна сума єдиного внеску, що підлягає сплаті,  всього (р. 3 + р. 5 + р. 6  - р. 7)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8000'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>у тому числі</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:text disable-output-escaping="yes"> </xsl:text>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.1</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 3.1.1 + р. 6.1.1 - р. 7.1.1 (36,76-49,7%) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8100'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.2</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 3.1.2 + р. 6.1.2 - р. 7.1.2  (36,3%) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8200'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.3</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 3.1.3 + р. 6.1.3 - р. 7.1.3  (45,96%) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8300'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.4</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 3.1.4 + р. 3.3.2 + р. 6.1.4 - р. 7.1.4  (8,41%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8400'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.5</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 3.1.5 + р.3.2.2 + р. 3.3.3 + р. 6.1.5 - р. 7.1.5  (5,3%) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8500'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.6</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 3.1.6 + р. 3.3.4 + р. 6.1.6 - р. 7.1.6   (5,5%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8600'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.7</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 3.2.1 + р. 6.1.7 - р. 7.1.7  (34,7%) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8700'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.8</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 3.1.7 + р. 3.2.3 + р. 3.3.1 + р. 6.1.8 - р. 7.1.8  (33,2%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8800'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.9</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 5.1 + р. 6.3.1- р. 7.3.1 (3,6%) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8900'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.10</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 5.2 + р. 6.3.2 - р. 7.3.2 (2,85%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8110'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.11</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 5.3 + р. 6.3.3 - р. 7.3.3 (6,1%) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8120'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.12</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 5.4 + р. 6.3.4 - р. 7.3.4 (2,6%)</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8130'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.13</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 5.5 + р. 6.3.5 - р. 7.3.5 (2%) </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8140'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+							<fo:table-row>
+								<fo:table-cell border="solid"  text-align="center">
+									<fo:block> 8.14</fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid" >
+									<fo:block>р. 6.2 - р. 7.2 </fo:block>
+								</fo:table-cell>
+								<fo:table-cell border="solid"  text-align="right">
+									<fo:block>
+										<xsl:call-template name="body_id">
+											<xsl:with-param name="id" select="'ID_8150'"/>
+										</xsl:call-template>
+									</fo:block>
+								</fo:table-cell>
+							</fo:table-row>
+						</fo:table-body>
+					</fo:table>
+				
+			<fo:block>* Для фізичних осіб, які мають відмітку в паспорті про право здійснювати будь-які платежі за серією та номером паспорта.</fo:block>
+				
+			<fo:block>&#0160;</fo:block>
+				<fo:table font-size="8pt">
+							<fo:table-column column-number="1" column-width="5cm"/>
+							<fo:table-column column-number="2" column-width="4cm"/>
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell  padding="1mm" font-size="8pt">
+										<fo:block>Дата формування у страхувальника </fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block border="solid" font-weight="bold">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'DATA_FILL'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+						<fo:table  font-size="8pt">
+							<fo:table-column column-number="1" column-width="5cm"/>
+							<fo:table-column column-number="2" column-width="4cm"/>
+							<fo:table-column column-number="3"/>
+							<fo:table-column column-number="4"/>
+							
+						<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell  padding="1mm" font-size="8pt">
+										<fo:block>Керівник  </fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block  border="solid" font-weight="bold">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'BOSS_NUMIDENT'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								
+									<fo:table-cell  padding="1mm">
+										<fo:block>
+											
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block font-weight="bold">
+													<xsl:value-of select="//DECLAR//*[name()='FIRM_BOSS']"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+								<fo:table-cell>
+									<fo:block font-size="8pt">М.П.(за наявності)</fo:block>
+								</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block font-size="5pt">(податковий  номер або серія  та номер паспорта*)                        </fo:block>
+									</fo:table-cell>
+								
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block font-size="5pt">	(підпис)</fo:block>
+									</fo:table-cell>
+								
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block font-size="5pt">	(П.І.Б.)	</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell  padding="1mm" font-size="8pt">
+										<fo:block>Головний бухгалтер</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block border="solid" font-weight="bold">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'BUH_NUMIDENT'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block></fo:block>
+									</fo:table-cell>									
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block font-weight="bold">
+												<xsl:value-of select="//DECLAR//*[name()='FIRM_BUH']"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell  padding="1mm">
+										<fo:block>
+											
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block font-size="5pt">(податковий  номер або серія  та номер паспорта*)                       </fo:block>
+									</fo:table-cell>
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block font-size="5pt">
+											(підпис)
+										</fo:block>
+									</fo:table-cell>
+									
+									<fo:table-cell  padding="1mm" text-align="center">
+										<fo:block font-size="5pt">
+											(П.І.Б.)
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+						<fo:block>&#0160;</fo:block>
+
+						
+						<fo:block text-align="right">Продовження додатка 4</fo:block> 						
+						<fo:block  margin-top="1mm" text-align="center">Додаток до таблиці 1 звіту за <xsl:value-of select="//DECLAR//*[name()='PERIOD_MONTH']"/> місяць <xsl:value-of select="//DECLAR//*[name()='PERIOD_YEAR']"/> року</fo:block> 						
+						<fo:block  margin-top="1mm" text-align="left">Сума заборгованості з виплати заробітної плати на початок звітного періоду__ <xsl:value-of select="//DECLAR//*[name()='ID_1103']"/> __ грн</fo:block>               
+						<fo:block  margin-top="1mm" text-align="left">Сума заборгованості з виплати заробітної плати на кінець звітного періоду__ <xsl:value-of select="//DECLAR//*[name()='ID_1104']"/> __ грн</fo:block>
+						<fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block>
+						<fo:block  margin-top="1mm" text-align="left">Виплачено заробітної плати усього __ <xsl:value-of select="//DECLAR//*[name()='ID_1117']"/> __ грн., у т.ч. у натуральній формі __ <xsl:value-of select="//DECLAR//*[name()='ID_1118']"/> __ грн,  </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">у  т.ч.:  виплачено  у  звітному  періоді  заробітної  плати  та  інших  виплат  і  винагород  особам,  які  працюють  на  умовах </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">трудового  договору  (контракту)  або  на  інших  умовах,  передбачених  законодавством,  чи  за  цивільно-правовими </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">договорами, нарахованих за період до 01 січня 2011 року __ <xsl:value-of select="//DECLAR//*[name()='ID_1122']"/> __ грн,  </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">у  т.ч.:  виплачено  у  звітному  періоді  заробітної  плати  та  інших  виплат  і  винагород  особам,  які  працюють  на  умовах </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">трудового  договору  (контракту)  або  на  інших  умовах,  передбачених  законодавством,  чи  за  цивільно-правовими </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">договорами, нарахованих за період до 01 січня 2004 року__ <xsl:value-of select="//DECLAR//*[name()='ID_1123']"/> __ грн  </fo:block>
+						<fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block>
+						<fo:block  margin-top="1mm" text-align="left">1. Належить до сплати нарахованих за період до 01 січня 2011 року: </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">1.1.  Страхових  внесків  до  Фонду  соціального  страхування  від  нещасних  випадків  на  виробництві  та  професійних захворювань України ___ <xsl:value-of select="//DECLAR//*[name()='ID_1124']"/> __ грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">1.2. Страхових внесків до Фонду соціального страхування з тимчасової втрати працездатності __ <xsl:value-of select="//DECLAR//*[name()='ID_1125']"/> __ грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">1.3. Страхових внесків до Фонду соціального страхування на випадок безробіття  __ <xsl:value-of select="//DECLAR//*[name()='ID_1126']"/> __ грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">2. Належить до сплати збору на обов’язкове державне пенсійне страхування, нарахованого за період до  01 січня 2004 року, __ <xsl:value-of select="//DECLAR//*[name()='ID_1127']"/> __ грн..** </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3. Виправлення помилок, допущених  при нарахуванні  внесків  на  загальнообов'язкове державне пенсійне  страхування  за період до 01 січня 2011 року:</fo:block>		
+						<fo:block  margin-top="1mm" text-align="left">3.1. Сума, на яку збільшено внески у зв'язку з виправленням помилки, у т.ч.                     ____ <xsl:value-of select="//DECLAR//*[name()='ID_1039']"/> ____ грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.1.1. 32 %; 32,3 %; 31,8 %; 33,2 %; 4 %; 42 %; 6,4 %; 6,46 %; 13,28 %; 19,92 %; 26,56 %  ____ <xsl:value-of select="//DECLAR//*[name()='ID_1040']"/> ____  грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.1.2. 0,5 – 5 %                                                                                                                               ____ <xsl:value-of select="//DECLAR//*[name()='ID_1041']"/> ____ грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.2. Сума виплати (заробітної плати, доходу), на яку донараховані страхові внески,        ____ <xsl:value-of select="//DECLAR//*[name()='ID_1060']"/> ____ грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.3. Сума, на яку зменшено внески у зв'язку з виправленням помилки, у т.ч.                     ____ <xsl:value-of select="//DECLAR//*[name()='ID_1042']"/> _____ грн  </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.3.1. 32 %; 32,3 %; 31,8 %; 33,2 %; 4 %; 42 %; 6,4 %; 6,46 %; 13,28 %; 19,92 %; 26,56 %  ____ <xsl:value-of select="//DECLAR//*[name()='ID_1043']"/> _____  грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.3.2. 0,5 – 5 %                                                                                                                              _____ <xsl:value-of select="//DECLAR//*[name()='ID_1044']"/> _____ грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.4. Сума виплати (заробітної плати, доходу), на яку зайво нараховані страхові внески,    ____ <xsl:value-of select="//DECLAR//*[name()='ID_1061']"/> ____ грн </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.5. Виправлення допущеної помилки потребує змін у персоніфікованому обліку застрахованих осіб  <xsl:choose>
+								<xsl:when test="//DECLAR//*[name()='ZM_SPOV']=1"><fo:inline text-decoration="underline">так</fo:inline></xsl:when>
+								<xsl:otherwise><fo:inline>так</fo:inline></xsl:otherwise>
+							</xsl:choose> / <xsl:choose>
+								<xsl:when test="//DECLAR//*[name()='ZM_SPOV']=0"><fo:inline text-decoration="underline">ні</fo:inline></xsl:when>
+								<xsl:otherwise><fo:inline>ні</fo:inline></xsl:otherwise>
+							</xsl:choose>
+						</fo:block>
+						<fo:block  margin-top="1mm" text-align="left">(необхідне підкреслити) </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">3.6. Зміст помилки ___<xsl:value-of select="//DECLAR//*[name()='ERROR_TXT3']"/> ___ </fo:block>
+
+						<fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block>
+						<fo:block  margin-top="1mm" text-align="left">4. Встановлені строки виплати заробітної плати: </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">за першу половину місяця __ <xsl:value-of select="//DECLAR//*[name()='VUPL_ZP1']"/> __ </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">за другу половину місяця  __ <xsl:value-of select="//DECLAR//*[name()='VUPL_ZP2']"/> __ </fo:block>
+
+						<fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block>
+						<fo:block  margin-top="1mm" text-align="center">Головний бухгалтер   __________________ <fo:inline >&#0160;&#0160;&#0160;</fo:inline> ________ <xsl:value-of select="//DECLAR//*[name()='FIRM_BUH']"/> ___________ </fo:block>
+            <fo:block  margin-top="1mm" text-align="center"><fo:inline >&#0160;&#0160;&#0160;&#0160;&#0160;</fo:inline>(підпис) <fo:inline >&#0160;&#0160;&#0160;&#0160;&#0160;&#0160;</fo:inline>(ініціали та прізвище)</fo:block>
+						<fo:block  margin-top="1mm" text-align="left">**Заповнюється платниками єдиного внеску, які мають заборгованість за розрахунками з Пенсійним фондом на   01 січня 2004 року. </fo:block>
+						<fo:block  margin-top="1mm" text-align="left">Примітка. Суми, зазначені в пунктах 1 та 2, підлягають сплаті окремо на рахунки фондів соціального страхування та Пенсійного фонду України.</fo:block>
+
+				</fo:flow>
+			</fo:page-sequence>
+		</fo:root>
+	</xsl:template>
+	<xsl:template name="body_id">
+		<xsl:param name="id"/>
+		<xsl:value-of select="//DECLAR//*[name()=$id]"/>
+	</xsl:template>
+</xsl:stylesheet>

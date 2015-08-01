@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" exclude-result-prefixes="fo">
+	<xsl:output method="xml" version="1.0" omit-xml-declaration="no" indent="yes"/>
+	<xsl:template match="DECLARHEAD"/>
+	<xsl:template match="DECLARBODY">
+		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+				<fo:layout-master-set>
+					<fo:simple-page-master margin-right="0.5cm" margin-left="2cm" margin-bottom="1cm" margin-top="0.5cm" page-width="21cm" page-height="29.7cm" master-name="first">
+						<fo:region-body margin-top="0.5cm" margin-bottom="0.5cm"/>
+						<fo:region-before extent="0.5cm"/>
+						<fo:region-after extent="0.5cm"/>
+					</fo:simple-page-master>
+				</fo:layout-master-set>
+				<fo:page-sequence  master-reference="first" >
+					<fo:flow flow-name="xsl-region-body" font-family="TimesNewRoman" font-size="10pt">
+					<fo:table start-indent="0pt" font-size="8pt">
+						<fo:table-column column-number="1" />
+						<fo:table-column column-number="2" />
+						<fo:table-column column-number="3" />
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">Додаток 4<fo:inline >&#0160;</fo:inline>
+ до Порядку формування та подання  страхувальниками звіту щодо сум нарахованого єдиного внеску на загальнообов'язкове державне соціальне страхування  <fo:inline >&#0160;</fo:inline>
+(пункт 1 розділу III)   </fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table> 
+						<fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block>
+						<fo:table>
+							<fo:table-column column-number="1"  />
+							<fo:table-body>
+								<fo:table-row text-align="center">
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											 <fo:inline font-weight="bold">Звітність </fo:inline>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell  text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											 <fo:inline font-weight="bold">Звіт про суми нарахованої заробітної плати (доходу, грошового забезпечення, допомоги, компенсації) застрахованих осіб та суми нарахованого єдиного внеску на загальнообов’язкове державне соціальне страхування до фіскальних органів</fo:inline>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+						<fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block>					
+						<fo:table>
+							<fo:table-column column-number="1" />
+							<fo:table-column column-number="2" border="1"  />
+							<fo:table-column column-number="3"/>
+							<fo:table-column column-number="4" border="1" />
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell >
+										<fo:block  margin-left="2mm"  margin-top="1mm">1. Звіт за місяць</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid"  >
+										<fo:block  margin-left="2mm"  margin-top="1mm"  font-weight="bold" >
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'PERIOD_MONTH'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell >
+										<fo:block  margin-left="2mm"  margin-top="1mm">рік:</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" >
+										<fo:block  margin-left="2mm"  margin-top="1mm" font-weight="bold" >
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'PERIOD_YEAR'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table> <fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block>
+						<fo:table font-size="9pt" >
+							<fo:table-column column-number="1" column-width="7cm" />
+							<fo:table-column column-number="2" column-width="5cm" />
+							<fo:table-column column-number="3"  column-width="1cm"/>
+							<fo:table-column column-number="4" />
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center" >
+										<fo:block  margin-left="2mm"  margin-top="1mm">Подають:</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center" >
+										<fo:block  margin-left="2mm"  margin-top="1mm">Терміни подання</fo:block>
+									</fo:table-cell>
+									<fo:table-cell >
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell number-rows-spanned="2">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+										<fo:inline font-weight="bold" >Форма № Д4</fo:inline> <fo:block font-style="italic">(місячна) </fo:block>
+												<xsl:if test="//DECLARBODY//*[name()='FORM_TYPE'][.='1']">X (початкова) <fo:block >&#0160;</fo:block></xsl:if> 
+												 <xsl:if test="//DECLARBODY//*[name()='FORM_TYPE'][.='2']">X (скасовуюча<fo:block >&#0160;</fo:block></xsl:if>												 
+												<xsl:if test="//DECLARBODY//*[name()='FORM_TYPE'][.='3']">X (додаткова)<fo:block >&#0160;</fo:block></xsl:if>
+												 <fo:block >&#0160;</fo:block>ЗАТВЕРДЖЕНО <fo:block >&#0160;</fo:block>
+                   наказом Міністерства фінансів України
+14.04.2015 № 435 
+ 
+                   за погодженням з  Держстатом 
+                   </fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid"   font-size="9pt">
+										<fo:block  margin-left="2mm"  margin-top="1mm">Страхувальники, фізичні особи - підприємці, у тому числі ті, які обрали спрощену систему оподаткування, особи,  які  провадять незалежну професійну діяльність, які використовують працю фізичних осіб, районні (міські) управління праці та соціального захисту населення, - відповідним фіскальним органам за місцем реєстрації</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" >
+										<fo:block  margin-left="2mm"  margin-top="1mm">не пізніше ніж через 20 календарних днів, наступних за останнім календарним днем звітного місяця </fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table> <fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block>
+						<fo:table  font-size="9pt">
+							<fo:table-column column-number="1" column-width="7.5cm"/>
+							<fo:table-column column-number="2" />
+							<fo:table-column column-number="3" column-width="7cm" />
+							<fo:table-column column-number="4" />
+						<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">2 Код за ЄДРПОУ або податковий  номер/ серія та номер паспорта страхувальника*</fo:block>
+									</fo:table-cell>
+									<fo:table-cell  font-weight="bold">
+										<fo:block  margin-left="2mm"  margin-top="1mm" border="solid">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'FIRM_EDRPOU'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">3. Код за ЄДРПОУ або податковий номер/серія та номер паспорта ліквідованого страхувальника* (заповнюється у разі подачі звіту правонаступником)     </fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm" border="solid" font-weight="bold">
+										<fo:leader leader-pattern="space" leader-length="5pt"/>
+										<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'LIKV_EDRPOU'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell number-columns-spanned="2" >
+										<fo:block  margin-left="2mm"  margin-top="1mm">4. Найменування / Прізвище, ім'я, по батькові  <fo:inline >&#0160;</fo:inline> <fo:inline font-style="italic">(страхувальника/фізичної особи) </fo:inline></fo:block>
+									</fo:table-cell>
+									<fo:table-cell number-columns-spanned="2" >
+										<fo:block  margin-left="2mm"  margin-top="1mm" font-weight="bold">
+												<xsl:value-of select="//DECLAR//*[name()='FIRM_NAME']"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell number-columns-spanned="2" >
+										<fo:block  margin-left="2mm"  margin-top="1mm">Місцезнаходження / Місце проживання</fo:block>
+									</fo:table-cell>
+									<fo:table-cell number-columns-spanned="2" >
+										<fo:block  margin-left="2mm"  margin-top="1mm" font-weight="bold">
+												<xsl:value-of select="//DECLAR//*[name()='FIRM_ADR']"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell >
+										<fo:block  margin-left="2mm"  margin-top="1mm">Телефон </fo:block>
+									</fo:table-cell>
+									<fo:table-cell >
+										<fo:block  margin-left="2mm"  margin-top="1mm" font-weight="bold">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'FIRM_PHON'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell number-columns-spanned="2">
+										<fo:block  margin-left="2mm"  margin-top="1mm">5. Код територіального фіскального органу, до якого подається звіт   </fo:block>
+									</fo:table-cell>
+									<fo:table-cell number-columns-spanned="2">
+										<fo:block  margin-left="2mm"  margin-top="1mm" font-weight="bold">
+												<xsl:value-of select="//DECLAR//*[name()='DPACD_ST']"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table> 
+						<fo:table>
+							<fo:table-column column-number="1" />
+						<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">Перелік таблиць звіту</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+						<fo:table font-size="9pt">
+							<fo:table-column column-number="1" column-width="1.5cm"/>
+							<fo:table-column column-number="2" column-width="13cm"/>
+							<fo:table-column column-number="3" />
+							<fo:table-column column-number="4" />
+							<fo:table-body>
+								<fo:table-row font-weight="bold" text-align="center">
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> № з/п</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> Назва таблиці</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> Кількість аркушів</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm">Кількість рядків</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> 1</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> Нарахування єдиного внеску </fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N1_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> * </fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> 2</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm">Нарахування єдиного внеску на загальнообов'язкове державне соціальне страхування за деякі категорії застрахованих осіб </fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N2_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> * </fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> 3</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> Нарахування єдиного внеску на загальнообов'язкове державне соціальне страхування за осіб, які проходять строкову військову службу</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N3_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid"  text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> * </fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">4</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm">Нарахування єдиного внеску на загальнообов'язкове державне соціальне страхування  на суми грошового забезпечення </fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N4_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> * </fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">5</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm">Відомості про трудові відносини застрахованих осіб</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N5_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N5_1'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid"  text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">6</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm">Відомості про нарахування заробітної плати (доходу) застрахованим особам</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N6_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N6_1'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">7</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm">Наявність підстав для обліку стажу окремим категоріям осіб відповідно до законодавства </fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N7_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N7_1'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">8</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm"  font-size="8pt">Відомості про осіб, які відповідно до Закону отримують допомогу по догляду за дитиною до досягнення нею трирічного віку, та осіб із числа непрацюючих працездатних батьків, усиновителів, опікунів, піклувальників, які фактично здійснюють догляд за дитиною-інвалідом, а також непрацюючих працездатних осіб, які здійснюють догляд за інвалідом I групи або за престарілим, який за висновком медичного закладу потребує постійного стороннього догляду або досяг 80-річного віку, якщо такі непрацюючі працездатні особи отримують допомогу або компенсацію відповідно до законодавства, та нарахування сум єдиного внеску за батьків-вихователів дитячих будинків сімейного типу,прийомних батьків, якщо вони отримують грошове забезпечення відповідно до законодавства</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N8_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N8_1'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">9</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm">Відомості про осіб, які проходять строкову  військову службу</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N9_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N9_1'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm"> </fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											 <fo:inline font-weight="bold">Усього </fo:inline>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N10_0'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell border="solid" text-align="center">
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'N10_1'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table>
+
+<fo:block font-size="6pt">* Для фізичних осіб, які мають відмітку в паспорті про право здійснювати будь-які платежі за серією та номером паспорта</fo:block>
+
+							<fo:table font-size="8pt">
+							<fo:table-column column-number="1" column-width="4cm"/>
+							<fo:table-column column-number="2" />
+							<fo:table-column column-number="3" column-width="2cm"/>
+							<fo:table-column column-number="4" />
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">Керівник  </fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm"  font-weight="bold">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'BOSS_NUMIDENT'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm"  font-weight="bold">
+												<xsl:value-of select="//DECLAR//*[name()='FIRM_BOSS']"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell font-size="6pt">
+										<fo:block  margin-left="2mm"  margin-top="1mm">(податковий  номер або серія  та номер паспорта*)                          </fo:block>
+									</fo:table-cell>
+									 <fo:table-cell font-size="6pt">
+										<fo:block  margin-left="2mm"  margin-top="1mm">(підпис)</fo:block>
+									</fo:table-cell>
+									<fo:table-cell font-size="6pt">
+										<fo:block  margin-left="2mm"  margin-top="1mm">(П.І.Б.)</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell number-columns-spanned="4">
+										<fo:block  margin-left="2mm"  margin-top="1mm"  font-size="8pt">М.П. (за наявності)</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">Головний бухгалтер</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm" font-weight="bold">
+											<xsl:call-template name="body_id">
+												<xsl:with-param name="id" select="'BUH_NUMIDENT'"/>
+											</xsl:call-template>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm" font-weight="bold">
+												<xsl:value-of select="//DECLAR//*[name()='FIRM_BUH']"/>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm">
+											
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm"  font-size="6pt">(податковий  номер або серія  та номер паспорта*)                           </fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm"  font-size="6pt">(підпис)</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block  margin-left="2mm"  margin-top="1mm"   font-size="6pt">(П.І.Б.)</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+							</fo:table-body>
+						</fo:table><fo:block  margin-left="2mm"  margin-top="1mm"><fo:inline >&#0160;</fo:inline></fo:block> 
+
+					</fo:flow>
+				</fo:page-sequence>
+			</fo:root>
+
+	</xsl:template>
+	<xsl:template name="body_id">
+	<xsl:param name="id"/>
+	<fo:block  margin-left="2mm"  margin-top="1mm">		
+			<xsl:value-of select="//DECLAR//*[name()=$id]"/>
+			</fo:block>
+		</xsl:template>
+</xsl:stylesheet>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<DECLAR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="E04T06I.xsd">
+	<DECLARHEAD>
+		<VER>I</VER>
+		<C_DOC>E04</C_DOC>
+		<C_PFU>23273</C_PFU>
+		<C_REG>23</C_REG>
+		<C_RAJ>1</C_RAJ>
+		<SOFTWARE>EDZV 1.17.0</SOFTWARE>
+		<TIN>3314711918</TIN>
+		<PERIOD_MONTH>8</PERIOD_MONTH>
+		<PERIOD_YEAR>2015</PERIOD_YEAR>
+		<DATA_FILL>01082015</DATA_FILL>
+	</DECLARHEAD>
+	<DECLARBODY>
+		<PAGE>
+			<HEADER>
+				<PAGE_NUM>1</PAGE_NUM>
+				<FIRM_EDRPOU>3314711918</FIRM_EDRPOU>
+				<FIRM_NAME>ФОП Головченко Максим Миколайович</FIRM_NAME>
+				<LIKV_EDRPOU xsi:nil="true"></LIKV_EDRPOU>
+				<FORM_TYPE>1</FORM_TYPE>
+			</HEADER>
+			<TABLE>
+				<ROW>
+					<ROWNUM>1</ROWNUM>
+					<UKR_GROMAD>1</UKR_GROMAD>
+					<ST>1</ST>
+					<NUMIDENT>1212121212</NUMIDENT>
+					<ZO>1</ZO>
+					<PAY_TP xsi:nil="true"></PAY_TP>
+					<PAY_MNTH>08</PAY_MNTH>
+					<PAY_YEAR>2015</PAY_YEAR>
+					<LN>Головченко</LN>
+					<NM>Максим</NM>
+					<FTN>Миколайович</FTN>
+					<KD_NP xsi:nil="true"></KD_NP>
+					<KD_NZP xsi:nil="true"></KD_NZP>
+					<KD_PTV>31</KD_PTV>
+					<KD_VP xsi:nil="true"></KD_VP>
+					<SUM_TOTAL>1218.00</SUM_TOTAL>
+					<SUM_MAX>1218.00</SUM_MAX>
+					<SUM_DIFF>0.00</SUM_DIFF>
+					<SUM_INS>43.85</SUM_INS>
+					<SUM_NARAH>43.85</SUM_NARAH>
+					<OTK>1</OTK>
+					<EXP>0</EXP>
+					<NRC>0</NRC>
+					<NRM>0</NRM>
+				</ROW>
+				<ROW>
+					<ROWNUM>2</ROWNUM>
+					<UKR_GROMAD>1</UKR_GROMAD>
+					<ST>0</ST>
+					<NUMIDENT>1313131313</NUMIDENT>
+					<ZO>1</ZO>
+					<PAY_TP xsi:nil="true"></PAY_TP>
+					<PAY_MNTH>08</PAY_MNTH>
+					<PAY_YEAR>2015</PAY_YEAR>
+					<LN>Головченко</LN>
+					<NM>Марина</NM>
+					<FTN>Миколаївна</FTN>
+					<KD_NP xsi:nil="true"></KD_NP>
+					<KD_NZP xsi:nil="true"></KD_NZP>
+					<KD_PTV>31</KD_PTV>
+					<KD_VP xsi:nil="true"></KD_VP>
+					<SUM_TOTAL>1218.00</SUM_TOTAL>
+					<SUM_MAX>1218.00</SUM_MAX>
+					<SUM_DIFF>0.00</SUM_DIFF>
+					<SUM_INS>43.85</SUM_INS>
+					<SUM_NARAH>43.85</SUM_NARAH>
+					<OTK>1</OTK>
+					<EXP>0</EXP>
+					<NRC>0</NRC>
+					<NRM>0</NRM>
+				</ROW>
+			</TABLE>
+			<FOOTER>
+				<PAGE_SUM_TOTAL>2436.00</PAGE_SUM_TOTAL>
+				<PAGE_SUM_MAX>2436.00</PAGE_SUM_MAX>
+				<PAGE_SUM_DIFF>0.00</PAGE_SUM_DIFF>
+				<PAGE_SUM_INS>87.70</PAGE_SUM_INS>
+				<PAGE_SUM_NARAH>87.70</PAGE_SUM_NARAH>
+				<ROWS>2</ROWS>
+				<BOSS_NUMIDENT>3314711918</BOSS_NUMIDENT>
+				<FIRM_BOSS>ФОП Головченко Максим Миколайович</FIRM_BOSS>
+				<BUH_NUMIDENT xsi:nil="true"></BUH_NUMIDENT>
+				<FIRM_BUH xsi:nil="true"></FIRM_BUH>
+			</FOOTER>
+		</PAGE>
+	</DECLARBODY>
+</DECLAR>

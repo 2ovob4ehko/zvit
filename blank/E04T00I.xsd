@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="DECLAR" type="DeclareType"/>
+	<xs:complexType name="DeclareType">
+		<xs:sequence>
+			<xs:element name="DECLARHEAD" type="DeclareHeadType"/>
+			<xs:element name="DECLARBODY" type="DeclarBodyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DeclareHeadType">
+		<xs:sequence>
+			<xs:element name="VER">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="C_DOC">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="C_PFU">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:totalDigits value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="C_REG">
+			        <xs:simpleType>
+				        <xs:restriction base="xs:integer">
+					        <xs:minInclusive value="1"/>
+					        <xs:maxInclusive value="99"/>
+				        </xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="C_RAJ">
+			        <xs:simpleType>
+				        <xs:restriction base="xs:integer">
+					        <xs:minInclusive value="1"/>
+					        <xs:maxInclusive value="99"/>
+				        </xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SOFTWARE" type="xs:string"/>
+			<xs:element name="TIN">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PERIOD_MONTH">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:totalDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PERIOD_YEAR">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:totalDigits value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DATA_FILL">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:totalDigits value="8"/>
+						<xs:minInclusive value="0"/>
+						<xs:pattern value="[0-3][0-9][0-1][0-9][0-2][0-9][0-9][0-9]"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DeclarBodyType">
+		<xs:sequence>
+			<xs:element name="PAGE" type="PageType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PageType">
+		<xs:sequence>
+			<xs:element name="HEADER" type="HeaderType"/>
+			<xs:element name="TABLE" type="TableType"/>
+			<xs:element name="FOOTER" type="FooterType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="HeaderType">
+		<xs:sequence>
+			<xs:element name="FIRM_EDRPOU">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FIRM_NAME">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="LIKV_EDRPOU" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FIRM_ADR" type="xs:string" nillable="true"/>
+			<xs:element name="FIRM_PHON" type="xs:string" nillable="true"/>
+			<xs:element name="DPACD_ST">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:totalDigits value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FORM_TYPE">
+				<xs:annotation>
+					<xs:documentation>Тільки для звітів з таблицями 5-9, можливі значення 1,3 та 5</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:totalDigits value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TableType">
+		<xs:sequence>
+			<xs:element name="N1_0" type="xs:integer"/>
+			<xs:element name="N2_0" type="xs:integer"/>
+			<xs:element name="N3_0" type="xs:integer"/>
+			<xs:element name="N4_0" type="xs:integer"/>
+			<xs:element name="N5_0" type="xs:integer"/>
+			<xs:element name="N5_1" type="xs:integer"/>
+			<xs:element name="N6_0" type="xs:integer"/>
+			<xs:element name="N6_1" type="xs:integer"/>
+			<xs:element name="N7_0" type="xs:integer"/>
+			<xs:element name="N7_1" type="xs:integer"/>
+			<xs:element name="N8_0" type="xs:integer"/>
+			<xs:element name="N8_1" type="xs:integer"/>
+			<xs:element name="N9_0" type="xs:integer"/>
+			<xs:element name="N9_1" type="xs:integer"/>
+			<xs:element name="N10_0" type="xs:integer"/>
+			<xs:element name="N10_1" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FooterType">
+		<xs:sequence>
+			<xs:element name="BOSS_NUMIDENT">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FIRM_BOSS">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="BUH_NUMIDENT" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FIRM_BUH" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<DECLAR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="E04T00I.xsd">
+	<DECLARHEAD>
+		<VER>I</VER>
+		<C_DOC>E04</C_DOC>
+		<C_PFU>23273</C_PFU>
+		<C_REG>23</C_REG>
+		<C_RAJ>1</C_RAJ>
+		<SOFTWARE>EDZV 1.17.0</SOFTWARE>
+		<TIN>3314711918</TIN>
+		<PERIOD_MONTH>8</PERIOD_MONTH>
+		<PERIOD_YEAR>2015</PERIOD_YEAR>
+		<DATA_FILL>01082015</DATA_FILL>
+	</DECLARHEAD>
+	<DECLARBODY>
+		<PAGE>
+			<HEADER>
+				<FIRM_EDRPOU>3314711918</FIRM_EDRPOU>
+				<FIRM_NAME>ФОП Головченко Максим Миколайович</FIRM_NAME>
+				<LIKV_EDRPOU xsi:nil="true"></LIKV_EDRPOU>
+				<FIRM_ADR>м. Черкаси вул. Гагаріна 75 кв 85</FIRM_ADR>
+				<FIRM_PHON>764862</FIRM_PHON>
+				<DPACD_ST>2301</DPACD_ST>
+				<FORM_TYPE>1</FORM_TYPE>
+			</HEADER>
+			<TABLE>
+				<N1_0>5</N1_0>
+				<N2_0>0</N2_0>
+				<N3_0>0</N3_0>
+				<N4_0>0</N4_0>
+				<N5_0>0</N5_0>
+				<N5_1>0</N5_1>
+				<N6_0>1</N6_0>
+				<N6_1>2</N6_1>
+				<N7_0>0</N7_0>
+				<N7_1>0</N7_1>
+				<N8_0>0</N8_0>
+				<N8_1>0</N8_1>
+				<N9_0>0</N9_0>
+				<N9_1>0</N9_1>
+				<N10_0>6</N10_0>
+				<N10_1>2</N10_1>
+			</TABLE>
+			<FOOTER>
+				<BOSS_NUMIDENT>3314711918</BOSS_NUMIDENT>
+				<FIRM_BOSS>ФОП Головченко Максим Миколайович</FIRM_BOSS>
+				<BUH_NUMIDENT xsi:nil="true"></BUH_NUMIDENT>
+				<FIRM_BUH xsi:nil="true"></FIRM_BUH>
+			</FOOTER>
+		</PAGE>
+	</DECLARBODY>
+</DECLAR>
