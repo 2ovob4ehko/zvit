@@ -73,7 +73,9 @@ function showZvitlist(id){
 }
 function createDocuments(){
 	$.post('<? echo base_url(); ?>?tab=createdoc', $('#create_form').serialize(),function(json){
+		//цикл для кожного  json.title
 		showAjax('blank&title='+json.title[0]+'&year='+json.year+'&period='+json.period+'&stan='+json.stan+'&number='+json.number);
+		showAjax('blank&title='+json.title[1]+'&year='+json.year+'&period='+json.period+'&stan='+json.stan+'&number='+json.number);
 	},"json");
 }
 function numbered(el,min,max){

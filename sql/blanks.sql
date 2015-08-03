@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Час створення: Лип 26 2015 р., 11:22
+-- Час створення: Сер 02 2015 р., 14:05
 -- Версія сервера: 5.6.25-0ubuntu0.15.04.1
 -- Версія PHP: 5.6.4-4ubuntu6.2
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `blanks` (
   `end_date` date DEFAULT NULL,
   `parent` int(3) NOT NULL,
   `category` int(2) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп даних таблиці `blanks`
@@ -45,7 +45,10 @@ CREATE TABLE IF NOT EXISTS `blanks` (
 INSERT INTO `blanks` (`id`, `code`, `name`, `face`, `period`, `start_date`, `end_date`, `parent`, `category`) VALUES
 (1, 'F0103304', 'Податкова декларація платника єдиного податку - Фізичної особи-підприємця', 1, NULL, NULL, NULL, 0, 2),
 (2, 'F0500105', 'Форма № 1 ДФ Податковий розрахунок сум доходу, нарахованого (сплаченого) на користь платників податку, і сум утриманого з них податку', 1, NULL, NULL, NULL, 0, 7),
-(3, 'J0500105', 'Форма № 1 ДФ Податковий розрахунок сум доходу, нарахованого (сплаченого) на користь платників податку, і сум утриманого з них податку', 2, NULL, NULL, NULL, 0, 7);
+(3, 'J0500105', 'Форма № 1 ДФ Податковий розрахунок сум доходу, нарахованого (сплаченого) на користь платників податку, і сум утриманого з них податку', 2, NULL, NULL, NULL, 0, 7),
+(4, 'E04T00I', 'Додаток 4 до Порядку формування та подання  страхувальниками звіту щодо сум нарахованого єдиного внеску на загальнообов''язкове державне соціальне страхування', 3, NULL, NULL, NULL, 0, 5),
+(5, 'E04T01I', 'Таблиця 1. Нарахування єдиного внеску', 3, NULL, NULL, NULL, 4, 5),
+(6, 'E04T06I', 'Таблиця 6. Відомості про нарахування заробітної плати (доходу) застрахованим особам', 3, NULL, NULL, NULL, 4, 5);
 
 --
 -- Індекси збережених таблиць
@@ -65,7 +68,7 @@ ALTER TABLE `blanks`
 -- AUTO_INCREMENT для таблиці `blanks`
 --
 ALTER TABLE `blanks`
-MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

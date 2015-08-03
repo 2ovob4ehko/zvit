@@ -79,7 +79,9 @@ if(isset($_GET['tab'])){
   }else if($_GET['tab']=='createdoc'){
     //Отримати дані від форми створення документу (період, стан, головний документ, додатки)
     $main_blank=$_POST['main_blank'];
-    //$sub_blank=$_POST['sub_blank'];
+    if(isset($_POST['sub_blank'])){
+      $sub_blank=$_POST['sub_blank'];
+    }
     $json=new stdClass();
     $json->title=array();
     $json->year=$_POST['year'];
@@ -87,6 +89,8 @@ if(isset($_GET['tab'])){
     $json->stan=$_POST['stan'];
     $json->number=$_POST['number'];
     array_push($json->title,$blanks->getById($main_blank)->fetch_object()->code);
+    //цикл для кожного $sub_blank
+    array_push($json->title,$blanks->getById($sub_blank[0])->fetch_object()->code);
 
     echo json_encode($json);
   }else if($_GET['tab']=='blank'){

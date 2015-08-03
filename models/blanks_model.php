@@ -45,7 +45,7 @@ class Blanks {
 		return $this->db->query($sql);
 	}
 	function tree($parent,$category,$face){
-		$sql = "SELECT * FROM blanks WHERE parent='$parent' AND face='$face'";
+		$sql = "SELECT * FROM blanks WHERE parent='$parent' AND (face='$face' OR face='3')";
 		if($category!=0){$sql.=" AND category='$category'";}
 		$result=$this->db->query($sql);
 		$child=array();
