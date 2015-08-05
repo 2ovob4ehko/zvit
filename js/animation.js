@@ -29,6 +29,7 @@ setInterval(function(){
   }
   $("#work_space").css("height",$(window).height()-40);
   $("#page").css("height",$(window).height()-80);
+  $("#pagew").css("width",$(window).width()-$(window).width()*0.1-50);
   $(".tab_ul").css("width",$(window).width());
   if($("#message").height()>250){
     $("#message").css("height",251);
