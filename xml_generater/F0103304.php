@@ -1,5 +1,5 @@
 <?
-include ('headGenerator.php');
+include ('headDPIGenerator.php');
 
 if($doc_stan==1){
 $xml_hz=SNode($xml,$xml_db,'HZ',1);

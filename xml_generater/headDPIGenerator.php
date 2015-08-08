@@ -3,7 +3,7 @@ $xml=new DOMDocument('1.0','windows-1251');
 $xml_declar=$xml->createElement('DECLAR');
 $xml->appendChild($xml_declar);
 $xml_declar->setAttributeNS('http://www.w3.org/2000/xmlns/','xmlns:xsi','http://www.w3.org/2001/XMLSchema-instance');
-$xml_declar->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance','noNamespaceSchemaLocation',$file);
+$xml_declar->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance','noNamespaceSchemaLocation',$file.'.xsd');
 $xml_dh=$xml->createElement('DECLARHEAD');
 $xml_declar->appendChild($xml_dh);
 $xml_tin=SNode($xml,$xml_dh,'TIN',$tin);

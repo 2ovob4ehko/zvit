@@ -1,5 +1,45 @@
 <?
-  $file=$_GET['render'].'.xsd'; //обраний бланк
+$file=$_GET['render']; //обраний бланк
+$date=Date('dmY');
+$software=getSoftWareName().' '.getVersion();
+if(substr($file,0,1)=='E'){
+  $pfuCode=$_POST['pfu_code']; //код пенсійного
+  $taxCode=$_POST['DPACD_ST']; //код пенсійного
+  $tin=$_POST['FIRM_EDRPOU'];
+  $month=$_POST['MONTH'];
+  $period=$_POST['MONTH'];
+  $year=$_POST['YEAR'];
+  $btin=$_POST['BOSS_NUMIDENT'];
+  $bfio=$_POST['FIRM_BOSS'];
+  $ctin=$_POST['BUH_NUMIDENT'];
+  $cfio=$_POST['FIRM_BUH'];
+  $doc_stan=$_POST['FORM_TYPE'];
+  $period_type=1;
+  $doc_cnt=1;
+  if($_GET['render']=='E04T00I'){
+    $name=$_POST['FIRM_NAME'];
+    $ltin=$_POST['LIKV_EDRPOU'];
+    $address=$_POST['FIRM_ADR'];
+    $tel=$_POST['FIRM_PHON'];
+    $type=$_POST['FORM_TYPE'];
+    $n1=$_POST['N1_0'];
+    $n2=$_POST['N2_0'];
+    $n3=$_POST['N3_0'];
+    $n4=$_POST['N4_0'];
+    $n5=$_POST['N5_0'];
+    $n51=$_POST['N5_1'];
+    $n6=$_POST['N6_0'];
+    $n61=$_POST['N6_1'];
+    $n7=$_POST['N7_0'];
+    $n71=$_POST['N7_1'];
+    $n8=$_POST['N8_0'];
+    $n81=$_POST['N8_1'];
+    $n9=$_POST['N9_0'];
+    $n91=$_POST['N9_1'];
+    $n10=$_POST['N10_0'];
+    $n101=$_POST['N10_1'];
+  }
+}else{
   $tin=$_POST['HTIN']; //ідентифікаційний номер
   $taxCode=$_POST['tax_code']; //код податкової
   $doc_type=$_POST['doc_type']; //порядковий номер нового звітного (уточнюючого)
@@ -22,8 +62,6 @@
   }
   $year=$_POST['year']; //рік звітності
   $doc_stan=$_POST['stan']; //стан документу (звітний=1, новий звітний=2, уточнюючий=3)
-  $date=Date('dmY');
-  $software=getSoftWareName().' '.getVersion();
   $aplic=0;
   /*array(
       array(
@@ -45,7 +83,7 @@
         'FILENAME'    => 'bar'
       )
     );*/
-if($_GET['render']=='F0103304'){
+  if($_GET['render']=='F0103304'){
     if($_POST['HD']==0){
       $_POST['HD']=null;
     }
@@ -86,65 +124,66 @@ if($_GET['render']=='F0103304'){
     $r35=$_POST['R035G3'];
     $bfio=$_POST['HBOS'];
     $btin=$_POST['HKBOS'];
-}else if(($_GET['render']=='F0500105')||($_GET['render']=='J0500105')){
-  $_GET['render']='F0500105';
-  $name=$_POST['HNAME'];
-  $loc=$_POST['HLOC'];
-  $name_tax=$_POST['HSTI'];
-  if($period_type==2){
-    $zkv=$month/3;
+  }else if(($_GET['render']=='F0500105')||($_GET['render']=='J0500105')){
+    $_GET['render']='F0500105';
+    $name=$_POST['HNAME'];
+    $loc=$_POST['HLOC'];
+    $name_tax=$_POST['HSTI'];
+    if($period_type==2){
+      $zkv=$month/3;
+    }
+    $trud=$_POST['R00G01I'];
+    $prav=$_POST['R00G02I'];
+    $porc=$_POST['R00G03I'];
+    $t1g2=$_POST['T1RXXXXG02'];
+    $t1g3a=$_POST['T1RXXXXG03A'];
+    $t1g3=$_POST['T1RXXXXG03'];
+    $t1g4a=$_POST['T1RXXXXG04A'];
+    $t1g4=$_POST['T1RXXXXG04'];
+    $t1g5=$_POST['T1RXXXXG05'];
+    $t1g6=$_POST['T1RXXXXG06D'];
+    $t1g7=$_POST['T1RXXXXG07D'];
+    $t1g8=$_POST['T1RXXXXG08'];
+    $t1g9=$_POST['T1RXXXXG09'];
+    $r1g3a=$_POST['R01G03A'];
+    $r1g3=$_POST['R01G03'];
+    $r1g4a=$_POST['R01G04A'];
+    $r1g4=$_POST['R01G04'];
+    $r21g3a=$_POST['R0201G03A'];
+    $r21g4a=$_POST['R0201G04A'];
+    $r21g4=$_POST['R0201G04'];
+    $r22g3a=$_POST['R0202G03A'];
+    $r22g4a=$_POST['R0202G04A'];
+    $r22g4=$_POST['R0202G04'];
+    $r23g3a=$_POST['R0203G03A'];
+    $r23g3=$_POST['R0203G03'];
+    $r23g4a=$_POST['R0203G04A'];
+    $r23g4=$_POST['R0203G04'];
+    $r24g3a=$_POST['R0204G03A'];
+    $r24g3=$_POST['R0204G03'];
+    $r24g4a=$_POST['R0204G04A'];
+    $r24g4=$_POST['R0204G04'];
+    $r25g3a=$_POST['R0205G03A'];
+    $r25g3=$_POST['R0205G03'];
+    $r25g4a=$_POST['R0205G04A'];
+    $r25g4=$_POST['R0205G04'];
+    $r26g3a=$_POST['R0206G03A'];
+    $r26g3=$_POST['R0206G03'];
+    $r26g4a=$_POST['R0206G04A'];
+    $r26g4=$_POST['R0206G04'];
+    $r2g1=$_POST['R02G01I'];
+    $r2g2=$_POST['R02G02I'];
+    $r2g3=$_POST['R02G03I'];
+    $bfio=$_POST['HBOS'];
+    $btin=$_POST['HKBOS'];
+    $btel=$_POST['HTELBOS'];
+    $cfio=$_POST['HBUH'];
+    $ctin=$_POST['HKBUH'];
+    $ctel=$_POST['HTELBUH'];
   }
-  $trud=$_POST['R00G01I'];
-  $prav=$_POST['R00G02I'];
-  $porc=$_POST['R00G03I'];
-  $t1g2=$_POST['T1RXXXXG02'];
-  $t1g3a=$_POST['T1RXXXXG03A'];
-  $t1g3=$_POST['T1RXXXXG03'];
-  $t1g4a=$_POST['T1RXXXXG04A'];
-  $t1g4=$_POST['T1RXXXXG04'];
-  $t1g5=$_POST['T1RXXXXG05'];
-  $t1g6=$_POST['T1RXXXXG06D'];
-  $t1g7=$_POST['T1RXXXXG07D'];
-  $t1g8=$_POST['T1RXXXXG08'];
-  $t1g9=$_POST['T1RXXXXG09'];
-  $r1g3a=$_POST['R01G03A'];
-  $r1g3=$_POST['R01G03'];
-  $r1g4a=$_POST['R01G04A'];
-  $r1g4=$_POST['R01G04'];
-  $r21g3a=$_POST['R0201G03A'];
-  $r21g4a=$_POST['R0201G04A'];
-  $r21g4=$_POST['R0201G04'];
-  $r22g3a=$_POST['R0202G03A'];
-  $r22g4a=$_POST['R0202G04A'];
-  $r22g4=$_POST['R0202G04'];
-  $r23g3a=$_POST['R0203G03A'];
-  $r23g3=$_POST['R0203G03'];
-  $r23g4a=$_POST['R0203G04A'];
-  $r23g4=$_POST['R0203G04'];
-  $r24g3a=$_POST['R0204G03A'];
-  $r24g3=$_POST['R0204G03'];
-  $r24g4a=$_POST['R0204G04A'];
-  $r24g4=$_POST['R0204G04'];
-  $r25g3a=$_POST['R0205G03A'];
-  $r25g3=$_POST['R0205G03'];
-  $r25g4a=$_POST['R0205G04A'];
-  $r25g4=$_POST['R0205G04'];
-  $r26g3a=$_POST['R0206G03A'];
-  $r26g3=$_POST['R0206G03'];
-  $r26g4a=$_POST['R0206G04A'];
-  $r26g4=$_POST['R0206G04'];
-  $r2g1=$_POST['R02G01I'];
-  $r2g2=$_POST['R02G02I'];
-  $r2g3=$_POST['R02G03I'];
-  $bfio=$_POST['HBOS'];
-  $btin=$_POST['HKBOS'];
-  $btel=$_POST['HTELBOS'];
-  $cfio=$_POST['HBUH'];
-  $ctin=$_POST['HKBUH'];
-  $ctel=$_POST['HTELBUH'];
 }
 include ('xml_generater/'.$_GET['render'].'.php');
-$newFileName=$taxCode.sprintf("%'.010s",$tin).substr($file,0,8).$doc_stan.sprintf("%'.02s",$doc_type).sprintf("%'.07s",$doc_cnt).$period_type.sprintf("%'.02s",$month).$year.$taxCode.'.xml';
+$newFileName=$taxCode.sprintf("%'.010s",$tin).$file.$doc_stan.sprintf("%'.02s",$doc_type).sprintf("%'.07s",$doc_cnt).$period_type.sprintf("%'.02s",$month).$year.$taxCode.'.xml';
 //print $xml->saveXML(); //$xml->save('xml/1.xml');
 $xml->save('xml/'.$newFileName);
 if($period_type==1){
@@ -163,7 +202,7 @@ if($doc_stan==1){
 }else{
   $number=$doc_type;
 }
-$files->create($_COOKIE['firm'],substr($file,0,8),$period,$year,$doc_stan,$number,date("Y-m-d H:i:s",filectime('xml/'.$newFileName)),'xml/'.$newFileName);
+$files->create($_COOKIE['firm'],$file,$period,$year,$doc_stan,$number,date("Y-m-d H:i:s",filectime('xml/'.$newFileName)),'xml/'.$newFileName);
 
 function SNode($xml,$parent,$name,$val=null){
   $node=$xml->createElement($name,$val);

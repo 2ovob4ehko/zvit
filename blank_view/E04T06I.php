@@ -36,6 +36,7 @@
   ліквідованого страхувальника* (заповнюється у разі подачі звіту правонаступником)</td>
         <td width="10%">
           <input class="filling" style="width:80px;" type="text" name="LIKV_EDRPOU" value="">
+          <input type="hidden" name="DPACD_ST" value="<? echo $f->tax_code; ?>">
         </td>
       </tr>
     </table>
@@ -327,7 +328,7 @@ function numbered(el,min,max){
   }
 }
 function saveDocuments(){
-	$.post('<? echo base_url(); ?>?render=E04T00I', $('#blank_form').serialize(),function(){
+	$.post('<? echo base_url(); ?>?render=E04T06I', $('#blank_form').serialize(),function(){
 		alert('Звіт збережено');
 	});
 }

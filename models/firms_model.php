@@ -60,7 +60,7 @@ class Firms {
 	}
 	function getByIdF($id){
 		if(!empty($id)) {
-			$sql = "SELECT firms.*, taxes.code  AS 'tax_code', taxes.name AS 'tax_name', kveds.code AS 'kved_code', kveds.text AS 'kved_text' FROM firms JOIN taxes ON firms.tax = taxes.id JOIN kveds ON firms.kved = kveds.id WHERE firms.id='$id'";
+			$sql = "SELECT firms.*, taxes.code AS 'tax_code', taxes.name AS 'tax_name', kveds.code AS 'kved_code', kveds.text AS 'kved_text', pensions.code AS 'pfu_code' FROM firms JOIN taxes ON firms.tax = taxes.id JOIN kveds ON firms.kved = kveds.id JOIN pensions ON firms.pension = pensions.id WHERE firms.id='$id'";
 			return $this->db->query($sql);
 		}else return false;
 	}

@@ -16,9 +16,14 @@
   <table style="margin:auto;width:220px;">
     <tr>
       <td style="text-align:right">1. Звіт за місяць</td>
-      <td style="text-align:left"><? echo $period; $f=$myfirm->fetch_object(); ?></td>
+      <td style="text-align:left">
+        <input readonly="readonly" style="width:24px;" type="text" name="MONTH" value="<? echo $period; $f=$myfirm->fetch_object(); ?>">
+      </td>
       <td style="text-align:right">рік:</td>
-     <td style="text-align:left"><? echo $year; ?></td>
+     <td style="text-align:left">
+       <input readonly="readonly" style="width:40px;" type="text" name="YEAR" value="<? echo $year; ?>">
+     </td>
+     <input type="hidden" name="pfu_code" value="<? echo $f->pfu_code; ?>">
    </tr>
   </table>
   <br/>
@@ -27,11 +32,11 @@
       <td style="width:35%;text-align:center;">Подають:</td>
       <td style="width:35%;text-align:center;">Терміни подання</td>
       <td style="text-align:left;" rowspan="2"><b>Форма № Д4</b>
-        <i>(місячна) </i>
+        <i>(місячна)</i>
         <div style="padding:10px;">
-          <input type="radio" name="type" checked>(початкова)</input><br/>
-          <input type="radio" name="type">(скасовуюча)</input><br/>
-          <input type="radio" name="type">(додаткова)</input><br/>
+          <input type="radio" name="FORM_TYPE" checked value="1">(початкова)</input><br/>
+          <input type="radio" name="FORM_TYPE" value="2">(скасовуюча)</input><br/>
+          <input type="radio" name="FORM_TYPE" value="3">(додаткова)</input><br/>
         </div><br/>ЗАТВЕРДЖЕНО<br/>наказом Міністерства фінансів України <br/>14.04.2015 № 435<br/>за погодженням з  Держстатом<br/>
       </td>
     </tr>
@@ -60,7 +65,7 @@
    </tr>
    <tr>
      <td>Телефон</td>
-     <td colspan="3"><input class="filling" style="width:100%;" type="text" name="FFIRM_PHON" value="<? echo $f->telcode.' '.$f->tel; ?>"></td>
+     <td colspan="3"><input class="filling" style="width:100%;" type="text" name="FIRM_PHON" value="<? echo $f->telcode.' '.$f->tel; ?>"></td>
    </tr>
    <tr>
      <td>5.Код територіального фіскального органу, до якого подається звіт</td>

@@ -1,5 +1,5 @@
 <?
-include ('headGenerator.php');
+include ('headDPIGenerator.php');
 
 $xml_htin=SNode($xml,$xml_db,'HTIN',$tin);
 $xml_hpages=SNode($xml,$xml_db,'HPAGES');

@@ -21,6 +21,7 @@
         <td style="text-align:left"><? echo $period; $f=$myfirm->fetch_object(); ?></td>
         <td style="text-align:right">рік:</td>
        <td style="text-align:left"><? echo $year; ?></td>
+       <input type="hidden" name="DPACD_ST" value="<? echo $f->tax_code; ?>">
      </tr>
     </table>
     <table style="width:100%">
@@ -1720,7 +1721,7 @@ function numbered(el,min,max){
   }
 }
 function saveDocuments(){
-	$.post('<? echo base_url(); ?>?render=E04T00I', $('#blank_form').serialize(),function(){
+	$.post('<? echo base_url(); ?>?render=E04T01I', $('#blank_form').serialize(),function(){
 		alert('Звіт збережено');
 	});
 }

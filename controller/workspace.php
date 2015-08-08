@@ -129,13 +129,13 @@ if(isset($_GET['tab'])){
     $f=$file->fetch_object();
     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'){
       chdir('fop/');
-      $output=shell_exec('java -cp "fop.jar;xml-apis.jar;xercesImpl-2.2.1.jar;xalan-2.4.1.jar;batik.jar;avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c  "conf\userconfig.xml" -xml "..\\xml\\'.substr($f->name, 4, 47).'" -xsl "..\\blank\\'.$f->code.'.fo" -pdf "..\\pdf\\'.substr($f->name, 4, 43).'.pdf" 2>&1');
+      $output=shell_exec('java -cp "fop.jar;xml-apis.jar;xercesImpl-2.2.1.jar;xalan-2.4.1.jar;batik.jar;avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c  "conf\userconfig.xml" -xml "..\\xml\\'.explode(".",explode("/",$f->name)[1])[0].'.xml" -xsl "..\\blank\\'.$f->code.'.fo" -pdf "..\\pdf\\'.explode(".",explode("/",$f->name)[1])[0].'.pdf" 2>&1');
     }elseif (strtoupper(substr(PHP_OS, 0, 3)) === 'LIN') {
       chdir('fop/');
-      $output=shell_exec('java -cp "fop.jar:xml-apis.jar:xercesImpl-2.2.1.jar:xalan-2.4.1.jar:batik.jar:avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c "conf/luserconfig.xml" -xml "../xml/'.substr($f->name, 4, 47).'" -xsl "../blank/'.$f->code.'.fo" -pdf "../pdf/'.substr($f->name, 4, 43).'.pdf" 2>&1');
+      $output=shell_exec('java -cp "fop.jar:xml-apis.jar:xercesImpl-2.2.1.jar:xalan-2.4.1.jar:batik.jar:avalon-framework-cvs-20020806.jar" -Xmx256m org.apache.fop.apps.Fop -c "conf/luserconfig.xml" -xml "../xml/'.explode(".",explode("/",$f->name)[1])[0].'.xml" -xsl "../blank/'.$f->code.'.fo" -pdf "../pdf/'.explode(".",explode("/",$f->name)[1])[0].'.pdf" 2>&1');
     }
     $json=new stdClass();
-    $json->title='pdf/'.substr($f->name, 4, 43).'.pdf';
+    $json->title='pdf/'.explode(".",explode("/",$f->name)[1])[0].'.pdf';
     $json->log=$output;
     echo json_encode($json);
   }else if($_GET['tab']=='delfile'){
