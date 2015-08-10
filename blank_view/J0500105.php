@@ -3,7 +3,7 @@
     <table>
       <tr>
         <td><input type="checkbox" checked name="autocount">Авторозрахунок</td>
-        <td><button onclick="saveDocuments()">Зберегти</button></td>
+        <td><button onclick="saveDocuments('J0500105')">Зберегти</button></td>
       </tr>
     </table>
   <form method="POST" id="blank_form">
@@ -447,8 +447,8 @@ function numbered(el,min,max,required){
     }
   }
 }
-function saveDocuments(){
-	$.post('<? echo base_url(); ?>?render=J0500105', $('#blank_form').serialize(),function(){
+function saveDocuments(title){
+	$.post('<? echo base_url(); ?>?render='+title, $("div[id="+title+"]").find("#blank_form").serialize(),function(){
 		alert('Звіт збережено');
 	});
 }

@@ -44,7 +44,9 @@
 					break;
 			}
 		}
-		echo '</td><td>'.$f->number.'</td><td>'.date("d.m.Y H:i:s",strtotime($f->time)).'</td></tr>';
+		echo '</td><td>';
+		if(substr($f->code,0,1)!='E'){echo $f->number;}
+		echo '</td><td>'.date("d.m.Y H:i:s",strtotime($f->time)).'</td></tr>';
 	}
 ?>
 	</table>

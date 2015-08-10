@@ -3,7 +3,7 @@
     <table>
       <tr>
         <td><input type="checkbox" checked name="autocount">Авторозрахунок</td>
-        <td><button onclick="saveDocuments()">Зберегти</button></td>
+        <td><button onclick="saveDocuments('E04T01I')">Зберегти</button></td>
       </tr>
     </table>
   <form method="POST" id="blank_form">
@@ -18,10 +18,16 @@
     <table style="margin:auto;width:220px;">
       <tr>
         <td style="text-align:right">1. Звіт за місяць</td>
-        <td style="text-align:left"><? echo $period; $f=$myfirm->fetch_object(); ?></td>
+        <td style="text-align:left">
+          <input readonly="readonly" style="width:24px;" type="text" name="MONTH" value="<? echo $period; $f=$myfirm->fetch_object(); ?>">
+        </td>
         <td style="text-align:right">рік:</td>
-       <td style="text-align:left"><? echo $year; ?></td>
+       <td style="text-align:left">
+         <input readonly="readonly" style="width:40px;" type="text" name="YEAR" value="<? echo $year; ?>">
+       </td>
        <input type="hidden" name="DPACD_ST" value="<? echo $f->tax_code; ?>">
+       <input type="hidden" name="pfu_code" value="<? echo $f->pfu_code; ?>">
+       <input type="hidden" name="FORM_TYPE" value="1">
      </tr>
     </table>
     <table style="width:100%">
@@ -1720,8 +1726,8 @@ function numbered(el,min,max){
     }
   }
 }
-function saveDocuments(){
-	$.post('<? echo base_url(); ?>?render=E04T01I', $('#blank_form').serialize(),function(){
+function saveDocuments(title){
+	$.post('<? echo base_url(); ?>?render='+title, $("div[id="+title+"]").find("#blank_form").serialize(),function(){
 		alert('Звіт збережено');
 	});
 }
