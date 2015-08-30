@@ -62,8 +62,8 @@
       <tr>
         <td width="10%" align="right">4. Тип</td>
         <td width="15%">
-          <input type="radio" name="FORM_TYPE" checked>початкова</input><br/>
-          <input type="radio" name="FORM_TYPE">скасовуюча</input>
+          <input type="radio" name="FORM_TYPE" checked  value="1">початкова</input><br/>
+          <input type="radio" name="FORM_TYPE" value="2">скасовуюча</input>
         </td>
       </tr>
     </table>
@@ -93,13 +93,14 @@
           <td align="center">23. Ознака наявності спецстажу<br/> (1-так, 0-ні)</td>
           <td align="center">24. Ознака неповного робочого часу <br/>(1-так, 0- ні)</td>
           <td align="center">25. Ознака нового робочого місця<br/>(1-так, 0-ні)</td>
+          <td>X</td>
         </tr>
       </thead>
-      <TBODY id="Process">
+      <TBODY  id="rownum">
         <tr style="font-size:12px;">
           <td align="center" style="min-width:15px;">5</td>
           <td align="center" style="min-width:50px;">6</td>
-          <td align="center" style="min-width:33px;">7</td>
+          <td align="center" style="min-width:40px;">7</td>
           <td align="center" style="min-width:80px;">8</td>
           <td align="center" style="min-width:25px;">9</td>
           <td align="center" style="min-width:25px;">10</td>
@@ -118,69 +119,72 @@
           <td align="center" style="min-width:50px;">23</td>
           <td align="center" style="min-width:50px;">24</td>
           <td align="center" style="min-width:50px;">25</td>
+          <td></td>
         </tr>
         <tr class="rownum">
           <td></td>
           <td>
-            <select class="filling" style="width:100%;" name="UKR_GROMAD">
+            <select class="filling" style="width:100%;" name="UKR_GROMAD[]">
               <option value="1">Так</option>
               <option value="0">Ні</option>
             </select>
           </td>
           <td>
-            <select class="filling" style="width:100%;" name="ST">
+            <select class="filling" style="width:100%;" name="ST[]">
               <option value="1">Ч</option>
               <option value="0">Ж</option>
             </select>
           </td>
-          <td><input class="filling" style="width:100%;" type="text" name="NUMIDENT" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="ZO" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="PAY_TP" value=""></td>
-          <td style="text-align:center;"><input class="filling" style="width:100%;" type="text" name="PAY_MNTH" value="">.<input class="filling" style="width:100%;" type="text" name="PAY_YEAR" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="LN" value=""><br/><input class="filling" style="width:100%;" type="text" name="NM" value=""><br/><input class="filling" style="width:100%;" type="text" name="FTN" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="KD_NP" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="KD_NZP" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="KD_PTV" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="KD_VP" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="SUM_TOTAL" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="SUM_MAX" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="SUM_DIFF" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="SUM_INS" value=""></td>
-          <td><input class="filling" style="width:100%;" type="text" name="SUM_NARAH" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" name="NUMIDENT[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" name="ZO[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" name="PAY_TP[]" value=""></td>
+          <td style="text-align:center;padding:0;"><table><tr><td style="border:hidden;padding:0;"><input class="filling" style="width:100%;" type="text" name="PAY_MNTH[]" value=""></td></tr><tr><td style="border:hidden;padding:0;"><input class="filling" style="width:100%;" type="text" name="PAY_YEAR[]" value=""></td></tr></table></td>
+          <td style="padding:0;"><table><tr><td style="border:hidden;"><input class="filling" style="width:100%;" type="text" name="LN[]" value=""></td></tr><tr><td style="border:hidden;"><input class="filling" style="width:100%;" type="text" name="NM[]" value=""></td></tr><tr><td style="border:hidden;"><input class="filling" style="width:100%;" type="text" name="FTN[]" value=""></td></tr></table></td>
+          <td><input class="filling" style="width:100%;" type="text" name="KD_NP[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" name="KD_NZP[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" name="KD_PTV[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" name="KD_VP[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" onchange="fixedToDecimal(this)" name="SUM_TOTAL[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" onchange="fixedToDecimal(this)" name="SUM_MAX[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" onchange="fixedToDecimal(this)" name="SUM_DIFF[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" onchange="fixedToDecimal(this)" name="SUM_INS[]" value=""></td>
+          <td><input class="filling" style="width:100%;" type="text" onchange="fixedToDecimal(this)" name="SUM_NARAH[]" value=""></td>
           <td>
-            <select class="filling" style="width:100%;" name="OTK">
+            <select class="filling" style="width:100%;" name="OTK[]">
               <option value="0">Ні</option>
               <option value="1">Так</option>
             </select>
           </td>
           <td>
-            <select class="filling" style="width:100%;" name="EXP">
+            <select class="filling" style="width:100%;" name="EXP[]">
               <option value="0">Ні</option>
               <option value="1">Так</option>
             </select>
           </td>
           <td>
-            <select class="filling" style="width:100%;" name="NRC">
+            <select class="filling" style="width:100%;" name="NRC[]">
               <option value="0">Ні</option>
               <option value="1">Так</option>
             </select>
           </td>
           <td>
-            <select class="filling" style="width:100%;" name="NRM">
+            <select class="filling" style="width:100%;" name="NRM[]">
               <option value="0">Ні</option>
               <option value="1">Так</option>
             </select>
           </td>
+          <td><div class="del" onclick="$(this).parent().parent().remove()">&ndash;</div></td>
         </tr>
       </TBODY>
+      <tr><td colspan="22"><div class="add" onclick="addNewRow();">+</div></td></tr>
         <tr>
-          <td colspan="12">Разом за аркушем документів</td>
+          <td colspan="12">Разом</td>
           <td><input class="filling" style="width:100%;" type="text" name="PAGE_SUM_TOTAL" value=""></td>
           <td><input class="filling" style="width:100%;" type="text" name="PAGE_SUM_MAX" value=""></td>
           <td><input class="filling" style="width:100%;" type="text" name="PAGE_SUM_DIFF" value=""></td>
           <td><input class="filling" style="width:100%;" type="text" name="PAGE_SUM_INS" value=""></td>
           <td><input class="filling" style="width:100%;" type="text" name="PAGE_SUM_NARAH" value=""></td>
-          <td colspan="4"></td>
+          <td colspan="5"></td>
         </tr>
     </table>
   </div>
@@ -238,7 +242,7 @@
    <tr>
       <td></td>
       <td><font size="-1">(податковий номер або серія та номер паспорта*)</font></td>
-      <td style="vertical-align:top;text-align:center;"><font size="-1">(ініціали та прізвище) </font></td>
+      <td style="vertical-align:top;text-align:center;"><font size="-1">(ініціали та прізвище)</font></td>
     </tr>
   </table>
   <!--Низ міняєтся від ситуації-->
@@ -256,50 +260,91 @@ function fixedToDecimal(el){
 }
 setInterval(function(){
   if($("input[name='autocount']").prop("checked")){
-    var n1=Number($("input[name='N1_0']").val());
-    var n2=Number($("input[name='N2_0']").val());
-    var n3=Number($("input[name='N3_0']").val());
-    var n4=Number($("input[name='N4_0']").val());
-    var n5=Number($("input[name='N5_0']").val());
-    var n51=Number($("input[name='N5_1']").val());
-    var n6=Number($("input[name='N6_0']").val());
-    var n61=Number($("input[name='N6_1']").val());
-    var n7=Number($("input[name='N7_0']").val());
-    var n71=Number($("input[name='N7_1']").val());
-    var n8=Number($("input[name='N8_0']").val());
-    var n81=Number($("input[name='N8_1']").val());
-    var n9=Number($("input[name='N9_0']").val());
-    var n91=Number($("input[name='N9_1']").val());
-
-    var n10=(n1+n2+n3+n4+n5+n6+n7+n8+n9);
-    var n101=(n51+n61+n71+n81+n91);
-    $("input[name='N10_0']").val(n10);
-    $("input[name='N10_1']").val(n101);
+    var sum=0;
+    $("div[id='E04T06I']").find("input[name='SUM_TOTAL[]']").each(function(){
+        sum+=Number($(this).val());
+    });
+    $("input[name='PAGE_SUM_TOTAL']").val(sum.toFixed(2));
+    var sum=0;
+    $("div[id='E04T06I']").find("input[name='SUM_MAX[]']").each(function(){
+        sum+=Number($(this).val());
+    });
+    $("input[name='PAGE_SUM_MAX']").val(sum.toFixed(2));
+    var sum=0;
+    $("div[id='E04T06I']").find("input[name='SUM_DIFF[]']").each(function(){
+        sum+=Number($(this).val());
+    });
+    $("input[name='PAGE_SUM_DIFF']").val(sum.toFixed(2));
+    var sum=0;
+    $("div[id='E04T06I']").find("input[name='SUM_INS[]']").each(function(){
+        sum+=Number($(this).val());
+    });
+    $("input[name='PAGE_SUM_INS']").val(sum.toFixed(2));
+    var sum=0;
+    $("div[id='E04T06I']").find("input[name='SUM_NARAH[]']").each(function(){
+        sum+=Number($(this).val());
+    });
+    $("input[name='PAGE_SUM_NARAH']").val(sum.toFixed(2));
+    $("input[name='ROWS']").val($("div[id='E04T06I']").find("input[name='NUMIDENT[]']").length);
   }
   checkBlank();
+  setTableNumero();
 },500);
 function checkBlank(){
-  required($("input[name='FIRM_EDRPOU']"));
-  required($("input[name='FIRM_NAME']"));
-  required($("input[name='DPACD_ST']"));
-  required($("input[name='N1_0']"));
-  required($("input[name='N2_0']"));
-  required($("input[name='N3_0']"));
-  required($("input[name='N4_0']"));
-  required($("input[name='N5_0']"));
-  required($("input[name='N5_1']"));
-  required($("input[name='N6_0']"));
-  required($("input[name='N6_1']"));
-  required($("input[name='N7_0']"));
-  required($("input[name='N7_1']"));
-  required($("input[name='N8_0']"));
-  required($("input[name='N8_1']"));
-  required($("input[name='N9_0']"));
-  required($("input[name='N9_1']"));
-  required($("input[name='N10_0']"));
-  required($("input[name='N10_1']"));
-  numbered($("input[name='BOSS_NUMIDENT']"),10,10);
-  required($("input[name='FIRM_BOSS']"));
+  required($("div[id='E04T06I']").find("input[name='FIRM_EDRPOU']"));
+  required($("div[id='E04T06I']").find("input[name='FIRM_NAME']"));
+  $("div[id='E04T06I']").find("input[name='NUMIDENT[]']").each(function(){
+    numbered($(this),10,10,1);
+  });
+  $("div[id='E04T06I']").find("input[name='ZO[]']").each(function(){
+    numbered($(this),1,2,1);
+  });
+  $("div[id='E04T06I']").find("input[name='PAY_MNTH[]']").each(function(){
+    numbered($(this),2,2,1);
+  });
+  $("div[id='E04T06I']").find("input[name='PAY_YEAR[]']").each(function(){
+    numbered($(this),4,4,1);
+  });
+  $("div[id='E04T06I']").find("input[name='LN[]']").each(function(){
+    required($(this));
+  });
+  $("div[id='E04T06I']").find("input[name='NM[]']").each(function(){
+    required($(this));
+  });
+  $("div[id='E04T06I']").find("input[name='SUM_TOTAL[]']").each(function(){
+    required($(this));
+  });
+  $("div[id='E04T06I']").find("input[name='SUM_MAX[]']").each(function(){
+    required($(this));
+  });
+  $("div[id='E04T06I']").find("input[name='SUM_DIFF[]']").each(function(){
+    required($(this));
+  });
+  $("div[id='E04T06I']").find("input[name='SUM_INS[]']").each(function(){
+    required($(this));
+  });
+  $("div[id='E04T06I']").find("input[name='SUM_NARAH[]']").each(function(){
+    required($(this));
+  });
+  required($("div[id='E04T06I']").find("input[name='PAGE_SUM_TOTAL']"));
+  required($("div[id='E04T06I']").find("input[name='PAGE_SUM_MAX']"));
+  required($("div[id='E04T06I']").find("input[name='PAGE_SUM_DIFF']"));
+  required($("div[id='E04T06I']").find("input[name='PAGE_SUM_INS']"));
+  required($("div[id='E04T06I']").find("input[name='PAGE_SUM_NARAH']"));
+  required($("div[id='E04T06I']").find("input[name='ROWS']"));
+  numbered($("div[id='E04T06I']").find("input[name='BOSS_NUMIDENT']"),10,10);
+  required($("div[id='E04T06I']").find("input[name='FIRM_BOSS']"));
+}
+function setTableNumero(){
+  $("div[id='E04T06I']").find(".rownum").each(function(i) {
+    var number=i+1;
+    $(this).find('td:first').text(number);
+  });
+}
+function addNewRow(){
+  var v=$("div[id='E04T06I']").find("#rownum").children("tr:last").html();
+  $("div[id='E04T06I']").find("#rownum").append('<tr class="rownum"></tr>');
+  $("div[id='E04T06I']").find("#rownum").children("tr:last").html(v);
 }
 function required(el){
   if(el.val()==''){
