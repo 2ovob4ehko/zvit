@@ -291,6 +291,7 @@ setInterval(function(){
   setTableNumero();
 },500);
 function checkBlank(){
+  required($("div[id='E04T06I']").find("input[name='PAGE_NUM']"));
   required($("div[id='E04T06I']").find("input[name='FIRM_EDRPOU']"));
   required($("div[id='E04T06I']").find("input[name='FIRM_NAME']"));
   $("div[id='E04T06I']").find("input[name='NUMIDENT[]']").each(function(){
