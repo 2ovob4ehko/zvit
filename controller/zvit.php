@@ -235,6 +235,42 @@ if(substr($file,0,1)=='E'){
     $e3=$_POST['ERROR_TXT3'];
     $vuplzp1=$_POST['VUPL_ZP1'];
     $vuplzp1=$_POST['VUPL_ZP2'];
+  }else if($_GET['render']=='E04T06I'){
+    $num=$_POST['PAGE_NUM'];
+    $name=$_POST['FIRM_NAME'];
+    $ltin=$_POST['LIKV_EDRPOU'];
+    $type=$_POST['FORM_TYPE'];
+
+    $gromad=$_POST['UKR_GROMAD'];
+    $sex=$_POST['ST'];
+    $numindent=$_POST['NUMIDENT'];
+    $zo=$_POST['ZO'];
+    $paytp=$_POST['PAY_TP'];
+    $paymonth=$_POST['PAY_MNTH'];
+    $payyear=$_POST['PAY_YEAR'];
+    $ln=$_POST['LN'];
+    $nm=$_POST['NM'];
+    $ftn=$_POST['FTN'];
+    $kdnp=$_POST['KD_NP'];
+    $kdnzp=$_POST['KD_NZP'];
+    $kdptv=$_POST['KD_PTV'];
+    $kdvp=$_POST['KD_VP'];
+    $sumtotal=$_POST['SUM_TOTAL'];
+    $summax=$_POST['SUM_MAX'];
+    $sumdiff=$_POST['SUM_DIFF'];
+    $sumins=$_POST['SUM_INS'];
+    $sumnarah=$_POST['SUM_NARAH'];
+    $otk=$_POST['OTK'];
+    $exp=$_POST['EXP'];
+    $nrc=$_POST['NRC'];
+    $nrm=$_POST['NRM'];
+
+    $pagenumtotal=$_POST['PAGE_SUM_TOTAL'];
+    $pagenummax=$_POST['PAGE_SUM_MAX'];
+    $pagenumdiff=$_POST['PAGE_SUM_DIFF'];
+    $pagenumins=$_POST['PAGE_SUM_INS'];
+    $pagenumnarah=$_POST['PAGE_SUM_NARAH'];
+    $rows=$_POST['ROWS'];
   }
 }else{
   $tin=$_POST['HTIN']; //ідентифікаційний номер

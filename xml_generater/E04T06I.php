@@ -8,34 +8,35 @@ SNode($xml,$xml_hd,'LIKV_EDRPOU',$ltin);
 SNode($xml,$xml_hd,'FORM_TYPE',$type);
 
 //цикл для кожного рядка
-$xml_rw=$xml->createElement('ROW');
-$xml_tb->appendChild($xml_rw);
+for($i=0;$i<count($gromad);$i++){
+  $xml_rw=$xml->createElement('ROW');
+  $xml_tb->appendChild($xml_rw);
 
-SNode($xml,$xml_rw,'ROWNUM',$rownum);
-SNode($xml,$xml_rw,'UKR_GROMAD',$gromad);
-SNode($xml,$xml_rw,'ST',$sex);
-SNode($xml,$xml_rw,'NUMIDENT',$numindent);
-SNode($xml,$xml_rw,'ZO',$zo);
-SNode($xml,$xml_rw,'PAY_TP',$paytp);
-SNode($xml,$xml_rw,'PAY_MNTH',$paymonth);
-SNode($xml,$xml_rw,'PAY_YEAR',$payyear);
-SNode($xml,$xml_rw,'LN',$ln);
-SNode($xml,$xml_rw,'NM',$nm);
-SNode($xml,$xml_rw,'FTN',$ftn);
-SNode($xml,$xml_rw,'KD_NP',$kdnp);
-SNode($xml,$xml_rw,'KD_NZP',$kdnzp);
-SNode($xml,$xml_rw,'KD_PTV',$kdptv);
-SNode($xml,$xml_rw,'KD_VP',$kdvp);
-SNode($xml,$xml_rw,'SUM_TOTAL',$sumtotal);
-SNode($xml,$xml_rw,'SUM_MAX',$summax);
-SNode($xml,$xml_rw,'SUM_DIFF',$sumdiff);
-SNode($xml,$xml_rw,'SUM_INS',$sumins);
-SNode($xml,$xml_rw,'SUM_NARAH',$sumnarah);
-SNode($xml,$xml_rw,'OTK',$otk);
-SNode($xml,$xml_rw,'EXP',$exp);
-SNode($xml,$xml_rw,'NRC',$nrc);
-SNode($xml,$xml_rw,'NRM',$nrm);
-
+  SNode($xml,$xml_rw,'ROWNUM',$i+1);
+  SNode($xml,$xml_rw,'UKR_GROMAD',$gromad[$i]);
+  SNode($xml,$xml_rw,'ST',$sex[$i]);
+  SNode($xml,$xml_rw,'NUMIDENT',$numindent[$i]);
+  SNode($xml,$xml_rw,'ZO',$zo[$i]);
+  SNode($xml,$xml_rw,'PAY_TP',$paytp[$i]);
+  SNode($xml,$xml_rw,'PAY_MNTH',$paymonth[$i]);
+  SNode($xml,$xml_rw,'PAY_YEAR',$payyear[$i]);
+  SNode($xml,$xml_rw,'LN',$ln[$i]);
+  SNode($xml,$xml_rw,'NM',$nm[$i]);
+  SNode($xml,$xml_rw,'FTN',$ftn[$i]);
+  SNode($xml,$xml_rw,'KD_NP',$kdnp[$i]);
+  SNode($xml,$xml_rw,'KD_NZP',$kdnzp[$i]);
+  SNode($xml,$xml_rw,'KD_PTV',$kdptv[$i]);
+  SNode($xml,$xml_rw,'KD_VP',$kdvp[$i]);
+  SNode($xml,$xml_rw,'SUM_TOTAL',$sumtotal[$i]);
+  SNode($xml,$xml_rw,'SUM_MAX',$summax[$i]);
+  SNode($xml,$xml_rw,'SUM_DIFF',$sumdiff[$i]);
+  SNode($xml,$xml_rw,'SUM_INS',$sumins[$i]);
+  SNode($xml,$xml_rw,'SUM_NARAH',$sumnarah[$i]);
+  SNode($xml,$xml_rw,'OTK',$otk[$i]);
+  SNode($xml,$xml_rw,'EXP',$exp[$i]);
+  SNode($xml,$xml_rw,'NRC',$nrc[$i]);
+  SNode($xml,$xml_rw,'NRM',$nrm[$i]);
+}
 //кінець циклу для кожного рядка
 
 SNode($xml,$xml_ft,'PAGE_SUM_TOTAL',$pagenumtotal);

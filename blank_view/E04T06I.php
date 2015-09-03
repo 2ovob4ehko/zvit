@@ -37,6 +37,9 @@
         <td width="10%">
           <input class="filling" style="width:80px;" type="text" name="LIKV_EDRPOU" value="">
           <input type="hidden" name="DPACD_ST" value="<? echo $f->tax_code; ?>">
+          <input type="hidden" name="pfu_code" value="<? echo $f->pfu_code; ?>">
+          <input type="hidden" name="MONTH" value="<? echo $period; ?>">
+          <input type="hidden" name="YEAR" value="<? echo $year; ?>">
         </td>
       </tr>
     </table>
