@@ -34,6 +34,12 @@ class Blanks {
 			return $this->db->query($sql);
 		}else return false;
 	}
+	function getByParent($id){
+		if(!empty($id)) {
+			$sql = "SELECT * FROM blanks WHERE parent='$id'";
+			return $this->db->query($sql);
+		}else return false;
+	}
 	function getByCode($code){
 		if(!empty($code)) {
 			$sql = "SELECT * FROM blanks WHERE code='$code'";

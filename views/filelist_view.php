@@ -2,7 +2,7 @@
 	<table id="files">
 		<thead>
 			<tr>
-				<td style="width:65px;cursor:pointer;" onclick="showAjax('filelist&field=code&order=asc')">Код</td>
+				<td style="width:80px;cursor:pointer;" onclick="showAjax('filelist&field=code&order=asc')">Код</td>
 				<td>Назва</td>
 				<td style="width:80px;cursor:pointer;" onclick="showAjax('filelist&field=period&order=asc')">Період</td>
 				<td style="width:35px;cursor:pointer;" onclick="showAjax('filelist&field=year&order=asc')">Рік</td>
@@ -13,41 +13,57 @@
 		</thead>
 <?
 	while($f=$list->fetch_object()){
-		echo '<tr class="rows" id="row'.$f->id.'"><td>'.$f->code.'</td><td style="overflow:hidden;white-space:nowrap;">';
-		$blank=$blanks->getByCode($f->code);
+		$file_array[$f->id]=$f;
+	}
+	foreach($file_array as $file) {
+		$blank=$blanks->getByCode($file->code);
 		$b=$blank->fetch_object();
-		echo $b->name;
-		$tp=array('Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень','І Квартал','ІІ Квартал','ІІІ Квартал','IV Квартал','Півріччя','9 місяців','Рік');
-		echo '</td><td>'.$tp[($f->period)-1].'</td><td>'.$f->year.'</td><td>';
-		if(substr($f->code,0,1)=='E'){
-			switch ($f->stan) {
-				case 1:
-					echo 'початкова';
-					break;
-				case 2:
-					echo 'скасовуюча';
-					break;
-				case 3:
-					echo 'додаткова';
-					break;
-			}
-		}else{
-			switch ($f->stan) {
-				case 1:
-					echo 'звітний';
-					break;
-				case 2:
-					echo 'новий звітний';
-					break;
-				case 3:
-					echo 'уточнюючий';
-					break;
+		if($b->parent==0){
+			echo '<tr class="rows" id="row'.$file->id.'"><td>'.$file->code.'</td><td style="overflow:hidden;white-space:nowrap;">'.$b->name;
+			viewLine($file);
+			$bsub=$blanks->getByParent($b->id);
+			while($bs=$bsub->fetch_object()){
+				foreach($file_array as $fs){
+					if(($bs->code==$fs->code)&&($file->period==$fs->period)&&($file->year==$fs->year)){
+						echo '<tr class="rows" id="row'.$fs->id.'"><td style="padding-left:10px;"><font color="#BF532C">- </font>'.$fs->code.'</td><td style="overflow:hidden;white-space:nowrap;">'.$bs->name;
+						viewLine($fs);
+					}
+				}
 			}
 		}
-		echo '</td><td>';
-		if(substr($f->code,0,1)!='E'){echo $f->number;}
-		echo '</td><td>'.date("d.m.Y H:i:s",strtotime($f->time)).'</td></tr>';
 	}
+function viewLine($f){
+	$tp=array('Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень','І Квартал','ІІ Квартал','ІІІ Квартал','IV Квартал','Півріччя','9 місяців','Рік');
+	echo '</td><td>'.$tp[($f->period)-1].'</td><td>'.$f->year.'</td><td>';
+	if(substr($f->code,0,1)=='E'){
+		switch ($f->stan) {
+			case 1:
+				echo 'початкова';
+				break;
+			case 2:
+				echo 'скасовуюча';
+				break;
+			case 3:
+				echo 'додаткова';
+				break;
+		}
+	}else{
+		switch ($f->stan) {
+			case 1:
+				echo 'звітний';
+				break;
+			case 2:
+				echo 'новий звітний';
+				break;
+			case 3:
+				echo 'уточнюючий';
+				break;
+		}
+	}
+	echo '</td><td>';
+	if(substr($f->code,0,1)!='E'){echo $f->number;}
+	echo '</td><td>'.date("d.m.Y H:i:s",strtotime($f->time)).'</td></tr>';
+}
 ?>
 	</table>
 </div>
