@@ -8,17 +8,6 @@
     </table>
   <form method="POST" id="blank_form">
     <!--Верх для всіх однаковий-->
-    <table width="60%">
-      <tr>
-        <td width="30%" align="right"></td>
-        <td width="10%"></td>
-        <td width="15%" align="right">№ аркуша звіту</td>
-        <td width="10%">
-          <input class="filling" style="width:80px;" type="text" name="PAGE_NUM" value="">
-        </td>
-      </tr>
-    </table>
-    <br/>
     <table style="width:100%;">
       <tr align="center">
         <td>

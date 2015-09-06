@@ -1,48 +1,73 @@
 <?
 include ('headPFUGenerator.php');
+for ($p=1;$p<=ceil(count($gromad)/10);$p++){
+  $xml_page=$xml->createElement('PAGE');
+  $xml_db->appendChild($xml_page);
+  $xml_hd=$xml->createElement('HEADER');
+  $xml_page->appendChild($xml_hd);
+  $xml_tb=$xml->createElement('TABLE');
+  $xml_page->appendChild($xml_tb);
+  $xml_ft=$xml->createElement('FOOTER');
+  $xml_page->appendChild($xml_ft);
 
-SNode($xml,$xml_hd,'PAGE_NUM',$num);
-SNode($xml,$xml_hd,'FIRM_EDRPOU',$tin);
-SNode($xml,$xml_hd,'FIRM_NAME',$name);
-SNode($xml,$xml_hd,'LIKV_EDRPOU',$ltin);
-SNode($xml,$xml_hd,'FORM_TYPE',$type);
+  SNode($xml,$xml_hd,'PAGE_NUM',$p);
+  SNode($xml,$xml_hd,'FIRM_EDRPOU',$tin);
+  SNode($xml,$xml_hd,'FIRM_NAME',$name);
+  SNode($xml,$xml_hd,'LIKV_EDRPOU',$ltin);
+  SNode($xml,$xml_hd,'FORM_TYPE',$type);
+  $pagenumtotal=0;
+  $pagenummax=0;
+  $pagenumdiff=0;
+  $pagenumins=0;
+  $pagenumnarah=0;
+  $rows=0;
 
-//цикл для кожного рядка
-for($i=0;$i<count($gromad);$i++){
-  $xml_rw=$xml->createElement('ROW');
-  $xml_tb->appendChild($xml_rw);
-
-  SNode($xml,$xml_rw,'ROWNUM',$i+1);
-  SNode($xml,$xml_rw,'UKR_GROMAD',$gromad[$i]);
-  SNode($xml,$xml_rw,'ST',$sex[$i]);
-  SNode($xml,$xml_rw,'NUMIDENT',$numindent[$i]);
-  SNode($xml,$xml_rw,'ZO',$zo[$i]);
-  SNode($xml,$xml_rw,'PAY_TP',$paytp[$i]);
-  SNode($xml,$xml_rw,'PAY_MNTH',$paymonth[$i]);
-  SNode($xml,$xml_rw,'PAY_YEAR',$payyear[$i]);
-  SNode($xml,$xml_rw,'LN',$ln[$i]);
-  SNode($xml,$xml_rw,'NM',$nm[$i]);
-  SNode($xml,$xml_rw,'FTN',$ftn[$i]);
-  SNode($xml,$xml_rw,'KD_NP',$kdnp[$i]);
-  SNode($xml,$xml_rw,'KD_NZP',$kdnzp[$i]);
-  SNode($xml,$xml_rw,'KD_PTV',$kdptv[$i]);
-  SNode($xml,$xml_rw,'KD_VP',$kdvp[$i]);
-  SNode($xml,$xml_rw,'SUM_TOTAL',$sumtotal[$i]);
-  SNode($xml,$xml_rw,'SUM_MAX',$summax[$i]);
-  SNode($xml,$xml_rw,'SUM_DIFF',$sumdiff[$i]);
-  SNode($xml,$xml_rw,'SUM_INS',$sumins[$i]);
-  SNode($xml,$xml_rw,'SUM_NARAH',$sumnarah[$i]);
-  SNode($xml,$xml_rw,'OTK',$otk[$i]);
-  SNode($xml,$xml_rw,'EXP',$exp[$i]);
-  SNode($xml,$xml_rw,'NRC',$nrc[$i]);
-  SNode($xml,$xml_rw,'NRM',$nrm[$i]);
+  for($i=0+10*($p-1);$i<10*$p;$i++){
+    if(array_key_exists($i,$gromad)){
+      $xml_rw=$xml->createElement('ROW');
+      $xml_tb->appendChild($xml_rw);
+      
+      SNode($xml,$xml_rw,'ROWNUM',$i-10*($p-1)+1);
+      SNode($xml,$xml_rw,'UKR_GROMAD',$gromad[$i]);
+      SNode($xml,$xml_rw,'ST',$sex[$i]);
+      SNode($xml,$xml_rw,'NUMIDENT',$numindent[$i]);
+      SNode($xml,$xml_rw,'ZO',$zo[$i]);
+      SNode($xml,$xml_rw,'PAY_TP',$paytp[$i]);
+      SNode($xml,$xml_rw,'PAY_MNTH',$paymonth[$i]);
+      SNode($xml,$xml_rw,'PAY_YEAR',$payyear[$i]);
+      SNode($xml,$xml_rw,'LN',$ln[$i]);
+      SNode($xml,$xml_rw,'NM',$nm[$i]);
+      SNode($xml,$xml_rw,'FTN',$ftn[$i]);
+      SNode($xml,$xml_rw,'KD_NP',$kdnp[$i]);
+      SNode($xml,$xml_rw,'KD_NZP',$kdnzp[$i]);
+      SNode($xml,$xml_rw,'KD_PTV',$kdptv[$i]);
+      SNode($xml,$xml_rw,'KD_VP',$kdvp[$i]);
+      SNode($xml,$xml_rw,'SUM_TOTAL',$sumtotal[$i]);
+      SNode($xml,$xml_rw,'SUM_MAX',$summax[$i]);
+      SNode($xml,$xml_rw,'SUM_DIFF',$sumdiff[$i]);
+      SNode($xml,$xml_rw,'SUM_INS',$sumins[$i]);
+      SNode($xml,$xml_rw,'SUM_NARAH',$sumnarah[$i]);
+      SNode($xml,$xml_rw,'OTK',$otk[$i]);
+      SNode($xml,$xml_rw,'EXP',$exp[$i]);
+      SNode($xml,$xml_rw,'NRC',$nrc[$i]);
+      SNode($xml,$xml_rw,'NRM',$nrm[$i]);
+      $pagenumtotal+=$sumtotal[$i];
+      $pagenummax+=$summax[$i];
+      $pagenumdiff+=$sumdiff[$i];
+      $pagenumins+=$sumins[$i];
+      $pagenumnarah+=$sumnarah[$i];
+      $rows++;
+    }
+  }
+  SNode($xml,$xml_ft,'PAGE_SUM_TOTAL',number_format($pagenumtotal,2,'.',''));
+  SNode($xml,$xml_ft,'PAGE_SUM_MAX',number_format($pagenummax,2,'.',''));
+  SNode($xml,$xml_ft,'PAGE_SUM_DIFF',number_format($pagenumdiff,2,'.',''));
+  SNode($xml,$xml_ft,'PAGE_SUM_INS',number_format($pagenumins,2,'.',''));
+  SNode($xml,$xml_ft,'PAGE_SUM_NARAH',number_format($pagenumnarah,2,'.',''));
+  SNode($xml,$xml_ft,'ROWS',$rows);
+  SNode($xml,$xml_ft,'BOSS_NUMIDENT',$btin);
+  SNode($xml,$xml_ft,'FIRM_BOSS',$bfio);
+  SNode($xml,$xml_ft,'BUH_NUMIDENT',$ctin);
+  SNode($xml,$xml_ft,'FIRM_BUH',$cfio);
 }
-//кінець циклу для кожного рядка
-
-SNode($xml,$xml_ft,'PAGE_SUM_TOTAL',$pagenumtotal);
-SNode($xml,$xml_ft,'PAGE_SUM_MAX',$pagenummax);
-SNode($xml,$xml_ft,'PAGE_SUM_DIFF',$pagenumdiff);
-SNode($xml,$xml_ft,'PAGE_SUM_INS',$pagenumins);
-SNode($xml,$xml_ft,'PAGE_SUM_NARAH',$pagenumnarah);
-SNode($xml,$xml_ft,'ROWS',$rows);
 ?>

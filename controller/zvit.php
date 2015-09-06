@@ -236,7 +236,6 @@ if(substr($file,0,1)=='E'){
     $vuplzp1=$_POST['VUPL_ZP1'];
     $vuplzp1=$_POST['VUPL_ZP2'];
   }else if($_GET['render']=='E04T06I'){
-    $num=$_POST['PAGE_NUM'];
     $name=$_POST['FIRM_NAME'];
     $ltin=$_POST['LIKV_EDRPOU'];
     $type=$_POST['FORM_TYPE'];
@@ -264,13 +263,6 @@ if(substr($file,0,1)=='E'){
     $exp=$_POST['EXP'];
     $nrc=$_POST['NRC'];
     $nrm=$_POST['NRM'];
-
-    $pagenumtotal=$_POST['PAGE_SUM_TOTAL'];
-    $pagenummax=$_POST['PAGE_SUM_MAX'];
-    $pagenumdiff=$_POST['PAGE_SUM_DIFF'];
-    $pagenumins=$_POST['PAGE_SUM_INS'];
-    $pagenumnarah=$_POST['PAGE_SUM_NARAH'];
-    $rows=$_POST['ROWS'];
   }
 }else{
   $tin=$_POST['HTIN']; //ідентифікаційний номер

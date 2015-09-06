@@ -1,5 +1,13 @@
 <?
 include ('headPFUGenerator.php');
+$xml_page=$xml->createElement('PAGE');
+$xml_db->appendChild($xml_page);
+$xml_hd=$xml->createElement('HEADER');
+$xml_page->appendChild($xml_hd);
+$xml_tb=$xml->createElement('TABLE');
+$xml_page->appendChild($xml_tb);
+$xml_ft=$xml->createElement('FOOTER');
+$xml_page->appendChild($xml_ft);
 
 SNode($xml,$xml_hd,'PAGE_NUM',$num);
 SNode($xml,$xml_hd,'FIRM_EDRPOU',$tin);
@@ -201,4 +209,9 @@ SNode($xml,$xml_dod,'ZM_SPOV',$zmspov);
 SNode($xml,$xml_tb,'ERROR_TXT3',$e3);
 SNode($xml,$xml_dod,'VUPL_ZP1',$vuplzp1);
 SNode($xml,$xml_dod,'VUPL_ZP2',$vuplzp2);
+
+SNode($xml,$xml_ft,'BOSS_NUMIDENT',$btin);
+SNode($xml,$xml_ft,'FIRM_BOSS',$bfio);
+SNode($xml,$xml_ft,'BUH_NUMIDENT',$ctin);
+SNode($xml,$xml_ft,'FIRM_BUH',$cfio);
 ?>

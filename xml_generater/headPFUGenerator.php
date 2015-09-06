@@ -19,16 +19,4 @@ $xml_dfill=SNode($xml,$xml_dh,'DATA_FILL',$date);
 
 $xml_db=$xml->createElement('DECLARBODY');
 $xml_declar->appendChild($xml_db);
-$xml_page=$xml->createElement('PAGE');
-$xml_db->appendChild($xml_page);
-$xml_hd=$xml->createElement('HEADER');
-$xml_page->appendChild($xml_hd);
-$xml_tb=$xml->createElement('TABLE');
-$xml_page->appendChild($xml_tb);
-$xml_ft=$xml->createElement('FOOTER');
-$xml_page->appendChild($xml_ft);
-$xml_bosI=SNode($xml,$xml_ft,'BOSS_NUMIDENT',$btin);
-$xml_bos=SNode($xml,$xml_ft,'FIRM_BOSS',$bfio);
-$xml_buhI=SNode($xml,$xml_ft,'BUH_NUMIDENT',$ctin);
-$xml_buh=SNode($xml,$xml_ft,'FIRM_BUH',$cfio);
 ?>
