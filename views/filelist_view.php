@@ -12,6 +12,7 @@
 			</tr>
 		</thead>
 <?
+	$file_array=array();
 	while($f=$list->fetch_object()){
 		$file_array[$f->id]=$f;
 	}
@@ -19,7 +20,7 @@
 		$blank=$blanks->getByCode($file->code);
 		$b=$blank->fetch_object();
 		if($b->parent==0){
-			echo '<tr class="rows" id="row'.$file->id.'"><td>'.$file->code.'</td><td style="overflow:hidden;white-space:nowrap;">'.$b->name;
+			echo '<tr class="rows sup" id="row'.$file->id.'"><td>'.$file->code.'</td><td style="overflow:hidden;white-space:nowrap;">'.$b->name;
 			viewLine($file);
 			$bsub=$blanks->getByParent($b->id);
 			while($bs=$bsub->fetch_object()){
@@ -103,5 +104,10 @@ function viewLine($f){
 		$('.rows').css('background','#fff').css('color','#000');
 		$(this).css('background','#37d').css('color','#fff');
 		selected=$(this).attr("id");
+		if($(this).hasClass("sup")){
+			$('#export_menu').css('display','block');
+		}else{
+			$('#export_menu').css('display','none');
+		}
 	});
 </script>

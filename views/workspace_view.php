@@ -28,7 +28,8 @@
 				<?
 				if(!empty($f)){
 					echo '<div onclick="showAjax(\'create\')">Створити...</div>
-					<div onclick="showAjax(\'filelist&field=id&order=asc\')">Список файлів</div><hr></hr>';
+					<div onclick="showAjax(\'filelist&field=id&order=asc\')">Список файлів</div>
+					<div id="export_menu" style="display:none;">Експорт</div><hr></hr>';
 				}
 				?>
 				<div onclick="showAjax('settings')">Персональні параметри</div>
@@ -50,5 +51,12 @@
 	    	</div>
 			</div>
 		</div>
+		<script>
+		setInterval(function(){
+			if(!$("div[id='Список файлів']").is(':visible')){
+				$('#export_menu').css('display','none');
+			}
+		},1000);
+		</script>
   </body>
 </html>
